@@ -1,0 +1,1949 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+    font-family: 'Khmer MN';
+    src: url("fonts/KhmerMN.ttf") format("truetype");
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+:root {
+    --Main-Colors-Prymary: #123E56;
+    --Main-Colors-Secondary: #DE8556;
+    --Additional-Colors-White: #fff;
+    --Greyscale-Grey-100: #38343D;
+    --Greyscale-Grey-80: #818181;
+}
+
+.container {
+    width: 1140px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/*______________________________Homepage______________________________*/
+/* .homepage__header {
+    height: calc(100vh + 15px);
+} */
+
+.homepage__header__container {
+    background: var(--Main-Colors-Prymary, #123E56);
+    color: var(--Additional-Colors-White);
+}
+
+.homepage__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 0px;
+}
+
+.homepage__logo span {
+    font-family: Cardo;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.homepage__logo .letter__q {
+    color: var(--Main-Colors-Secondary);
+}
+
+.homepage__navbar__middle__links ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+}
+
+
+.homepage__navbar__middle__links a,
+i {
+    color: var(--Additional-Colors-White);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.homepage__navbar__middle__links li i {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+}
+
+.homepage__navbar__right__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.homepage__navbar__right__links a {
+    color: var(--Additional-Colors-White);
+}
+
+.homepage__shop__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: -1px 1px 15px 0px rgba(9, 20, 49, 0.11);
+}
+
+.homepage__shop__icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.homepage__menu__icon {
+    display: none;
+}
+
+.homepage__signin {
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.homepage__register__button {
+    padding: 12px 28px;
+    border-radius: 2px;
+    background: var(--Main-Colors-Secondary);
+    font-family: "Plus Jakarta Sans";
+    font-weight: 600;
+}
+
+.homepage__main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.homepage__main__left .title {
+    width: 490px;
+    font-family: Cardo;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 115.299%;
+    /* 64.567px */
+}
+
+.homepage__main__left .title__line {
+    width: 207px;
+    height: 10px;
+    position: relative;
+    left: 195px;
+}
+
+.homepage__main__left .subtitle {
+    margin-top: 10px;
+    width: 465px;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.homepage__main__left .make__btn {
+    border-radius: 2px;
+    background: var(--Main-Colors-Secondary);
+    display: inline-flex;
+    padding: 18px 32px;
+    margin-top: 32px;
+}
+
+.btn {
+    color: var(--Additional-Colors-White);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.breaker {
+    width: 475px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.26);
+    margin: 64px 0px;
+}
+
+.homepage__main__left .count__bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 59px;
+}
+
+.count__bar__item {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    font-family: "Plus Jakarta Sans";
+
+}
+
+.count__bar__item div {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 115.299%;
+    /* 32.284px */
+}
+
+.count__bar__item span {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+/* --------------------------About Us------------------------------ */
+section {
+    margin: 60px 0px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about__img {
+    width: 431px;
+}
+
+.about__img img {
+    width: 100%;
+}
+
+.about__content__inside {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: 120px 20px;
+}
+
+.about__title {
+    width: 533px;
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.about__subtitle {
+    width: 580px;
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+/* --------------------------Featured Properties------------------------------ */
+.prop__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 27px;
+}
+
+.prop__cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.prop__card__item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 364px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.prop__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.see__all {
+    color: var(--Main-Colors-Prymary);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.see__all__responsive__container {
+    display: none;
+}
+
+.card__image {
+    height: 237px;
+    border-radius: 12px;
+    padding: 8px;
+    position: relative;
+}
+
+.card__image img {
+    width: 100%;
+}
+
+.card__heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.74);
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.card__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px 16px 18px 24px;
+}
+
+.card__kind {
+    display: inline-flex;
+    padding: 4px 12px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 2px;
+    background: #F9F2EE;
+
+}
+
+.card__kind a {
+    color: var(--Main-Colors-Secondary);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card__title {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Khmer MN";
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.address__text {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card__inside {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 26px;
+    margin-top: 21px;
+}
+
+.item__text {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.24px;
+}
+
+.cost__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 87px;
+    margin-top: 21px;
+}
+
+.monthly__cost>span {
+    color: var(--Main-Colors-Secondary);
+    font-family: "Plus Jakarta Sans";
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.monthly__cost #month {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.see__detail {
+    display: inline-flex;
+    padding: 12px 28px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 2px;
+    border: 1px solid var(--Main-Colors-Secondary);
+}
+
+.see__detail a {
+    color: var(--Main-Colors-Secondary);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* --------------------------Slogan------------------------------ */
+.slogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #F6F6F6;
+    padding: 109px 150px;
+}
+
+.slogan__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 54px;
+    /* 112.5% */
+}
+
+.slogan__subtitle {
+    width: 830px;
+    color: var(--Greyscale-Grey-80);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+    margin: 12px 0px 48px;
+}
+
+.slogan__media {
+    width: 100%;
+    height: 528px;
+    border-radius: 8px;
+    background: linear-gradient(0deg, rgba(56, 52, 61, 0.11) 0%, rgba(56, 52, 61, 0.11) 100%), url('./images/slogan.png') lightgray 50% / cover no-repeat;
+    position: relative;
+}
+
+.icon__bg1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.66);
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 30px);
+    right: calc(50% - 30px);
+}
+
+.icon__bg2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: var(--Main-Colors-Secondary, #DE8556);
+    filter: drop-shadow(0px 4px 88px rgba(0, 0, 0, 0.15));
+    border-radius: 50%;
+}
+
+/* --------------------------Our Service------------------------------ */
+.service__title {
+    color: var(--Greyscale-Grey-100);
+    text-align: center;
+    font-family: Cardo;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 54px;
+    /* 112.5% */
+}
+
+.service__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 49px;
+}
+
+.service__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 369px;
+    height: 313px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.service__item__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    background-color: #F2DFD5;
+    border-radius: 50%;
+}
+
+.service__item__title {
+    color: var(--Greyscale-Grey-100, #38343D);
+    text-align: center;
+    font-family: "Khmer MN";
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.service__item__subtitle {
+    color: var(--Greyscale-Grey-100, #38343D);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+    width: 295px;
+}
+
+
+/* --------------------------Our Portfolio------------------------------ */
+.portfolio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 52px;
+}
+
+.portfolio__title {
+    color: var(--Greyscale-Grey-100);
+    text-align: center;
+    font-family: Cardo;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 54px;
+    /* 112.5% */
+}
+
+.portfolio__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.portfolio__item__image {
+    width: 369px;
+    height: 259px;
+}
+
+.portfolio__item__image img {
+    width: 100%;
+}
+
+.portfolio__btn {
+    display: inline-flex;
+    padding: 12px 28px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.27);
+}
+
+.portfolio__btn a {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* --------------------------Our Agent----------------------------- */
+.agent {
+    background: #F6F6F6;
+    padding: 110px 0px;
+}
+
+.agent__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.agent__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 54px;
+    /* 112.5% */
+}
+
+.agent__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.agent__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.agent__item__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+.agent__item__subtitle {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.agent__item__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.agent__social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24.621px;
+    height: 24.621px;
+    background-color: var(--Main-Colors-Secondary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.agent__social__icon img {
+    width: 14.069px;
+    height: 14.069px;
+}
+
+.agent__btn__container {
+    display: none;
+}
+
+/* --------------------------FAQ----------------------------- */
+.faq {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.faq__title {
+    color: var(--Greyscale-Grey-100);
+    text-align: center;
+    font-family: Cardo;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 54px;
+    /* 112.5% */
+}
+
+.faq__items {
+    width: inherit;
+    margin-top: 65px;
+}
+
+.faq__item {
+    width: 580.003px;
+    padding: 24px 0px;
+}
+
+.faq__item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Khmer MN";
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.faq__item__content {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+    margin-top: 12px;
+}
+
+.agent__icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* --------------------------Footer Intro----------------------------- */
+.footer__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 210px;
+    border-radius: 4px;
+    background: var(--Main-Colors-Prymary);
+}
+
+.footer__intro__image {
+    height: 210px;
+}
+
+.footer__intro__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer__intro__content .title__line {
+    position: relative;
+    left: 215px;
+    bottom: 8px;
+}
+
+.footer__title {
+    color: #FFF;
+    font-family: Cardo;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.footer__subtitle {
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.footer__intro {
+    margin-top: 100px;
+}
+
+.footer__intro__btn {
+    display: inline-flex;
+    padding: 16px 40px 16px 39px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background: var(--Main-Colors-Secondary);
+    margin-right: 20px;
+}
+
+
+.footer__intro__btn a {
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* --------------------------Footer Main----------------------------- */
+.footer__main {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+
+.footer__main__logo .home {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Khmer MN";
+    font-size: 24px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.footer__main__logo .letter__q {
+    color: var(--Main-Colors-Secondary);
+    font-family: "Khmer MN";
+    font-size: 24px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.footer__main__subtitle {
+    color: var(--Greyscale-Grey-80, #818181);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 200% */
+    width: 229px;
+    text-align: justify;
+
+}
+
+.footer__contact__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 34px;
+    margin-top: 22px;
+}
+
+.fcontact__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.fcontact__icon {
+    width: 20px;
+    height: 20px;
+}
+
+.fcontent__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.fcontent__subtitle {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.footer__list .list__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 7px;
+}
+
+.footer__list ul li {
+    color: var(--Greyscale-Grey-80, #818181);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 32px;
+}
+
+.fnews {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fnews__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.fnews__subtitle {
+    width: 231px;
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 200% */
+}
+
+.fnews__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fnews__form input {
+    width: 256px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.fnews__form input::placeholder {
+    padding-left: 15px;
+}
+
+.fnews__btn {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background: var(--Main-Colors-Prymary);
+}
+
+.fsocial__title {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+.fsocial__items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.fsocial__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24.621px;
+    height: 24.621px;
+    border-radius: 50%;
+    background-color: var(--Main-Colors-Secondary);
+    cursor: pointer;
+}
+
+/*_____________________________Agent.html_____________________________*/
+.general__header__container {
+    color: var(--Greyscale-Grey-100);
+    height: 100px;
+}
+
+.general__navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 44px 0px;
+}
+
+.general__logo span {
+    font-family: Cardo;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.general__logo .letter__q {
+    color: var(--Main-Colors-Secondary);
+}
+
+.general__navbar__middle__links ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+}
+
+
+.general__navbar__middle__links a,
+i {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.general__navbar__middle__links li i {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+}
+
+.general__navbar__right__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+
+.general__shop__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: -1px 1px 15px 0px rgba(9, 20, 49, 0.11);
+}
+
+.general__shop__icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.general__signin {
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.general__signin a {
+    color: var(--Greyscale-Grey-100);
+}
+
+.general__register__button {
+    padding: 12px 28px;
+    border-radius: 2px;
+    background: var(--Main-Colors-Secondary);
+    font-family: "Plus Jakarta Sans";
+    font-weight: 600;
+}
+
+.breadcrumb {
+    height: 220px;
+    background: var(--Greyscale-Grey-10, #F6F6F6);
+}
+
+.breadcrumb__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 54px;
+    /* 112.5% */
+    padding-top: 57px;
+}
+
+.breadcrumb__subtitle {
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    margin-top: 33px;
+}
+
+.main__link {
+    color: var(--Greyscale-Grey-80);
+    font-weight: 400;
+}
+
+.submain__link {
+    color: #38343D;
+    font-weight: 600;
+}
+
+
+/*_____________________________Agent__details.html_____________________________*/
+.agent__details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.agent__details__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 97px;
+}
+
+.agent__details__left__col {
+    text-align: center;
+}
+
+.agent__details__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 24px;
+}
+
+.agent__details__subtitle {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+.agent__details__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.agent__details__social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24.621px;
+    height: 24.621px;
+    background-color: var(--Main-Colors-Secondary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.agent__details__social__icon img {
+    width: 14.069px;
+    height: 14.069px;
+}
+
+.agent__details__right__col {
+    /* text-align: justify; */
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.agent__details__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 160px;
+    text-align: left;
+}
+
+.ad__main__item {
+    width: 150px;
+}
+
+.ad__main__item__title {
+    font-weight: 600;
+}
+
+/* Agent Details Contact Form  */
+
+.agent__details {
+    padding-bottom: 70px;
+}
+
+.agent__details__contact__container {
+    height: 600px;
+    margin-top: 80px;
+}
+
+.contact__container {
+    width: 800px;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    padding: 24px;
+    float: right;
+}
+
+.contact__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.contact__form form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.contact__form form input {
+    width: 350px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding-left: 20px;
+}
+
+.contact__form form input::placeholder {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.contact__form form select {
+    width: 350px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding-left: 20px;
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.contact__form form textarea {
+    /* width: 752px; */
+    height: 149px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding-left: 20px;
+    resize: none;
+
+}
+
+.contact__form form textarea::placeholder {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.contact__sign {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 24px;
+}
+
+.contact__sign .contact__text {
+    color: var(--Greyscale-Grey-80, #818181);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 200% */
+    margin-left: 12px;
+}
+
+.contact__btn__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.contact__btn {
+    display: inline-flex;
+    padding: 16px 76px 16px 75px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background: var(--Main-Colors-Prymary, #123E56);
+}
+
+.contact__btn .btn {
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* --------------------------wishlist.html (my__card.html)----------------------------- */
+.wishlist__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.wishlist__area{
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.wishlist__text{
+    display: flex;
+    align-items: center;
+    gap: 130px;
+}
+.wishlist__text__price{
+    display: flex;
+    align-items: center;
+    gap: 130px;
+}
+
+.wishlist__image {
+    width: 96px;
+    height: 96px;
+}
+
+.wishlist__image img {
+    width: 100%;
+}
+
+.wishlist__title {
+    color: var(--Greyscale-Grey-100);
+    /* Heading/Heading 24 */
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.wishlist__price {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wishlist__storage {
+    padding: 4px 12px;
+    gap: 10px;
+    border-radius: 2px;
+    background: #E7F3E8;
+    color: #19C116;
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.wishlist__addcart__btn {
+    padding: 12px 28px;
+    border-radius: 2px;
+    background: var(--Main-Colors-Prymary);
+}
+
+.wishlist__btn {
+    color: #FFF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.wishlist__cancel__btn {
+    cursor: pointer;
+}
+
+.wishlist__hr {
+    width: 1140.074px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+
+/* --------------------------wishlist.html----------------------------- */
+.my__cart__counter {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.counter__symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#counter__number {
+    color: #343434;
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 145%;
+    /* 23.2px */
+    letter-spacing: -0.56px;
+}
+
+.my__cart__price {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* --------------------------news.html----------------------------- */
+.news {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    gap: 59px;
+}
+
+.news__post {
+    width: inherit;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    background: #FFF;
+    margin-bottom: 48px;
+}
+
+.post__image {
+    width: inherit;
+    height: auto;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.post__image::after {
+    content: "Business";
+    padding: 4px 12px;
+    gap: 10px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.21);
+    color: #FFF;
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    top: 24px;
+    left: 23px;
+}
+
+.post__image img {
+    width: 100%;
+}
+
+.post__content {
+    width: inherit;
+    padding: 22px 24px 21px;
+}
+
+.post__title__date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post__title {
+    color: var(--Greyscale-Grey-100);
+    /* Heading/Heading 24 */
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.post__date {
+    color: var(--Greyscale-Grey-100);
+    text-align: right;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.post__content__text {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+    margin-top: 14px;
+}
+
+.post__ending {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.post__author {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.post__author__avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 54px;
+}
+
+.post__author__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.post__read__more a {
+    color: var(--Main-Colors-Prymary);
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.pagination__items {
+    width: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+}
+
+.pagination__item {
+    display: inline-flex;
+    padding: 6px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #878690;
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+#pagination__active {
+    padding: 6px 16px;
+    gap: 10px;
+    border-radius: 8px;
+    background: var(--Main-Colors-Secondary);
+    color: white;
+}
+
+.pagination__controller {
+    display: inline-flex;
+    padding: 6px 8px;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #878690;
+}
+
+/* Right Sidebar - Top Categories */
+
+.news__top__cat__title {
+    color: var(--Greyscale-Grey-100);
+    /* Heading/Heading 24 */
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.news__top__cat__hr {
+    width: 329.004px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 21px 0px 28px;
+}
+
+.news__top__cat__items {
+    display: flex;
+    gap: 28px;
+    flex-direction: column;
+}
+
+.news__top__cat__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.news__top__cat__item__count {
+    text-align: right;
+}
+
+
+/* Right Sidebar - Portfolio List */
+.news__portfolio__title {
+    color: var(--Greyscale-Grey-100);
+    /* Heading/Heading 24 */
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 85px;
+}
+
+.news__portfolio__items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.news__portfolio__item {
+    width: 329px;
+    height: 191px;
+    margin-bottom: 12px;
+}
+
+.news__portfolio__item img {
+    width: 100%;
+}
+
+.news__portfolio__btn {
+    padding: 12px 28px;
+    gap: 10px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.27);
+}
+
+.news__portfolio__btn a {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* --------------------------detail__news.html----------------------------- */
+.news__details__post__image {
+    width: inherit;
+    height: auto;
+    border-radius: 12px;
+}
+
+.news__details__post__image img {
+    width: 100%;
+}
+
+.news__details__post__image::after {
+    content: "Business";
+    padding: 4px 12px;
+    gap: 10px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.21);
+    color: #FFF;
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    top: 24px;
+    left: 23px;
+}
+
+.news__details__post__title {
+    color: var(--Greyscale-Grey-100, #38343D);
+    /* Heading/Heading 24 */
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 32px 0px 20px;
+}
+
+.news__details__author__date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.news__details__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.news__details__author__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.news__details__date {
+    color: var(--Greyscale-Grey-100);
+    text-align: right;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.news__details__hr {
+    width: 752.033px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.news__details__post__context {
+    color: var(--Greyscale-Grey-100, #38343D);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.news__details__post__gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px 0px;
+}
+
+/*---Social Share---*/
+.news__details__social__share {
+    width: 110px;
+    margin-top: 32px;
+}
+
+.news__details__social__share__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.news__details__social__share__items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.news__details__social__share__item {
+    width: 24.621px;
+    height: 24.621px;
+    background-color: var(--Main-Colors-Secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.news__details__social__share__item i {
+    color: white;
+}
+
+/*----Comments---*/
+.news__details__comments__title {
+    color: var(--Greyscale-Grey-100);
+    /* Heading/Heading 18 */
+    font-family: Cardo;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 33px 0px;
+}
+
+.news__details__comments__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 19px;
+}
+
+.news__details__comments__item__title__date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.news__details__comments__item__title {
+    color: var(--Greyscale-Grey-100);
+    font-family: Cardo;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.news__details__comments__item__date {
+    color: var(--Greyscale-Grey-100);
+    text-align: right;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.news__details__comments__item__context {
+    color: var(--Greyscale-Grey-100);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.news__details__comments__hr {
+    width: 752.011px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.06);
+    margin: 24px 0px;
+}
+
+.news__details__comments__form__container {
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    margin-top: 32px;
+}
+
+.news__details__comments__form__title {
+    color: var(--Greyscale-Grey-100);
+    /* Heading/Heading 24 */
+    font-family: Cardo;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 23px 0px 28px 24px;
+}
+
+.news__details__comments__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.news__details__comments__form input {
+    width: 338px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding-left: 20px;
+}
+
+.news__details__comments__form input::placeholder {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.news__details__comments__form textarea {
+    width: 704px;
+    height: 149px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 13px 0 0 18px;
+    resize: none;
+}
+
+.news__details__comments__form textarea::placeholder {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 171.429% */
+}
+
+.news__details__comments__check__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 450px;
+    margin: 24px 0px 0px 26px;
+}
+
+.news__details__comments__check__icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.news__details__comments__check__text {
+    color: var(--Greyscale-Grey-80);
+    font-family: "Plus Jakarta Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 24px;
+    /* 200% */
+}
+
+.news__details__comments__btn__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px 0px 33px;
+}
+
+.news__details__comments__btn {
+    display: flex;
+    width: 282px;
+    padding: 16px 0px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background: var(--Main-Colors-Prymary, #123E56);
+}
+
+.news__details__comments__btn .btn {
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 600;
+}

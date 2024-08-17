@@ -1,0 +1,344 @@
+@media screen and (max-width: 600px) {
+  header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 99999;
+  }
+
+  /* Navbar */
+
+  .navbar_pages {
+    display: block;
+  }
+  .navbar_menu {
+    margin-top: 90px;
+    padding: 50px 0px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition: 0.3s;
+    background: white;
+    color: white;
+    flex-direction: column;
+    width: 240px;
+    height: 100vh;
+    gap: 20px;
+  }
+
+  .navbar_menu.open {
+    transform: translateX(0);
+  }
+
+  .navbar_registration a:nth-child(3),
+  .navbar_registration a:nth-child(4) {
+    display: none;
+  }
+
+  .navbar_buy_icon:nth-of-type(2) {
+    display: block;
+  }
+
+  .navbar_buy_icon i,
+  #navbar_hamburger_menu i {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: -1px 1px 15px 0px rgba(9, 20, 49, 0.11);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar {
+    padding: 25px 40px;
+  }
+
+  /* body {
+    overflow-x: hidden;
+  } */
+
+  #navbar_hamburger_menu {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: 0.5s ease;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+
+  .navbar_pages_show {
+    position: absolute;
+    top: 208px;
+    left: -2px;
+    width: 250px;
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    transition: visibility 0s, opacity 0.3s linear, transform 0.3s ease;
+    margin-top: 17px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 20px 0px rgba(7, 6, 34, 0.06);
+  }
+
+  .navbar_pages_show.show {
+    visibility: visible;
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+
+  #navbar-toggle {
+    position: relative;
+  }
+
+  #narrow {
+    position: absolute;
+    left: 138px;
+    top: 203px;
+    width: 30px;
+    height: 33px;
+    color: black;
+  }
+
+  /* #narrow {
+    position: absolute;
+    left: 125px;
+    top: 379px;
+    color: black;
+  } */
+
+  .close .line1 {
+    transform: rotate(-45deg) translate(-5px, 3px);
+    transition: 0.3s ease;
+  }
+
+  .close .line2 {
+    opacity: 0;
+  }
+
+  .close .line3 {
+    transform: rotate(45deg) translate(-5px, -3px);
+    transition: 0.3s ease;
+  }
+
+  @keyframes linksFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
+  /* Footer */
+
+  .footer_present_img {
+    display: none;
+  }
+
+  .footer_present {
+    display: block;
+    padding: 35px 29px;
+  }
+
+  .footer_present_about svg {
+    margin: 0;
+  }
+
+  .footer_about {
+    display: block;
+  }
+
+  .footer_about_social_icon {
+    padding-bottom: 32px;
+  }
+
+  .footer_present_about {
+    width: 100%;
+  }
+
+  .footer_present_about p {
+    padding: 20px 0px;
+  }
+
+  /* Cover */
+  .covers_h1 {
+    font-size: 38px;
+    line-height: normal;
+  }
+
+  .cover {
+    padding: 40px;
+  }
+
+  /* Portfolio Details */
+  .portfolio_details_section {
+    display: block;
+    padding: 0px !important;
+    gap: 0px !important;
+  }
+  .portfolio_details_images {
+    display: block;
+  }
+
+  .portfolio_details {
+    width: 100%;
+  }
+
+  .portfolio_details_images img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .portfolio_list {
+    width: 100%;
+  }
+
+  .portfolio_list h2 {
+    padding-top: 24px;
+  }
+
+  /* About Us */
+  .about_us_partners {
+    display: block;
+  }
+
+  .about_us_partners_image {
+    width: 100%;
+  }
+
+  .about_us_partners_about {
+    width: 100%;
+  }
+
+  .about_us_our_service_cards {
+    display: block;
+    padding-bottom: 56px !important;
+  }
+
+  .about_us_our_service_card {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  .about_us_our_agent_info a,
+  .about_us_featured_properties_info a {
+    display: none;
+  }
+
+  .about_us_our_agent_cards,
+  .about_us_featured_properties_cards,
+  .about_us_featured_properties_cards {
+    display: block;
+  }
+
+  .about_us_our_agent_card {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 40px;
+  }
+
+  .about_us_featured_properties_card {
+    width: 100%;
+  }
+
+  /* Product Details */
+
+  .product_detail_container_about {
+    width: 100%;
+  }
+  .product_detail_container {
+    display: block;
+  }
+
+  .property_detail_types {
+    row-gap: 12px;
+  }
+
+  .gallery_image_top,
+  .gallery_image_bottom {
+    display: block;
+  }
+
+  .amenties_checkbox_section {
+    display: block;
+  }
+
+  .porudct_detail_relate .about_us_featured_properties_cards {
+    display: block;
+  }
+
+  .porudct_detail_relate .about_us_featured_properties_card {
+    width: 100%;
+  }
+
+  .product_detail_container_list {
+    width: 100%;
+  }
+
+  .gallery_image_top img:nth-last-child(2) {
+    margin-bottom: 16px;
+  }
+
+  /* Shop */
+
+  .shop_page {
+    display: block;
+  }
+
+  .shop_products,
+  .shop_products
+    .about_us_featured_properties_cards
+    .about_us_featured_properties_card,
+  .shop_filter {
+    width: 100%;
+  }
+
+  /* Checkout */
+
+  .checkout_section {
+    padding-top: 38px;
+  }
+  .grid {
+    display: block;
+  }
+
+  form input {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .checkout_payment {
+    display: block;
+    padding-bottom: 0;
+  }
+
+  .checkout_section {
+    padding: 38px 24px;
+  }
+
+  .payment_payment_method,
+  .payment_card_total {
+    width: 100%;
+    margin-bottom: 38px;
+  }
+}

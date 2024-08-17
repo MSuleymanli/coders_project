@@ -7,11 +7,18 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
-    <link rel="stylesheet" href="{% static 'responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    {% block css %}
+    {% endblock css %}
+    
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_ayse.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive_ayse.css' %}" /> {% endcomment %}
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
@@ -23,15 +30,15 @@
                     <a href="">Home</a>
                     <a href="{% url 'about'%}">About</a>
                     <a href="{% url 'shop'%}">Shop</a>
-                    <a href="">News</a>
+                    <a href="{% url 'news' %}">News</a>
                     <a href="" class="navbar_pages" id="navbar-toggle">Pages</a>
                     <i class="fa-solid fa-chevron-down" id="narrow"></i>
                     <div class="navbar_pages_show" id="navbar-pages-show">
                         <hr>
                         <ul class="nav-links">
                             <li><a href="{% url 'our_portfolio' %}">Portfolio</a></li>
-                            <li><a href="">Our Agent</a></li>
-                            <li><a href="">Our Service</a></li>
+                            <li><a href="{% url 'agent' %}">Our Agent</a></li>
+                            <li><a href="{% url 'services' %}">Our Service</a></li>
                             <li><a href="">Wishlist</a></li>
                             <li><a href="{% url 'google_map' %}">Location</a></li>
                             <li><a href="">FAQ</a></li>
@@ -47,7 +54,7 @@
                         <div class="line3"></div>
                     </div>
                     <a href="">Sign in</a>
-                    <a href=""><button>Register</button></a>
+                    <a href=""><button>Log in</button></a>
                 </div>
             </div>
         </div>
@@ -122,7 +129,7 @@
                         <a href="">Register</a>
                         <a href="{% url 'google_map' %}">Location</a>
                         <a href="">FAQ</a>
-                        <a href="">News</a>
+                        <a href="{% url 'news' %}">News</a>
                     </div>
                 </div>
                 <div class="footer_about_newslater">

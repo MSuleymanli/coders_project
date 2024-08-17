@@ -1,0 +1,1497 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Khmer MN", sans-serif;
+}
+
+@font-face {
+  font-family: "Khmer MN, sans-serif";
+  src: url("fonts/KhmerMN.ttf") format("truetype");
+}
+
+.container {
+  width: 1260px;
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+/* Cover */
+
+.covers_h1 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 48px;
+  font-weight: 400;
+  padding-bottom: 30px;
+}
+
+.covers_span {
+  color: #9a9a9a;
+}
+
+.cover {
+  background: var(--Greyscale-Grey-10, #f6f6f6);
+  padding: 57px 0;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 25px 0px;
+}
+
+.navbar_pages {
+  position: relative;
+}
+
+#narrow {
+  position: absolute;
+  right: 100px;
+  bottom: 0;
+}
+
+.navbar span {
+  color: var(--Main-Colors-Secondary, #de8556);
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.navbar a {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.navbar_menu {
+  position: relative;
+  display: flex;
+  gap: 64px;
+}
+
+.navbar_menu a {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* navbar pages toogle menu */
+
+.navbar_pages {
+  position: relative;
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#pages-icon {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--Greyscale-Grey-100, #38343d);
+}
+
+.navbar_pages_show {
+  position: absolute;
+  top: 100%;
+  left: 410px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  width: 250px;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  transition: visibility 0s, opacity 0.3s linear, transform 0.3s ease;
+  margin-top: 17px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 20px 0px rgba(7, 6, 34, 0.06);
+}
+
+.navbar_pages_show.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar_pages_show hr {
+  padding: 2px;
+  background-color: #de8556;
+  border: none;
+  border-radius: 2px;
+}
+
+.navbar_pages_show li {
+  text-align: left;
+  padding: 15px;
+}
+
+.navbar_pages_show li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar_registration {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navbar_registration a {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.navbar_buy_icon {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: -1px 1px 15px 0px rgba(9, 20, 49, 0.11);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar_buy_icon i {
+  font-size: 20px;
+}
+
+.navbar_registration button {
+  border-radius: 2px;
+  background: var(--Main-Colors-Secondary, #de8556);
+  display: inline-flex;
+  padding: 12px 28px;
+  align-items: flex-start;
+  gap: 10px;
+  border: none;
+  color: white;
+}
+
+.nav-active .navbar_pages_show {
+  transform: translateX(0);
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  position: absolute;
+  left: 250px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a {
+  color: #5f4646;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+#navbar_hamburger_menu {
+  display: none;
+  cursor: pointer;
+}
+
+#navbar_hamburger_menu .line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #eee;
+  transition: 0.3s ease;
+  margin: 5px 0;
+}
+
+#navbar_hamburger_menu .line1,
+#navbar_hamburger_menu .line2,
+#navbar_hamburger_menu .line3 {
+  width: 24px;
+  height: 3px;
+  background-color: black;
+  transition: 0.3s ease;
+}
+#navbar_hamburger_menu .line2 {
+  margin: 3px 0px;
+}
+
+/* Footer */
+
+.footer_present {
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--Main-Colors-Prymary, #123e56);
+
+  border: 1px solid black;
+}
+
+.footer_present_img {
+  width: 260px;
+}
+
+.footer_present_about {
+  width: 469px;
+}
+
+.footer_present_about svg {
+  stroke-width: 2px;
+  stroke: var(--Main-Colors-Secondary, #de8556);
+  width: 207px;
+  height: 10px;
+
+  margin-left: 200px;
+}
+
+.footer_present_about .look {
+  color: #fff;
+  font-family: Cardo;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.footer_present_about .home {
+  color: #fff;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.footer_present_button button {
+  border-radius: 2px;
+  background: var(--Main-Colors-Secondary, #de8556);
+  display: inline-flex;
+  padding: 16px 40px 16px 39px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer_about {
+  padding: 64px 0px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_home {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Khmer MN", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.footer_about_home span {
+  color: var(--Main-Colors-Secondary, #de8556);
+  font-family: "Khmer MN", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.footer_text {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 8px 0px 24px;
+  width: 230px;
+}
+
+.footer_company_service {
+  display: flex;
+  gap: 159px;
+}
+
+.footer_about_home_phone,
+.footer_about_home_email,
+.footer_about_home_adress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 20px;
+}
+
+.footer_about_home_icon,
+.footer_about_home_email_icon,
+.footer_about_home_adress_icon {
+  fill: rgba(0, 0, 0, 0);
+  width: 20px;
+  height: 20px;
+  color: #123e56;
+}
+
+.name {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.info {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.footer_about_title {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+
+.footer_about_company a,
+.footer_about_service a {
+  display: flex;
+  flex-direction: column;
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+  padding-bottom: 32px;
+}
+
+.form_footer {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 20px;
+}
+
+form button {
+  border-radius: 2px;
+  background: var(--Main-Colors-Prymary, #123e56);
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+form input {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 256px;
+  height: 40px;
+
+  width: 251px;
+}
+
+input::placeholder {
+  padding: 10px;
+}
+
+.footer_about_social_icon {
+  display: flex;
+  gap: 12px;
+  color: white;
+}
+
+.footer_about_social_icon i {
+  background-color: #de8556;
+  width: 24.621px;
+  height: 24.621px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+}
+
+hr {
+  border: solid 1px rgba(0, 0, 0, 0.06);
+}
+
+.footer_reserved_company {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  padding: 24px 0px 35px;
+}
+
+/* About us */
+
+.about_us_partners {
+  display: flex;
+
+  padding: 50px 0px;
+  gap: 104px;
+  align-items: center;
+}
+.about_us_partners_image {
+  width: calc(40% - 104px * 0.4);
+}
+.about_us_partners_image img {
+  width: 100%;
+  background-color: lightgray;
+}
+
+.about_us_partners_about {
+  width: calc(60% - 104px * 0.6);
+  letter-spacing: 1px;
+}
+
+.about_us_partners_about h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.about_us_partners_about h5 {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-top: 20px;
+}
+
+.about_us_our_service {
+  background: var(--Greyscale-Grey-10, #f6f6f6);
+
+  padding: 80px 0;
+  text-align: center;
+  background: var(--Greyscale-Grey-10, #f6f6f6);
+}
+
+.about_us_our_service h1 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  text-align: center;
+  font-family: Cardo;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 54px;
+}
+
+.about_us_our_service_cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 30px 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.about_us_our_service_card {
+  width: calc((100% - (16px * (3 - 1))) / 3);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about_us_our_service_card_image {
+  width: 50px;
+  height: 50px;
+  background-color: #f2dfd5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.about_us_our_service_card_image svg {
+  width: 32px;
+  height: 32px;
+}
+
+.about_us_our_agent {
+  height: fit-content;
+}
+
+.about_us_our_agent_info,
+.about_us_featured_properties_info {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 0px;
+  justify-content: space-between;
+}
+
+.about_us_our_agent_info h2,
+.about_us_featured_properties_info h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 54px;
+}
+
+.about_us_our_agent_cards,
+.about_us_featured_properties_cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 150px;
+}
+
+.about_us_featured_properties_cards {
+  padding-bottom: 80px;
+}
+
+.about_us_our_agent_card {
+  width: calc((100% - (24px * (4 - 1))) / 4);
+  display: block;
+}
+.about_us_featured_properties_card_img img {
+  width: 100% !important;
+}
+
+.about_us_our_agent_card img {
+  width: 100%;
+}
+
+.about_us_featured_properties_card {
+  position: relative;
+}
+
+.card_heart {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  z-index: 1000;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.74);
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about_us_our_agent_person {
+  text-align: center;
+  padding: 24px 0px;
+}
+
+.about_us_our_agent_person h5 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.about_us_our_agent_person h6 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.about_us_our_agent_card_icon {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.about_us_our_agent_card_icon svg {
+  background-color: #de8556;
+  width: 24.621px;
+  height: 24.621px;
+
+  border-radius: 50%;
+}
+
+.about_us_featured_properties_card {
+  width: calc((100% - (10px * (3 - 1))) / 3);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.about_us_featured_properties_card img {
+  width: 380px;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.about_us_featured_properties_card_img {
+  padding: 8px;
+}
+
+.about_us_featured_properties_card_section {
+  padding: 16px 20px;
+}
+
+.about_us_featured_properties_card_status {
+  border-radius: 2px;
+  background: #f9f2ee;
+  display: inline-flex;
+  padding: 4px 12px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.about_us_featured_properties_card_status p {
+  color: var(--Main-Colors-Secondary, #de8556);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.about_us_featured_properties_card_section h3 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+.about_us_featured_properties_location {
+  display: flex;
+  padding: 10px 0px;
+}
+
+.about_us_featured_properties_location_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.about_us_featured_properties_location_text p {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 7px;
+}
+
+.about_us_featured_properties_card_info {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 21px 0px;
+}
+
+.about_us_featured_properties_card_info div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about_us_featured_properties_card_sale {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.about_us_featured_properties_card_price {
+  color: var(--Main-Colors-Secondary, #de8556);
+  font-family: "Plus Jakarta Sans";
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.about_us_featured_properties_card_price span {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.about_us_featured_properties_card_button button {
+  color: var(--Main-Colors-Secondary, #de8556);
+  border-radius: 2px;
+  border: 1px solid var(--Main-Colors-Secondary, #de8556);
+  display: inline-flex;
+  padding: 12px 28px;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Our Portfolio */
+
+.our_portfolio_image {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  padding-top: 64px;
+}
+
+.our_portfolio_image img {
+  width: 100%;
+}
+
+.our_portfolio_btn {
+  padding: 20px 0px 40px;
+}
+
+.our_portfolio_btn button{
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  display: inline-flex;
+  padding: 12px 28px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 600;
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+}
+
+/* Portfolio Details  */
+
+.portfolio_details_section {
+  display: flex;
+  padding: 100px 0;
+  gap: 140px;
+}
+
+.portfolio_details {
+  width: calc(72% - 140px * 0.72);
+}
+.portfolio_list_images img {
+  width: 100%;
+}
+.portfolio_details img {
+  width: 100%;
+  padding-bottom: 32px;
+}
+
+.portfolio_details_images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 32px 0px;
+}
+
+.portfolio_details_images img {
+  width: 245px;
+  object-fit: cover;
+}
+.portfolio_list {
+  width: calc(28% - 140px * 0.28);
+}
+
+.portfolio_list h2 {
+  padding-bottom: 22px;
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+  color: #38343d;
+}
+
+.portfolio_list_btn {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.portfolio_list_btn button {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  display: inline-flex;
+  padding: 12px 28px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Checkout */
+
+.checkout_section {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 118px;
+}
+
+.checokout_customer,
+.checokout_coupon {
+  border-radius: 4px;
+  background: var(--Greyscale-Grey-10, #f6f6f6);
+  max-width: 776px;
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 18px;
+}
+
+.checokout_customer p,
+.checokout_coupon p {
+  color: var(--Greyscale-Grey-100, #38343d);
+  text-align: center;
+  font-family: Cardo;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.checokout_customer button,
+.checokout_coupon button {
+  color: var(--Main-Colors-Secondary, #de8556);
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration-line: underline;
+  border: none;
+}
+
+.checkout_billing_details,
+#customer_submenu,
+#coupon_submenu,
+.checkout_payment_footer {
+  max-width: 776px;
+  color: var(--Greyscale-Grey-100, #38343d);
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+#customer_submenu,
+#coupon_submenu {
+  padding: 20px;
+  display: none;
+}
+
+.form-body {
+  padding: 20px;
+}
+
+.form-body h3 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.checkout_billing_details h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 24px 0px 24px 24px;
+}
+
+.billing_details_personal h3 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 22px;
+  font-weight: 400;
+  padding: 24px 0px 24px 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.checkout_billing_details input,
+.checkout_billing_details select {
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 10px;
+}
+
+#customer_submenu input {
+  width: 100%;
+}
+
+.customer_submenu_submit_btn {
+  width: 174px;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.customer_submenu_submit {
+  display: flex;
+  gap: 25px;
+}
+
+.customer_submenu a {
+  color: var(--Main-Colors-Prymary, #123e56);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.customer_submenu h3 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Khmer MN", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.custom-checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-container svg {
+  display: none;
+}
+
+.checkbox-container:has(input:checked) svg {
+  display: block;
+}
+
+.checkout_rem {
+  color: var(--Greyscale-Grey-80, #818181);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.checkout_payment {
+  max-width: 776px;
+  color: var(--Greyscale-Grey-100, #38343d);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.card_total_info:nth-last-of-type(1) p {
+  font-weight: 800;
+}
+
+/* payment checkbox */
+.payment_checkbox_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.payment_checkbox_label,
+.amenties_checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.payment_checkbox_label:first-child {
+  padding-top: 20px;
+  margin-top: 1px;
+}
+
+.payment_checkbox_label:last-child {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.payment_custom-checkbox {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #fff;
+  position: relative;
+}
+
+.checkbox-input:checked + .payment_custom-checkbox {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.payment_custom-checkbox svg {
+  position: absolute;
+  display: none;
+}
+
+.checkbox-input:checked + .payment_custom-checkbox svg {
+  display: block;
+}
+
+/* payment checkbox */
+
+.payment_payment_method h2,
+.payment_card_total h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Khmer MN", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.payment_method_select {
+  padding: 20px 0px;
+}
+
+.payment_payment_method,
+.payment_card_total {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  width: 350px;
+  padding: 20px;
+}
+
+.card_total_info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.card_sub {
+  padding-top: 25px;
+}
+
+.card_total_info p {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.checkout_payment_footer {
+  display: grid;
+  place-items: center;
+  margin-bottom: 80px;
+  border: none;
+}
+
+.checkout_payment_footer p {
+  color: var(--Greyscale-Grey-100, #38343d);
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  max-width: 50%;
+  padding-bottom: 32px;
+}
+
+.checkout_payment_footer button {
+  display: flex;
+  width: 282px;
+  padding: 16px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background: var(--Main-Colors-Prymary, #123e56);
+  color: #fff;
+  text-align: center;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Google Map Location */
+
+#map {
+  width: 100%;
+  height: 645px;
+  padding-bottom: 80px;
+}
+#map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Shop */
+
+.shop_page {
+  display: flex;
+  padding: 100px 0;
+  gap: 140px;
+}
+
+.shop_products {
+  width: calc(72% - 140px * 0.72);
+}
+
+.shop_products .about_us_featured_properties_cards {
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+
+.shop_products
+  .about_us_featured_properties_cards
+  .about_us_featured_properties_card {
+  width: calc((100% - (10px * (2 - 1))) / 2);
+}
+
+.pagination{
+  text-align: center;
+}
+
+.pagination_right,.pagination_right_fast,.pagination_left,.pagination_left_fast,.current,.page-number{
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid #878690;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-links{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+
+.step-links i,.steplinks{
+  color:black;
+  
+}
+
+.current{
+  background: var(--Main-Colors-Secondary, #DE8556);
+  color: white;
+}
+
+
+
+.shop_filter {
+  width: calc(28% - 140px * 0.28);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.shop_filter .payment_checkbox_label {
+  /* padding: 0px !important; */
+  padding-top: 15px;
+  padding-bottom: 0px !important;
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.shop_filter h2 {
+  padding-bottom: 20px;
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.shop_filter .payment_custom-checkbox {
+  border-radius: 8px;
+}
+
+.shop_filter svg {
+  display: block;
+}
+
+.shop_filter_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shop_filter_info p {
+  font-family: "Plus Jakarta Sans";
+}
+
+.shop_filter_info:has(input:checked) svg path {
+  fill: #de8556;
+}
+
+/* Product Details */
+
+.product_detail_img {
+  width: 100%;
+  padding-top: 40px;
+}
+
+.product_detail_img img {
+  width: 100%;
+  max-height: 626px;
+}
+
+.product_detail_img_status {
+  padding-top: 36px;
+}
+
+.product_detail_img_status p {
+  border-radius: 2px;
+  background: #e7f3e8;
+  display: inline-flex;
+  padding: 4px 12px;
+  align-items: flex-start;
+  gap: 10px;
+  color: #19c116;
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product_detail_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  gap: 56px;
+}
+
+.product_detail_container_about {
+  width: calc(72% - 56px * 0.72);
+}
+
+.product_detail_container_list {
+  width: calc(28% - 140px * 0.28);
+}
+
+.product_detail_info h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 38px;
+  font-weight: 400;
+  padding-bottom: 19px;
+}
+
+.product_detail_info_location {
+  display: flex;
+  gap: 10px;
+}
+
+.product_detail_info_location i {
+  color: #123e56;
+}
+
+.product_detail_info_text {
+  padding-top: 51px;
+}
+
+.product_detail_info_text h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Khmer MN";
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.product_detail_info_text p {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.product_container_property_detail {
+  padding: 54px 0px;
+}
+
+.product_container_property_detail h5,
+.property_detail_gallery h5,
+.product_detail_amenties h5,
+.product_detail_location h5,
+.porudct_detail_relate h5 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Khmer MN";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.property_detail_types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+  padding-top: 14px;
+}
+
+.property_detail_type h5,
+.property_detail_type p {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: right;
+}
+
+.property_detail_type p {
+  font-weight: 600;
+}
+
+.property_detail_gallery {
+  padding-bottom: 54px;
+}
+
+.gallery_image_bottom {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 24px;
+}
+
+.gallery_image_bottom img:nth-of-type(1) {
+  grid-column: 1 / 6;
+}
+.gallery_image_bottom img:nth-of-type(2) {
+  grid-column: 6 / 11;
+}
+
+.gallery_image_bottom img:nth-of-type(3n + 1):not(:nth-of-type(1)) {
+  grid-column: 5 / 7;
+}
+
+.gallery_image_bottom img:nth-of-type(3n) {
+  grid-column: 1 / 5;
+}
+
+.gallery_image_bottom img:nth-of-type(3n + 2):not(:nth-of-type(2)) {
+  grid-column: 7 / 11;
+}
+
+.gallery_image_bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding-bottom: 16px;
+}
+
+.product_detail_amenties h5,
+.product_detail_location h5,
+.porudct_detail_relate h5,
+.property_detail_gallery h5 {
+  padding-bottom: 30px;
+}
+
+.amenties_checkbox {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.amenties_checkbox .payment_custom-checkbox {
+  border-radius: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.amenties_checkbox_section {
+  display: flex;
+  gap: 121px;
+}
+
+.amenties_checkbox svg {
+  display: block;
+}
+
+.amenties_checkbox:has(input:checked) svg path {
+  fill: #de8556;
+}
+
+.product_detail_amenties {
+  padding-bottom: 54px;
+}
+
+.porudct_detail_relate .about_us_featured_properties_cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.porudct_detail_relate .about_us_featured_properties_card {
+  width: calc((100% - (32px * (2 - 1))) / 2);
+}
+
+.product_detail_filter_type h2 {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: Cardo;
+  font-size: 24px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.shop_filter_info label,
+.shop_filter_info p {
+  color: var(--Greyscale-Grey-100, #38343d);
+  font-family: "Plus Jakarta Sans";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.product_detail_list .portfolio_list {
+  width: 100%;
+  padding-top: 85px;
+}

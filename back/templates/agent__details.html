@@ -1,0 +1,148 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+<link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />    
+{% endblock css %}
+{% block title %} Agent Details{%endblock title %}
+
+{% block main %}
+<main>
+
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb__title">Agent Details</div>
+            <div class="breadcrumb__subtitle"><span class="main__link">Home / </span><span
+                    class="submain__link">Agent
+                    Details</span></div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <!-- Agent Details -->
+        <section class="agent__details">
+            <div class="agent__details__container">
+                <div class="agent__details__left__col">
+                    <div class="agent__details__image">
+                        <img src="./images/agent1.png" alt="agent__image">
+                    </div>
+                    <div class="agent__details__title">Esther Howard</div>
+                    <div class="agent__details__subtitle">Real Estate Broker</div>
+                    <div class="agent__details__social">
+                        <div class="agent__details__social__icon"><img src="./images/Icon - Facebook.svg" alt="">
+                        </div>
+                        <div class="agent__details__social__icon"><img src="./images/Icon - Ig.svg" alt=""></div>
+                        <div class="agent__details__social__icon"><img src="./images/Icon - Wa.svg" alt=""></div>
+                    </div>
+                </div>
+                <div class="agent__details__right__col">
+                    <div class="agent__details__intro">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus. At
+                        mattis nulla in pretium. Condimentum sagittis mauris augue maecenas fusce commodo neque
+                        purus
+                        et. Integer eu amet at pretium id ultrices faucibus. In vestibulum pretium, potenti
+                        molestie.
+                    </div>
+                    <div class="agent__details__main">
+                        <div class="ad__main__item">
+                            <div class="ad__main__item__title">Positions</div>
+                            <div class="ad__main__item__subtitle">Real Estate Broker</div>
+                        </div>
+                        <div class="ad__main__item">
+                            <div class="ad__main__item__title">Location</div>
+                            <div class="ad__main__item__subtitle">14/A, NYC</div>
+                        </div>
+                        <div class="ad__main__item">
+                            <div class="ad__main__item__title">FAX</div>
+                            <div class="ad__main__item__subtitle">09-622-5689</div>
+                        </div>
+                        </div>
+                    <div class="agent__details__main">
+                        <div class="ad__main__item">
+                            <div class="ad__main__item__title">Experience</div>
+                            <div class="ad__main__item__subtitle">10+ Years</div>
+                        </div>
+                        <div class="ad__main__item">
+                            <div class="ad__main__item__title">Email</div>
+                            <div class="ad__main__item__subtitle">example@gmail.com</div>
+                        </div>
+                        <div class="ad__main__item">
+                            <div class="ad__main__item__title">Phone</div>
+                            <div class="ad__main__item__subtitle">07-4041-9059</div>
+                        </div>
+                    </div>
+                    <div class="agent__details__conc">
+                        <p>Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae fringilla
+                            tempor.
+                            Non in in sodales suspendisse egestas integer iaculis semper ultrices. Lectus dui in
+                            pulvinar orci ut fermentum tortor mi, at. In adipiscing arcu, consectetur lacus eu. Non,
+                            augue integer augue accumsan ante. Ultricies libero condimentum amet, enim sit neque
+                            nascetur mollis cursus. Pellentesque tincidunt libero, in pharetra, nunc. Tincidunt
+                            egestas
+                            amet tincidunt consequat in sed arcu turpis neque.</p>
+                        <p>Nam elementum aliquet integer sit condimentum sed. Pulvinar aliquam nascetur maecenas
+                            risus
+                            vestibulum eu. Pellentesque non molestie est mauris tristique pretium. Congue ac et
+                            neque
+                            vulputate et morbi gravida. Ut semper odio dictumst vel nibh urna. Cras blandit cursus
+                            nam
+                            nulla. Montes, bibendum mauris dui sollicitudin est purus, hendrerit. Convallis in nunc
+                            a,
+                            commodo euismod.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="agent__details__contact__container">
+                <div class="contact__container">
+                    <div class="contact__title">Contact for Any Inquiry</div>
+                    <div class="contact__form">
+                        <form>
+                            <input type="text" placeholder="Your Name">
+                            <input type="email" name="" id="agent__email" placeholder="Your Email">
+                            <select name="" id="agent__service">
+                                <option value="null">Select Service Type</option>
+                                <option value="null">Null</option>
+                            </select>
+                            <input type="number" name="" id="agent__number" placeholder="Enter Number">
+                            <textarea name="" id="" cols="94" rows="5" placeholder="Enter Message"></textarea>
+                        </form>
+                    </div>
+                    <div class="contact__sign">
+                        <span class="contact__checkbox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.334 0C17.723 0 20 2.378 20 5.916V14.084C20 17.622 17.723 20 14.333 20H5.665C2.276 20 0 17.622 0 14.084V5.916C0 2.378 2.276 0 5.665 0H14.334ZM14.334 1.5H5.665C3.135 1.5 1.5 3.233 1.5 5.916V14.084C1.5 16.767 3.135 18.5 5.665 18.5H14.333C16.864 18.5 18.5 16.767 18.5 14.084V5.916C18.5 3.233 16.864 1.5 14.334 1.5ZM14.0895 7.097C14.3825 7.39 14.3825 7.864 14.0895 8.157L9.3435 12.903C9.1975 13.05 9.0055 13.123 8.8135 13.123C8.6225 13.123 8.4295 13.05 8.2835 12.903L5.9095 10.53C5.6165 10.237 5.6165 9.763 5.9095 9.47C6.2025 9.177 6.6765 9.177 6.9695 9.47L8.8135 11.312L13.0295 7.097C13.3225 6.804 13.7965 6.804 14.0895 7.097Z"
+                                    fill="#123E56" />
+                            </svg>
+                        </span>
+                        <span class="contact__text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                            amet
+                            sint. </span>
+                    </div>
+                    <div class="contact__btn__container">
+                        <div class="contact__btn">
+                            <a href="#" class="btn">Get an Free Service</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+
+
+</main>
+
+
+
+{% endblock main %}

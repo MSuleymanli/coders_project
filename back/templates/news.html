@@ -1,0 +1,195 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+<link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />
+{% endblock css %}
+
+{% block title %} News{%endblock title %}
+
+{% block main %}
+<main>
+
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb__title">News</div>
+            <div class="breadcrumb__subtitle"><span class="main__link">Home / </span><span
+                    class="submain__link">News</span></div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <!-- News -->
+        <section class="news">
+            <div class="news__left__sidebar">
+                <div class="news__posts">
+                    <div class="news__post">
+                        <div class="post__image"><img src="./images/news1.png" alt="House"></div>
+                        <div class="post__content">
+                            <div class="post__title__date">
+                                <div class="post__title">Amet minim mollit non deserunt ullamco est sit </div>
+                                <div class="post__date">9/4/22</div>
+                            </div>
+                            <div class="post__content__text">
+                                Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                ultrices. Lectus dui in pulvinar orci ut fermentum tortor mi, at. In adipiscing
+                                arcu, consectetur lacus eu. Non, augue integer augue accumsan ante. Ultricies libero
+                                condimentum amet, enim sit neque nascetur mollis cursus. Pellentesque tincidunt
+                                libero, in pharetra, nunc. Tincidunt egestas amet tincidunt consequat in sed arcu
+                                turpis neque.
+                            </div>
+                            <div class="post__ending">
+                                <div class="post__author">
+                                    <div class="post__author__avatar"><img src="./images/author1.png"
+                                            alt="human__photo"></div>
+                                    <div class="post__author__title">Marvin McKinney</div>
+                                </div>
+                                <div class="post__read__more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news__post">
+                        <div class="post__image"><img src="./images/news2.png" alt="House"></div>
+                        <div class="post__content">
+                            <div class="post__title__date">
+                                <div class="post__title">Amet minim mollit non deserunt ullamco est sit </div>
+                                <div class="post__date">9/4/22</div>
+                            </div>
+                            <div class="post__content__text">
+                                Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                ultrices. Lectus dui in pulvinar orci ut fermentum tortor mi, at. In adipiscing
+                                arcu, consectetur lacus eu. Non, augue integer augue accumsan ante. Ultricies libero
+                                condimentum amet, enim sit neque nascetur mollis cursus. Pellentesque tincidunt
+                                libero, in pharetra, nunc. Tincidunt egestas amet tincidunt consequat in sed arcu
+                                turpis neque.
+                            </div>
+                            <div class="post__ending">
+                                <div class="post__author">
+                                    <div class="post__author__avatar"><img src="./images/author2.png"
+                                            alt="human__photo"></div>
+                                    <div class="post__author__title">Marvin McKinney</div>
+                                </div>
+                                <div class="post__read__more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news__post">
+                        <div class="post__image"><img src="./images/news3.png" alt="House"></div>
+                        <div class="post__content">
+                            <div class="post__title__date">
+                                <div class="post__title">Amet minim mollit non deserunt ullamco est sit </div>
+                                <div class="post__date">9/4/22</div>
+                            </div>
+                            <div class="post__content__text">
+                                Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                ultrices. Lectus dui in pulvinar orci ut fermentum tortor mi, at. In adipiscing
+                                arcu, consectetur lacus eu. Non, augue integer augue accumsan ante. Ultricies libero
+                                condimentum amet, enim sit neque nascetur mollis cursus. Pellentesque tincidunt
+                                libero, in pharetra, nunc. Tincidunt egestas amet tincidunt consequat in sed arcu
+                                turpis neque.
+                            </div>
+                            <div class="post__ending">
+                                <div class="post__author">
+                                    <div class="post__author__avatar"><img src="./images/author3.png"
+                                            alt="human__photo"></div>
+                                    <div class="post__author__title">Marvin McKinney</div>
+                                </div>
+                                <div class="post__read__more">
+                                    <a href="#">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination__items">
+                    <div class="pagination__controller">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none">
+                            <path
+                                d="M12.29 15.29L9.7 12.7C9.31 12.31 9.31 11.68 9.7 11.29L12.29 8.70001C12.92 8.07001 14 8.52001 14 9.41001L14 14.59C14 15.48 12.92 15.92 12.29 15.29Z"
+                                fill="#38343D" />
+                        </svg>
+                    </div>
+                    <div class="pagination__item" id="pagination__active">
+                        1
+                    </div>
+                    <div class="pagination__item">
+                        2
+                    </div>
+                    <div class="pagination__item">
+                        3
+                    </div>
+                    <div class="pagination__controller">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none">
+                            <path
+                                d="M11.71 8.70999L14.3 11.3C14.69 11.69 14.69 12.32 14.3 12.71L11.71 15.3C11.08 15.93 10 15.48 10 14.59L10 9.40999C10 8.51999 11.08 8.07999 11.71 8.70999Z"
+                                fill="#38343D" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news__right__sidebar">
+                <div class="news__top__cat">
+                    <div class="news__top__cat__title">
+                        Top Categories
+                    </div>
+                    <div class="news__top__cat__hr"></div>
+                    <div class="news__top__cat__items">
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">House</div>
+                            <div class="news__top__cat__count">2,124</div>
+                        </div>
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">Apartment</div>
+                            <div class="news__top__cat__count">1,765</div>
+                        </div>
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">Single Family</div>
+                            <div class="news__top__cat__count">231</div>
+                        </div>
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">Studio</div>
+                            <div class="news__top__cat__count">21</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news__portfolio">
+                    <div class="news__portfolio__title">
+                        Portfolio List
+                    </div>
+                    <div class="news__top__cat__hr"></div>
+                    <div class="news__portfolio__items">
+                        <div class="news__portfolio__item"><img src="./images/news4.png" alt="Villa__image"></div>
+                        <div class="news__portfolio__item"><img src="./images/news5.png" alt="Villa__image"></div>
+                        <div class="news__portfolio__item"><img src="./images/news6.png" alt="Villa__image"></div>
+                        <div class="news__portfolio__btn">
+                            <a href="#" class="news__btn">See All</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+
+
+
+</main>
+
+
+{% endblock main %}

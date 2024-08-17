@@ -57,7 +57,7 @@ class Agent(models.Model):
     def __str__(self):
         return self.agent_name
     
-    
+       
 class Service(models.Model):
     service_name=models.CharField(max_length=30,blank=True,null=True)
     service_about=models.TextField(blank=True,null=True)

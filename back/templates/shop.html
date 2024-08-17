@@ -142,7 +142,8 @@
                     
                 </div>      
             </div>
-            <div class="shop_filter">
+            <form method="get" id="filter-form" class="shop_filter">
+                {% csrf_token %}
                 <div class="shop_filter_type">
                     <h2>Property Type</h2>
                     <hr>
@@ -521,9 +522,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-    </div>
 </main>
+
 {% endblock main %}

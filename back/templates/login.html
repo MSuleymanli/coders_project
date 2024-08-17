@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style_ayse.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/responsive_ayse.css' %}" />
+{% endblock %}
+{% block title %}
+  Login
+{% endblock %}
+
+{% block main %}
+  <main>
+    <div class="breadcrumb-container">
+      <div class="container">
+        <div class="breadcrumb">
+          <h2>Sign In</h2>
+          <p>Home / Sign In</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="signin-container">
+        <h1>Sign In to your account</h1>
+        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+        <form id="signinform">
+          <textarea id="username" name="username" rows="1" placeholder="Email or Username" required></textarea>
+          <textarea id="password" name="password" rows="1" placeholder="Password" required></textarea>
+          <a href="#" class="forgotpassword">Forgot Password?</a>
+          <button id="login-btn">Login</button>
+        </form>
+        <p class="signup-ink">
+          Don't have an account? <a href="#">Create Account</a>
+        </p>
+      </div>
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,247 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+<link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />    
+{% endblock css %}
+{% block title %} News Details{%endblock title %}
+
+{% block main %}
+<main>
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb__title">Details News</div>
+            <div class="breadcrumb__subtitle"><span class="main__link">Home / </span><span
+                    class="submain__link">Detail News</span></div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <!-- News -->
+        <section class="news">
+            <div class="news__left__sidebar">
+                <div class="news__details__post">
+                    <div class="news__details__post__image">
+                        <img src="./images/news1.png" alt="">
+                    </div>
+                    <div class="news__details__post__title">Amet minim mollit non deserunt ullamco est sit </div>
+                    <div class="news__details__author__date">
+                        <div class="news__details__author">
+                            <div class="news__details__author__avatar"><img src="./images/author1.png"
+                                    alt="author__avatar"></div>
+                            <div class="news__details__author__title">Marvin McKinney</div>
+                        </div>
+                        <div class="news__details__date">9/4/22</div>
+                    </div>
+                    <div class="news__details__hr"></div>
+                    <div class="news__details__post__context">
+                        <br><br>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.
+                            At mattis nulla in pretium. Condimentum sagittis mauris augue maecenas fusce commodo
+                            neque purus et. Integer eu amet at pretium id ultrices faucibus. In vestibulum pretium,
+                            potenti molestie.
+                        </p>
+                        <br><br>
+                        <div>
+                            <p>
+                                Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                ultrices. Lectus dui in pulvinar orci ut fermentum tortor mi, at. In adipiscing
+                                arcu, consectetur lacus eu. Non, augue integer augue accumsan ante. Ultricies libero
+                                condimentum amet, enim sit neque nascetur mollis cursus. Pellentesque tincidunt
+                                libero, in pharetra, nunc. Tincidunt egestas amet tincidunt consequat in sed arcu
+                                turpis neque.
+                            </p>
+                            <p>
+                                Nam elementum aliquet integer sit condimentum sed. Pulvinar aliquam nascetur
+                                maecenas risus vestibulum eu. Pellentesque non molestie est mauris tristique
+                                pretium. Congue ac et neque vulputate et morbi gravida. Ut semper odio dictumst vel
+                                nibh urna. Cras blandit cursus nam nulla. Montes, bibendum mauris dui sollicitudin
+                                est purus, hendrerit. Convallis in nunc a, commodo euismod.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="news__details__post__gallery">
+                        <div class="news__details__gallery__item"><img src="./images/news__details1.png"
+                                alt="villa__house"></div>
+                        <div class="news__details__gallery__item"><img src="./images/news__details2.png"
+                                alt="villa__house"></div>
+                    </div>
+                    <div class="news__details__post__context">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.
+                            At mattis nulla in pretium. Condimentum sagittis mauris augue maecenas fusce commodo
+                            neque purus et. Integer eu amet at pretium id ultrices faucibus. In vestibulum pretium,
+                            potenti molestie.
+                        </p>
+                        <br><br>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.
+                            At mattis nulla in pretium. Condimentum sagittis mauris augue maecenas fusce commodo
+                            neque purus et. Integer eu amet at pretium id ultrices faucibus. In vestibulum pretium,
+                            potenti molestie.
+                        </p>
+                        <br><br>
+                        <div>
+                            <p>
+                                Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                ultrices. Lectus dui in pulvinar orci ut fermentum tortor mi, at. In adipiscing
+                                arcu, consectetur lacus eu. Non, augue integer augue accumsan ante. Ultricies libero
+                                condimentum amet, enim sit neque nascetur mollis cursus. Pellentesque tincidunt
+                                libero, in pharetra, nunc. Tincidunt egestas amet tincidunt consequat in sed arcu
+                                turpis neque.
+                            </p>
+                            <p>
+                                Nam elementum aliquet integer sit condimentum sed. Pulvinar aliquam nascetur
+                                maecenas risus vestibulum eu. Pellentesque non molestie est mauris tristique
+                                pretium. Congue ac et neque vulputate et morbi gravida. Ut semper odio dictumst vel
+                                nibh urna. Cras blandit cursus nam nulla. Montes, bibendum mauris dui sollicitudin
+                                est purus, hendrerit. Convallis in nunc a, commodo euismod.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Share -->
+                <div class="news__details__social__share">
+                    <div class="news__details__social__share__title">
+                        Social Share
+                    </div>
+                    <div class="news__details__social__share__items">
+                        <div class="news__details__social__share__item">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div class="news__details__social__share__item">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="news__details__social__share__item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Comments Container -->
+                <div class="news__details__comments">
+                    <div class="news__details__comments__title">
+                        <span class="general__title">Comments</span>
+                        <span class="comments__counter">(02)</span>
+                    </div>
+                    <div class="news__details__comments__items">
+                        <div class="news__details__comments__item">
+                            <div class="news__details__comments__item__avatar">
+                                <img src="./images/news__details__comments__avatar1.png" alt="">
+                            </div>
+                            <div class="news__details__comments__content">
+                                <div class="news__details__comments__item__title__date">
+                                    <div class="news__details__comments__item__title">Cameron Williamson</div>
+                                    <div class="news__details__comments__item__date">9/4/22</div>
+                                </div>
+                                <div class="news__details__comments__item__context">
+                                    Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                    fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                    ultrices.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news__details__comments__hr"></div>
+                        <div class="news__details__comments__item">
+                            <div class="news__details__comments__item__avatar">
+                                <img src="./images/news__details__comments__avatar2.png" alt="">
+                            </div>
+                            <div class="news__details__comments__content">
+                                <div class="news__details__comments__item__title__date">
+                                    <div class="news__details__comments__item__title">Marvin McKinney</div>
+                                    <div class="news__details__comments__item__date">9/4/22</div>
+                                </div>
+                                <div class="news__details__comments__item__context">
+                                    Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in vitae
+                                    fringilla tempor. Non in in sodales suspendisse egestas integer iaculis semper
+                                    ultrices.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Comments Form -->
+                    <div class="news__details__comments__form__container">
+                        <div class="news__details__comments__form__title">Post Comment</div>
+                        <div class="news__details__comments__form">
+                            <input type="text" placeholder="Your Name">
+                            <input type="email" placeholder="Your Email">
+                            <textarea name="" id="" cols="91" rows="5" placeholder="Enter Comment"></textarea>
+                        </div>
+                        <div class="news__details__comments__check__container">
+                            <div class="news__details__comments__check__icon">
+                                <!-- i class="fa-regular fa-square-check"></i> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M14.334 0C17.723 0 20 2.378 20 5.916V14.084C20 17.622 17.723 20 14.333 20H5.665C2.276 20 0 17.622 0 14.084V5.916C0 2.378 2.276 0 5.665 0H14.334ZM14.334 1.5H5.665C3.135 1.5 1.5 3.233 1.5 5.916V14.084C1.5 16.767 3.135 18.5 5.665 18.5H14.333C16.864 18.5 18.5 16.767 18.5 14.084V5.916C18.5 3.233 16.864 1.5 14.334 1.5ZM14.0895 7.097C14.3825 7.39 14.3825 7.864 14.0895 8.157L9.3435 12.903C9.1975 13.05 9.0055 13.123 8.8135 13.123C8.6225 13.123 8.4295 13.05 8.2835 12.903L5.9095 10.53C5.6165 10.237 5.6165 9.763 5.9095 9.47C6.2025 9.177 6.6765 9.177 6.9695 9.47L8.8135 11.312L13.0295 7.097C13.3225 6.804 13.7965 6.804 14.0895 7.097Z"
+                                        fill="#123E56" />
+                                </svg>
+                            </div>
+                            <div class="news__details__comments__check__text">
+                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                            </div>
+                        </div>
+                        <div class="news__details__comments__btn__container">
+                            <div class="news__details__comments__btn">
+                                <a href="#" class="btn">Submit</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="news__right__sidebar">
+                <div class="news__top__cat">
+                    <div class="news__top__cat__title">
+                        Top Categories
+                    </div>
+                    <div class="news__top__cat__hr"></div>
+                    <div class="news__top__cat__items">
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">House</div>
+                            <div class="news__top__cat__count">2,124</div>
+                        </div>
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">Apartment</div>
+                            <div class="news__top__cat__count">1,765</div>
+                        </div>
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">Single Family</div>
+                            <div class="news__top__cat__count">231</div>
+                        </div>
+                        <div class="news__top__cat__item">
+                            <div class="news__top__cat__item__title">Studio</div>
+                            <div class="news__top__cat__count">21</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news__portfolio">
+                    <div class="news__portfolio__title">
+                        Portfolio List
+                    </div>
+                    <div class="news__top__cat__hr"></div>
+                    <div class="news__portfolio__items">
+                        <div class="news__portfolio__item"><img src="./images/news4.png" alt="Villa__image"></div>
+                        <div class="news__portfolio__item"><img src="./images/news5.png" alt="Villa__image"></div>
+                        <div class="news__portfolio__item"><img src="./images/news6.png" alt="Villa__image"></div>
+                        <div class="news__portfolio__btn">
+                            <a href="#" class="news__btn">See All</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+</main>
+
+
+{% endblock main %}
