@@ -108,6 +108,7 @@ class Comment(models.Model):
     com_email=models.EmailField(max_length=40)
     com_message=models.CharField(max_length=300)
     com_created=models.DateField(auto_now_add=True)
+    com_rate=models.CharField(max_length=2,default=0,blank=True,null=True)
     
     def __str__(self):
         return self.com_name

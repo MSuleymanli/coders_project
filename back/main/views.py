@@ -42,7 +42,7 @@ def services(request):
     return render(request,"services.html")
 
 def about(request):
-    agents=Agent.objects.all()
+    agents=Agent.objects.all().order_by('-id')
     services=Service.objects.all()
     products = Product.objects.order_by('?')[:3]
     context={
@@ -59,7 +59,7 @@ def google_map(request):
     return render(request,"google_map_location.html")
 
 def our_portfolio(request):
-    portfolio_list = Portfolio.objects.all()
+    portfolio_list = Portfolio.objects.all().order_by('-id')
     paginator = Paginator(portfolio_list, 12)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -81,7 +81,6 @@ def portfolio_details(request, id):
     return render(request, "portfolio_details.html", context)
 
 def product_details(request, id):
-    
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -91,20 +90,28 @@ def product_details(request, id):
     promo_product = Product.objects.order_by('?')[:2]
     product = get_object_or_404(Product, id=id)
     portfolios = Portfolio.objects.order_by('?')[:3]
-    comments=Comment.objects.all()
-    
+    comments = Comment.objects.all().order_by('-id')
+
+    for comment in comments:
+        try:
+            com_rate = int(comment.com_rate)
+        except ValueError:
+            com_rate = 0
+
+        comment.full_star_range = range(com_rate)
+        comment.empty_star_range = range(5 - com_rate)
     
     context = {
         "product": product,
         "promo_product": promo_product,
         'portfolios': portfolios,
-        'comments':comments
+        'comments': comments
     }
     return render(request, "product_details.html", context)
 
 def shop(request):
     keyword = request.GET.get("keyword")
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('-id')
 
     if keyword:
         products = products.filter(product_name__icontains=keyword)

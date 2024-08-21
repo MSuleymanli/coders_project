@@ -268,31 +268,121 @@
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <div class="customer_comments">
+
+                    <div class="product_details_comment_container">
+                        <h5>Customers Review</h5>
                         
                         {% for comment in comments  %}
-                        <h2>{{comment.com_name}}</h2>
-                        <p>{{comment.com_message}}</p>
-                            
+                        <div class="customers_comment">
+                            <div class="product_details_customer">
+                                <div class="product_details_customer_about">
+                                    <div class="customer_img">
+                                        <img src="{% static './assets/person.png' %}" alt="">
+                                    </div>
+                                    <div class="customer_detail">
+                                        <h3>{{comment.com_name}}</h3>
+                                        <div class="star_icon">
+                                            {% for _ in comment.full_star_range %}
+                                                <img src="{% static 'assets/star.png' %}" alt="">
+                                            {% endfor %}
+                                            {% for _ in comment.empty_star_range %}
+                                                <img src="{% static 'assets/star_empty.png' %}" alt="">
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_detils_date">
+                                    <p>{{ comment.com_created|date:"m/d/y" }}</p>
+                                </div>
+                            </div>
+                            <div class="product_details_comment">
+                                <p>{{comment.com_message}}</p>
+                            </div><hr>
+                        </div>
                         {% endfor %}
                             
                     </div>
+                        
                     <div class="agent__details__contact__container">
                         <div class="contact__container">
                             <div class="contact__title">Add a Review</div>
+                            <div class="product_details_rating">
+                                <h4>Your Ratings</h4>
+                                <div class="product_details_rating_stars">
+                                    <button style="background: none; border: none; cursor: pointer;" onclick="setStar(1)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button style="background: none; border: none; cursor: pointer"  onclick="setStar(2)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button  style="background: none; border: none; cursor: pointer"  onclick="setStar(3)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button style="background: none; border: none; cursor: pointer"  onclick="setStar(4)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button style="background: none; border: none; cursor: pointer"  onclick="setStar(5)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                      
+                                </div>
+                            </div>
                             <div class="contact__form">
                                 <form method="post">
                                     {% csrf_token %}
+                                    <input id="stars" type="text" name="com_rate" placeholder="value" value="{{form.com_rate.value}}" class="form-control">
                                     
-                                    <!-- Name Field -->
-                                    {{ form.com_name.errors }} <!-- Display errors if any -->
+                                    {{ form.com_name.errors }}
                                     <input type="text" name="com_name" placeholder="Your Name" value="{{ form.com_name.value|default:'' }}" class="form-control">
                                     
-                                    <!-- Email Field -->
                                     {{ form.com_email.errors }}
                                     <input type="email" name="com_email" id="agent__email" placeholder="Your Email" value="{{ form.com_email.value|default:'' }}" class="form-control">
                                     
-                                    <!-- Message Field -->
                                     {{ form.com_message.errors }}
                                     <textarea name="com_message" id="area" cols="94" rows="5" placeholder="Enter Message" class="form-control">{{ form.com_message.value|default:'' }}</textarea>
                                     
@@ -454,4 +544,20 @@
         </div>
     </div>
 </main>
+<script>
+    function setStar(star) {
+        const starInput = document.querySelector('#stars')
+        starInput.value = star
+
+        const allStars = document.querySelectorAll('.star-icon')
+
+        for(let star of allStars) {
+            star.style.color = '#EBEBEB'
+        }
+
+        for(let i = 0; i < star; i++) {
+            allStars[i].style = 'color: #FFC107'
+        }
+    }
+</script>
 {% endblock main %}
