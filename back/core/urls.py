@@ -35,9 +35,10 @@ urlpatterns = [
     path('news/',news,name='news'),
     path('news_details/', news_details, name='news_details'),
     path('my_cart/', my_cart, name='my_cart'),
-    path('wishlist/', wishlist, name='wishlist'),   
+    path('wishlist/', wishlist, name='wishlist'),
     path('services/',services,name='services'),
-    path('pro-api/',include('main.api.urls')) 
+    path('contact/',contact,name='contact'),
+    path('pro-api/',include('main.api.urls'))
 ]
 
 

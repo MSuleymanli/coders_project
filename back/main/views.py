@@ -11,6 +11,9 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request,"homepage.html")
 
+def contact(request):
+    return render(request,"contact_us.html")
+
 def agent(request):
     return render(request,"agent.html")
 
@@ -84,13 +87,15 @@ def product_details(request, id):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            form.save()
+            comment = form.save(commit=False)
+            comment.product_id = id
+            comment.save()
             return redirect(request.META.get('HTTP_REFERER', '/'))
     
     promo_product = Product.objects.order_by('?')[:2]
     product = get_object_or_404(Product, id=id)
     portfolios = Portfolio.objects.order_by('?')[:3]
-    comments = Comment.objects.all().order_by('-id')
+    comments = Comment.objects.filter(product_id=id).order_by('-id')
 
     for comment in comments:
         try:
@@ -109,23 +114,24 @@ def product_details(request, id):
     }
     return render(request, "product_details.html", context)
 
+
 def shop(request):
-    keyword = request.GET.get("keyword")
-    products = Product.objects.all().order_by('-id')
+    # keyword = request.GET.get("keyword")
+    # products = Product.objects.all().order_by('-id')
 
-    if keyword:
-        products = products.filter(product_name__icontains=keyword)
+    # if keyword:
+    #     products = products.filter(product_name__icontains=keyword)
 
-    paginator = Paginator(products, 8)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    # paginator = Paginator(products, 8)
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)
 
-    context = {
-        "page_obj": page_obj,
-        "keyword": keyword
-    }
+    # context = {
+    #     "page_obj": page_obj,
+    #     "keyword": keyword
+    # }
 
-    return render(request, "shop.html", context)
+    return render(request, "shop.html")
 
 
 # Contact Form
