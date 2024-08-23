@@ -115,23 +115,33 @@ def product_details(request, id):
     return render(request, "product_details.html", context)
 
 
+
+
+def clean_key(key):
+    return key.replace(' ', '_')
+
 def shop(request):
-    # keyword = request.GET.get("keyword")
-    # products = Product.objects.all().order_by('-id')
+    property_types = ['House', 'Apartment', 'Single Family', 'Studio']
+    statuses = ['Buy', 'Rent', 'Sale']
+    amenities = ['Dishwasger', 'Floor Coverings', 'Internet', 'Build Wardrobes', 'Supermarket', 'Kids Zone']
+    range=['Low Budget', 'Medium', 'High Budget']
+    beth=['Single', 'Double', 'Up to 3', 'Up to 5']
 
-    # if keyword:
-    #     products = products.filter(product_name__icontains=keyword)
+    property_counts = {clean_key(p_type): Product.objects.filter(product_property_type=p_type).count() for p_type in property_types}
+    status_counts = {clean_key(status): Product.objects.filter(product_status=status).count() for status in statuses}
+    amenities_counts = {clean_key(amen): Product.objects.filter(product_amenities=amen).count() for amen in amenities}
+    range_counts = {clean_key(range): Product.objects.filter(product_price_range=range).count() for range in range}
+    beth_patch_counts={clean_key(beth): Product.objects.filter(product_beth_patch=beth).count() for beth in beth}
 
-    # paginator = Paginator(products, 8)
-    # page_number = request.GET.get('page')
-    # page_obj = paginator.get_page(page_number)
+    context = {
+        'property_counts': property_counts,
+        'status_counts': status_counts,
+        'amenities_counts': amenities_counts,
+        'range_counts':range_counts,
+        'beth_patch_counts':beth_patch_counts
+    }
 
-    # context = {
-    #     "page_obj": page_obj,
-    #     "keyword": keyword
-    # }
-
-    return render(request, "shop.html")
+    return render(request, 'shop.html', context)
 
 
 # Contact Form

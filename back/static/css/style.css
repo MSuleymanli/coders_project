@@ -1194,9 +1194,9 @@ hr {
   width: calc((100% - (10px * (2 - 1))) / 2);
 }
 
-.pagination{
+/* .pagination{
   text-align: center;
-}
+} */
 
 .pagination_right,.pagination_right_fast,.pagination_left,.pagination_left_fast,.current,.page-number{
   border-radius: 8px;
@@ -1619,3 +1619,5 @@ line-height: normal;
 #stars{
   display: none;
 }
+
+

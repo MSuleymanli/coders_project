@@ -43,7 +43,7 @@
                                 </span>
                                 House
                             </label>
-                            <p>2,124</p>
+                            <p>{{ property_counts.House }}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -60,7 +60,7 @@
                                 </span>
                                 Apartment
                             </label>
-                            <p>2,124</p>
+                            <p>{{ property_counts.Apartment }}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -77,7 +77,7 @@
                                 </span>
                                 Single Family
                             </label>
-                            <p>2,124</p>
+                            <p>{{ property_counts.Single_Family }}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -94,11 +94,11 @@
                                 </span>
                                 Studio
                             </label>
-                            <p>2,124</p>
+                            <p>{{ property_counts.Studio }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="shop_filter_type">
+                <div id="amenities" class="shop_filter_type">
                     <h2>Amenities</h2>
                     <hr>
                     <div class="payment_checkbox_container">
@@ -115,7 +115,7 @@
                                 </span>
                                 Dishwasger
                             </label>
-                            <p>2,124</p>
+                            <p>{{amenities_counts.Dishwasger}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -132,7 +132,7 @@
                                 </span>
                                 Floor Coverings
                             </label>
-                            <p>2,124</p>
+                            <p>{{amenities_counts.Floor_Coverings}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -149,7 +149,7 @@
                                 </span>
                                 Internet
                             </label>
-                            <p>2,124</p>
+                            <p>{{amenities_counts.Internet}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -166,7 +166,7 @@
                                 </span>
                                 Build Wardrobes
                             </label>
-                            <p>2,124</p>
+                            <p>{{amenities_counts.Build_Wardrobes}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -183,24 +183,7 @@
                                 </span>
                                 Supermarket
                             </label>
-                            <p>2,124</p>
-                        </div>
-                    </div>
-                    <div class="payment_checkbox_container">
-                        <div class="shop_filter_info">
-                            <label class="payment_checkbox_label">
-                                <input type="checkbox" class="checkbox-input">
-                                <span class="payment_custom-checkbox">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
-                                            fill="#E3E2E2" />
-                                    </svg>
-                                </span>
-                                Build Wardrobes
-                            </label>
-                            <p>2,124</p>
+                            <p>{{amenities_counts.Supermarket}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -217,11 +200,11 @@
                                 </span>
                                 Kids Zone
                             </label>
-                            <p>2,124</p>
+                            <p>{{amenities_counts.Kids_Zone}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="shop_filter_type">
+                <div id="price-range" class="shop_filter_type">
                     <h2>Price Range</h2>
                     <hr>
                     <div class="payment_checkbox_container">
@@ -238,7 +221,7 @@
                                 </span>
                                 Low Budget
                             </label>
-                            <p>2,124</p>
+                            <p>{{range_counts.Low_Budget}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -255,7 +238,7 @@
                                 </span>
                                 Medium
                             </label>
-                            <p>2,124</p>
+                            <p>{{range_counts.Medium}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -272,12 +255,12 @@
                                 </span>
                                 High Budget
                             </label>
-                            <p>2,124</p>
+                            <p>{{range_counts.High_Budget}}</p>
                         </div>
                     </div>
 
                 </div>
-                <div class="shop_filter_type">
+                <div id="beth-patch" class="shop_filter_type">
                     <h2>Bed/Bath</h2>
                     <hr>
                     <div class="payment_checkbox_container">
@@ -294,7 +277,7 @@
                                 </span>
                                 Single
                             </label>
-                            <p>2,124</p>
+                            <p>{{beth_patch_counts.Single}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -311,7 +294,7 @@
                                 </span>
                                 Double
                             </label>
-                            <p>2,124</p>
+                            <p>{{beth_patch_counts.Double}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -328,7 +311,7 @@
                                 </span>
                                 Up to 3
                             </label>
-                            <p>2,124</p>
+                            <p>{{beth_patch_counts.Up_to_3}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -345,7 +328,7 @@
                                 </span>
                                 Up to 5
                             </label>
-                            <p>2,124</p>
+                            <p>{{beth_patch_counts.Up_to_5}}</p>
                         </div>
                     </div>
                 </div>
@@ -366,7 +349,7 @@
                                 </span>
                                 Buy
                             </label>
-                            <p>2,124</p>
+                            <p>{{status_counts.Buy}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -383,7 +366,7 @@
                                 </span>
                                 Rent
                             </label>
-                            <p>2,124</p>
+                            <p>{{status_counts.Rent}}</p>
                         </div>
                     </div>
                     <div class="payment_checkbox_container">
@@ -400,7 +383,7 @@
                                 </span>
                                 Sale
                             </label>
-                            <p>2,124</p>
+                            <p>{{status_counts.Sale}}</p>
                         </div>
                     </div>
                 </div>
@@ -410,8 +393,8 @@
 </main>
 
 <script>
-    async function getProducts(product_status = [''], product_property_type = [''], product_amenities = [''], page) {
-        const response = await fetch(`http://127.0.0.1:8000/pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&limit=10&page${page}`)
+    async function getProducts(product_status = [''], product_property_type = [''], product_amenities = [''],product_price_range=[''],product_beth_patch=[''], page) {
+        const response = await fetch(`http://127.0.0.1:8000/pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&product_price_range=${product_price_range.join(',')}&product_beth_patch=${product_beth_patch.join(',')}&limit=10&page${page}`)
         const result = await response.json()
 
         renderProductCards(result)
@@ -420,7 +403,6 @@
     function renderProductCards(products) {
         const productCardCont = document.querySelector('.about_us_featured_properties_cards')
         productCardCont.innerHTML = ''
-
         products.map(product => {
             const productCard = `<div class="about_us_featured_properties_card">
                                     <div class="about_us_featured_properties_card_img">
@@ -509,7 +491,7 @@
                                                 <p><span>${product.product_price}/${product.product_type}</span></p>
                                             </div>
                                             <div class="about_us_featured_properties_card_button">
-                                                <a href="">
+                                                <a href="${product.product_detail_url}">
                                                     <button>See Detail</button>
                                                 </a>
                                                 
@@ -527,10 +509,15 @@
 
     const propertyTypeCont = document.querySelector('#property-type')
     const statusCont = document.querySelector('#status')
+    const amenitiesCont=document.querySelector("#amenities")
+    const priceRangeCont=document.querySelector("#price-range")
+    const bethPatchCont=document.querySelector("#beth-patch")
     
     let propertyTypeFilter = []
     let statusFilter = []
     let amenitiesFilter = []
+    let priceRangeFilter=[]
+    let bethPatchFilter=[]
     
     propertyTypeCont.addEventListener('click', (e) => {
         if(e.target.tagName === 'INPUT') {
@@ -540,7 +527,7 @@
                 propertyTypeFilter = propertyTypeFilter.filter(filt => filt !== e.target.parentNode.innerText)
             }
             
-            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter)
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
         }
     })
 
@@ -552,9 +539,49 @@
                 statusFilter = statusFilter.filter(filt => filt !== e.target.parentNode.innerText)
             }
             
-            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter)
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
         }
     })
+
+    amenitiesCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                amenitiesFilter.push(e.target.parentNode.innerText)
+            } else {
+                amenitiesFilter = amenitiesFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+    priceRangeCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                priceRangeFilter.push(e.target.parentNode.innerText)
+            } else {
+                priceRangeFilter = priceRangeFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+    bethPatchCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                bethPatchFilter.push(e.target.parentNode.innerText)
+            } else {
+                bethPatchFilter = bethPatchFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+
+
+    
 </script>
 
 {% endblock main %}
