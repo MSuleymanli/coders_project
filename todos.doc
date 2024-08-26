@@ -1,5 +1,5 @@
---Stripe demo
---login/register
+*****--Stripe demo
+--Homepage navbar some adjustments are needed for responsive form
 
 NEWS DETAILS
 --Comments:
@@ -10,7 +10,7 @@ HOMEPAGE
 -heart click => Wishlist 
 -Slogan - video
 --Our Service - flip cards
--FAQ -js          
+****-FAQ -js          
 
 WISHLIST
 --Add to card
@@ -18,8 +18,8 @@ WISHLIST
 --in stock - models
 
 MY CARD
---cancel button
---counter => card
+*****--cancel button
+*****--counter => card
 
 NEWS
 --Models => category, news post image, title, context, date, autor avatar, author title,
