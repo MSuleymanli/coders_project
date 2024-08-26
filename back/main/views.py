@@ -43,6 +43,15 @@ def my_cart(request):
 def services(request):
     return render(request,"services.html")
 
+def services_details(request):
+    return render(request, "servicesdetails.html")
+
+def faq(request):
+    return render(request, "faq.html")
+
+def contact_us(request):
+    return render(request, "contactus.html")
+
 def about(request):
     agents=Agent.objects.all()
     services=Service.objects.all()

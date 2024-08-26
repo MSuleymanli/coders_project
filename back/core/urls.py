@@ -37,10 +37,13 @@ urlpatterns = [
     path('my_cart/', my_cart, name='my_cart'),
     path('wishlist/', wishlist, name='wishlist'),   
     path('services/',services,name='services'),
+    path('services_details/', services_details, name='services_details'),
     path('pro-api/',include('main.api.urls')),
     path('register/', register__view, name='register'),
     path('login/',login__view, name='login'), 
     path('logout/', logout__view, name='logout'),
+    path('faq/', faq, name='faq'),
+    path('contact_us/', contact_us, name='contact_us'),
 ]
 
 
