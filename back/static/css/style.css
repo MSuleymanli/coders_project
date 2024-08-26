@@ -47,9 +47,12 @@
   padding: 25px 0px;
 }
 
-.navbar_pages {
-  position: relative;
+#page-numbers {
+  display: flex;
+  gap: 10px;
 }
+
+
 
 #narrow {
   position: absolute;
@@ -425,6 +428,7 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   font-size: small;
+  color: white;
 }
 
 hr {
@@ -1207,6 +1211,11 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.page-numbers{
+  display: flex;
+  gap: 10px;
 }
 
 .step-links{

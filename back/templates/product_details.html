@@ -498,46 +498,46 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="product_detail_container_list">
-                <div class="product_detail_filter_type">
-                    <h2>Top Categories</h2>
-                    <hr>
-                    <div class="payment_checkbox_container">
-                        <div class="shop_filter_info">
-                            <label class="payment_checkbox_label">House</label>
-                            <p>2,124</p>
-                        </div>
-                    </div>
-                    <div class="payment_checkbox_container">
-                        <div class="shop_filter_info">
-                            <label class="payment_checkbox_label">Apartment</label>
-                            <p>2,124</p>
-                        </div>
-                    </div>
-                    <div class="payment_checkbox_container">
-                        <div class="shop_filter_info">
-                            <label class="payment_checkbox_label">Single Family</label>
-                            <p>2,124</p>
-                        </div>
-                    </div>
-                    <div class="payment_checkbox_container">
-                        <div class="shop_filter_info">
-                            <label class="payment_checkbox_label">Studio</label>
-                            <p>2,124</p>
-                        </div>
+        </div>
+        <div class="product_detail_container_list">
+            <div class="product_detail_filter_type">
+                <h2>Top Categories</h2>
+                <hr>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">House</label>
+                        <p>2,124</p>
                     </div>
                 </div>
-                <div class="product_detail_list">
-                    <div class="portfolio_list">
-                        <h2>Protfolio List</h2>
-                        <div class="portfolio_list_images">
-                            {% for portfolio in portfolios %}
-                                <a href="{% url 'portfolio_details' id=portfolio.id %}"><img src="{{ portfolio.portfolio_image.url }}" alt="Portfolio Image"></a>
-                            {% endfor %}
-                        </div>
-                        <div class="portfolio_list_btn">
-                            <a href="{% url 'our_portfolio' %}"><button>See All</button></a>
-                        </div>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">Apartment</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">Single Family</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">Studio</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+            </div>
+            <div class="product_detail_list">
+                <div class="portfolio_list">
+                    <h2>Protfolio List</h2>
+                    <div class="portfolio_list_images">
+                        {% for portfolio in portfolios %}
+                            <a href="{% url 'portfolio_details' id=portfolio.id %}"><img src="{{ portfolio.portfolio_image.url }}" alt="Portfolio Image"></a>
+                        {% endfor %}
+                    </div>
+                    <div class="portfolio_list_btn">
+                        <a href="{% url 'our_portfolio' %}"><button>See All</button></a>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,6 @@ from main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', about, name='about'),
     path('checkout/', checkout, name='checkout'),
     path('google_map/', google_map, name='google_map'),
     path('our_portfolio/', our_portfolio, name='our_portfolio'),
@@ -30,6 +29,7 @@ urlpatterns = [
     path('product_details/<int:id>/', product_details, name='product_details'),
     path('shop/', shop, name='shop'),
     path('',home,name='homepage'),
+    path('about/', about, name='about'),
     path('agent/',agent,name='agent'),
     path('agent_details/', agent_details, name='agent_details'),
     path('news/',news,name='news'),

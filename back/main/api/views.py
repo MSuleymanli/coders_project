@@ -2,9 +2,23 @@ from rest_framework.generics import ListAPIView
 from ..models import Product
 from .serializers import ProductSerializers
 from django.db.models import Q
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
+
+class ModulPagination(PageNumberPagination):
+    page_size = 5
+    
+    def get_paginated_response(self, data):
+        return Response({
+            'count': self.page.paginator.count,
+            'total_pages': self.page.paginator.num_pages,
+            'current_page': self.page.number,
+            'results': data
+        })
 
 class ProductListApiView(ListAPIView):
     serializer_class = ProductSerializers
+    pagination_class = ModulPagination
 
     def get_queryset(self):
         queryset = Product.objects.all()

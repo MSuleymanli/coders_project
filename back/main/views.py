@@ -132,6 +132,7 @@ def shop(request):
     amenities_counts = {clean_key(amen): Product.objects.filter(product_amenities=amen).count() for amen in amenities}
     range_counts = {clean_key(range): Product.objects.filter(product_price_range=range).count() for range in range}
     beth_patch_counts={clean_key(beth): Product.objects.filter(product_beth_patch=beth).count() for beth in beth}
+    
 
     context = {
         'property_counts': property_counts,

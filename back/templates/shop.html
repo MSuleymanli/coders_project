@@ -18,11 +18,25 @@
                     
                     
                     <!-- SCRIPT -->
+                     
 
 
 
 
-                </div>    
+                </div>
+                <div class="pagination">
+                    <span class="step-links">
+                        <div class="step-links">
+                            <a href="" class="pagination_left"><i class="fa-solid fa-backward"></i></a>
+                            <a href="" class="pagination_left"><i class="fa-solid fa-caret-left"></i></a>
+                            
+                            <div id="page-numbers"></div>
+
+                            <a href="" class="pagination_right"><i class="fa-solid fa-caret-right"></i></a>
+                            <a href="" class="pagination_right_fast"><i class="fa-solid fa-forward-fast"></i></a>
+                        </div>
+                    </span>
+                </div> 
             </div>
             <form method="get" id="filter-form" class="shop_filter">
                 {% csrf_token %}
@@ -393,12 +407,33 @@
 </main>
 
 <script>
-    async function getProducts(product_status = [''], product_property_type = [''], product_amenities = [''],product_price_range=[''],product_beth_patch=[''], page) {
-        const response = await fetch(`http://127.0.0.1:8000/pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&product_price_range=${product_price_range.join(',')}&product_beth_patch=${product_beth_patch.join(',')}&limit=10&page${page}`)
+    async function getProducts(product_status = [''], product_property_type = [''], product_amenities = [''],product_price_range=[''],product_beth_patch=[''], page)
+    {
+        const response = await fetch(`http://127.0.0.1:8000/pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&product_price_range=${product_price_range.join(',')}&product_beth_patch=${product_beth_patch.join(',')}&page=${page}`)
         const result = await response.json()
 
         renderProductCards(result)
     }
+
+    const pag=    
+    fetch('http://127.0.0.1:8000/pro-api/list/')
+    .then((res) => res.json())
+    .then((data) => {
+        const pages_count = data.total_pages;
+        const pageNumbersContainer = document.getElementById('page-numbers');
+
+        for (let i = 1; i <= pages_count; i++) {
+            const pageNumberLink = document.createElement('a');
+            pageNumberLink.href = `?page=${i}`;
+            pageNumberLink.className = 'page-number';
+            pageNumberLink.textContent = i;
+
+
+            pageNumbersContainer.appendChild(pageNumberLink);
+        }
+    });
+
+
 
     function renderProductCards(products) {
         const productCardCont = document.querySelector('.about_us_featured_properties_cards')
@@ -491,19 +526,20 @@
                                                 <p><span>${product.product_price}/${product.product_type}</span></p>
                                             </div>
                                             <div class="about_us_featured_properties_card_button">
-                                                <a href="${product.product_detail_url}">
+                                                <a href="/product_details/${product.id}/">
                                                     <button>See Detail</button>
-                                                </a>
-                                                
+                                                </a>                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>`
             
+            
+                                    
+                    
             productCardCont.innerHTML += productCard
         })
     }
-
 
     getProducts()
 
@@ -512,12 +548,29 @@
     const amenitiesCont=document.querySelector("#amenities")
     const priceRangeCont=document.querySelector("#price-range")
     const bethPatchCont=document.querySelector("#beth-patch")
+    const pagCount=document.querySelector(".page-number")
+
+ 
     
     let propertyTypeFilter = []
     let statusFilter = []
     let amenitiesFilter = []
     let priceRangeFilter=[]
     let bethPatchFilter=[]
+    let pagCountFilter=[]
+
+    pagCount.addEventListener('click', (e)=>{
+        if(e.target.tagName==='a'){
+            if(e.targed.innerHTML){
+                pagCountFilter.push(e.target.parentNode.innerText)
+            } else{
+                pagCountFilter=pagCountFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+    
     
     propertyTypeCont.addEventListener('click', (e) => {
         if(e.target.tagName === 'INPUT') {
@@ -577,11 +630,7 @@
             
             getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
         }
-    })
-
-
-
-    
+    })    
 </script>
 
 {% endblock main %}
