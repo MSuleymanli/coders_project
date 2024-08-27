@@ -47,9 +47,15 @@
   padding: 25px 0px;
 }
 
-.navbar_pages {
-  position: relative;
+#page-numbers {
+  display: flex;
+  gap: 10px;
 }
+
+.page-number {
+  cursor: pointer;
+}
+
 
 #narrow {
   position: absolute;
@@ -425,6 +431,7 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   font-size: small;
+  color: white;
 }
 
 hr {
@@ -1194,9 +1201,9 @@ hr {
   width: calc((100% - (10px * (2 - 1))) / 2);
 }
 
-.pagination{
+/* .pagination{
   text-align: center;
-}
+} */
 
 .pagination_right,.pagination_right_fast,.pagination_left,.pagination_left_fast,.current,.page-number{
   border-radius: 8px;
@@ -1207,6 +1214,11 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.page-numbers{
+  display: flex;
+  gap: 10px;
 }
 
 .step-links{
@@ -1512,10 +1524,10 @@ hr {
   padding: 16px 0px;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .com_btn a{
-  color: #FFF;
   text-align: center;
   font-family: "Plus Jakarta Sans";
   font-size: 14px;
@@ -1527,3 +1539,97 @@ hr {
 #area{
   padding-top: 20px;
 }
+
+.product_details_customer_about{
+  display: flex;
+  gap: 10px;
+}
+
+.product_details_customer{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+}
+
+.customer_detail h3{
+  color: var(--Greyscale-Grey-100, #38343D);
+  font-family: Cardo;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 7px;
+}
+
+.product_details_comment_container h5{
+  color: var(--Greyscale-Grey-100, #38343D);
+  padding-bottom: 22px;
+
+/* Heading/Heading 18 */
+font-family: Cardo;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.product_details_comment p{
+  color: var(--Greyscale-Grey-100, #38343D);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-left: 60px;
+  padding-bottom: 24px;
+}
+
+
+
+.customer_img{
+  border-radius: 54px;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+}
+
+.star_icon{
+  display: flex;
+  gap: 10px;
+}
+
+.product_detils_date p{
+  color: var(--Greyscale-Grey-100, #38343D);
+  text-align: right;
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.product_details_rating h4{
+  color: var(--Greyscale-Grey-100, #38343D);
+  font-family: Cardo;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.star-icon {
+  color: #EBEBEB;
+}
+
+.product_details_rating{
+  padding-bottom: 32px;
+}
+
+.product_details_rating h4{
+  padding-bottom: 9px;
+}
+
+.product_details_rating_stars{
+  display: flex;
+  gap: 15px;
+}
+
+#stars{
+  display: none;
+}
+
+
