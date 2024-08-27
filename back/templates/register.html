@@ -21,20 +21,22 @@
     <div class="registeryour">
       <h1>Register your account</h1>
       <p class="description">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
-      <form class="register-form">
-        <input type="text" placeholder="Last Name" required />
-        <input type="email" placeholder="Email*" required />
-        <input type="password" placeholder="Password*" required />
-        <input type="password" placeholder="Confirm Password" required />
-        <label class="checkbox-container">
-          <input type="checkbox" required />
-          <span>I agree to the terms and conditions</span>
-        </label>
-        <button id="creataccount">Creat account</button>
-      </form>
-      <p class="login-link">
-        Already have an account? <a href="#">Login</a>
-      </p>
+      <form action="{% url 'register' %}" method="post" class="register-form">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="User Name" required value="{{ form.username.value|default:'' }}" class="form-control" />
+        <input type="text" name="last_name" placeholder="Last Name" required value="{{ form.last_name.value|default:'' }}" class="form-control" />
+        <input type="email" name="email" placeholder="Email*" required value="{{ form.email.value|default:'' }}" class="form-control"/>
+        <input type="password" name="password" placeholder="Password*" required value="{{ form.password.value }}" class="form-control"/>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required value="{{ form.confirm_password.value }}" class="form-control" />
+        {% comment %} <label class="checkbox-container">
+            <input type="checkbox" required />
+            <span>I agree to the terms and conditions</span>
+        </label> {% endcomment %}
+        <button type="submit" id="creataccount">Create account</button>
+    </form>
+    <p class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+    </p>
     </div>
   </main>
 {% endblock %}

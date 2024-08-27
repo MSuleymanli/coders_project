@@ -573,31 +573,28 @@
                 <div class="faq__title">Frequently Asked Questions</div>
                 <div class="faq__items">
                     <div class="faq__item">
-                        <div class="faq__item__header"><span>How to buy a product?</span>
-                            <div class="agent__icon"><img src="../static/images/Icon - Plus.svg" alt=""></div>
-                        </div>
-                        <div class="faq__item__content"></div>
+                        <button class="faq__item__header">How to buy a product?
+                        </button>
+                        <div class="faq__item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore dolores explicabo architecto porro quis culpa doloribus sunt illum quaerat sint quidem magnam laboriosam, eos ex perferendis? Nam in quasi nisi!</div>
                     </div>
                     <hr>
                     <div class="faq__item">
-                        <div class="faq__item__header"><span>How can I make refund from your website?</span>
-                            <div class="agent__icon"><img src="../static/images/Icon - Plus.svg" alt=""></div>
-                        </div>
-                        <div class="faq__item__content"></div>
+                        <button class="faq__item__header">How can I make refund from your website?
+                        </button>
+                        <div class="faq__item__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vitae minus ullam. Esse, maiores! Cumque.</div>
                     </div>
                     <hr>
                     <div class="faq__item">
-                        <div class="faq__item__header"><span>How to buy a product?</span>
-                            <div class="agent__icon"><img src="../static/images/Icon - Plus.svg" alt=""></div>
-                        </div>
-                        <div class="faq__item__content"></div>
+                        <button class="faq__item__header">How to buy a product?
+                        </button>
+                        <div class="faq__item__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim pariatur aut dolor molestias unde in et quae deleniti ex provident totam aliquam, rerum delectus velit?</div>
                     </div>
                     <hr>
                     <div class="faq__item">
-                        <div class="faq__item__header"><span>How can I make refund from your website?</span>
-                            <div class="agent__icon"><img src="../static/images/Icon - Minus.svg" alt=""></div>
-                        </div>
-                        <div class="faq__item__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a
+                        <button class="faq__item__header">How can I make refund from your website?
+                        </button>
+                        <div class="faq__item__content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a
                             enim, consectetur cursus. At mattis nulla in pretium. Condimentum sagittis mauris augue
                             maecenas fusce commodo neque purus et. Integer eu amet at pretium id ultrices faucibus. In
                             vestibulum pretium, potenti molestie.</div>
@@ -608,7 +605,7 @@
         </div>
     </main>
 
- <footer>
+   <footer>
         <div class="container">
             <div class="footer_present">
                 <div class="footer_present_img">
@@ -707,7 +704,12 @@
         </div>
         </div>
     </footer>
-    <script src="{% static 'app.js' %}"></script>
+    
+    {% block js %}
+    <script src="{% static 'js/accordion.js' %}"></script>
+    {% endblock js %}
+
+    
     
 </body>
 </html>

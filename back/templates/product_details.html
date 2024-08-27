@@ -527,17 +527,21 @@
                         <p>2,124</p>
                     </div>
                 </div>
-            </div>
-            <div class="product_detail_list">
-                <div class="portfolio_list">
-                    <h2>Protfolio List</h2>
-                    <div class="portfolio_list_images">
-                        {% for portfolio in portfolios %}
-                            <a href="{% url 'portfolio_details' id=portfolio.id %}"><img src="{{ portfolio.portfolio_image.url }}" alt="Portfolio Image"></a>
-                        {% endfor %}
-                    </div>
-                    <div class="portfolio_list_btn">
-                        <a href="{% url 'our_portfolio' %}"><button>See All</button></a>
+
+                <div class="product_detail_list">
+                    <div class="portfolio_list">
+                        <h2>Portfolio List</h2>
+                        <div class="portfolio_list_images">
+                            {% for portfolio in portfolios %}
+                                <a href="{% url 'portfolio_details' id=portfolio.id %}"><img src="{{ portfolio.portfolio_image.url }}" alt="Portfolio Image"></a>
+                            {% endfor %}
+                        </div>
+                        <div class="portfolio_list_btn">
+                            <a href="{% url 'our_portfolio' %}"><button>See All</button></a>
+                        </div>
+                        <div class="portfolio_list_btn">
+                            <a href="https://buy.stripe.com/test_9AQ4ij3rlgazbuw4gi"><button>Buy</button></a>
+                          </div>
                     </div>
                 </div>
             </div>

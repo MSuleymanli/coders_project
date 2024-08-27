@@ -229,7 +229,19 @@ button:hover {
 .signin-container p {
     color: #666;
     margin-bottom: 30px;
-    font-family: Cardo;
+    margin-top: 19px;
+    text-align: center;
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.signin-container p a {
+    color: var(--Main-Colors-Prymary, #123E56);
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-weight: 400;   
 }
 
 #signinform {
@@ -257,9 +269,13 @@ textarea {
 #signinform .forgotpassword {
     align-self: flex-end;
     margin-bottom: 20px;
-    font-size: 12px;
     color: #007BFF;
     text-decoration: none;
+    color: var(--Main-Colors-Prymary, #123E56);
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+
 }
 
 #signinform .forgotpassword:hover {

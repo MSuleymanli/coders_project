@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block css %}
-  <link rel="stylesheet" href="{% static 'css/style_ayse.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/responsive_ayse.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />
 {% endblock %}
 {% block title %}
   FAQ
@@ -10,16 +10,14 @@
 
 {% block main %}
   <main>
-    <div class="faq-container">
+    <div class="cover">
       <div class="container">
-        <div class="faq1">
-          <h2>Frequently Asked Questions</h2>
-          <p>Home / FAQ</p>
-        </div>
+        <h1 class="covers_h1">Frequently Asked Questions</h1>
+        <h4><span class="covers_span">Home/</span>FAQ</h4>
       </div>
     </div>
 
-    <div class="accordion">
+    {% comment %} <div class="accordion">
       <div class="accordion-item">
         <div class="accordion-header" onclick="toggleAccordion(this)">
           <h3>How to buy a product?</h3>
@@ -56,6 +54,46 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus. At mattis nulla in pretium...</p>
         </div>
       </div>
-    </div>
+    </div> {% endcomment %}
+
+    <div class="container faq__container">
+      <section class="faq">
+          <div class="faq__title">Frequently Asked Questions</div>
+          <div class="faq__items">
+              <div class="faq__item">
+                  <button class="faq__item__header">How to buy a product?
+                  </button>
+                  <div class="faq__item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore dolores explicabo architecto porro quis culpa doloribus sunt illum quaerat sint quidem magnam laboriosam, eos ex perferendis? Nam in quasi nisi!</div>
+              </div>
+              <hr>
+              <div class="faq__item">
+                  <button class="faq__item__header">How can I make refund from your website?
+                  </button>
+                  <div class="faq__item__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vitae minus ullam. Esse, maiores! Cumque.</div>
+              </div>
+              <hr>
+              <div class="faq__item">
+                  <button class="faq__item__header">How to buy a product?
+                  </button>
+                  <div class="faq__item__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim pariatur aut dolor molestias unde in et quae deleniti ex provident totam aliquam, rerum delectus velit?</div>
+              </div>
+              <hr>
+              <div class="faq__item">
+                  <button class="faq__item__header">How can I make refund from your website?
+                  </button>
+                  <div class="faq__item__content">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a
+                      enim, consectetur cursus. At mattis nulla in pretium. Condimentum sagittis mauris augue
+                      maecenas fusce commodo neque purus et. Integer eu amet at pretium id ultrices faucibus. In
+                      vestibulum pretium, potenti molestie.</div>
+              </div>
+              <hr>
+          </div>
+      </section>
+  </div>
   </main>
+
 {% endblock %}
+{% block js %}
+<script src="{% static 'js/accordion.js' %}"></script>
+{% endblock js %}
