@@ -1,8 +1,8 @@
 from django import forms
-from .models import ContactSubmission
+
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
+from .models import ContactSubmission,Comment
 
 
 class ContactForm(forms.ModelForm):
@@ -30,6 +30,7 @@ class ContactForm(forms.ModelForm):
            if field_name in placeholders:
                field.widget.attrs['placeholder'] = placeholders[field_name]
                
+
 # Register & Login Forms
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=100, required=True,widget=forms.TextInput(attrs={'placeholder': 'Username','class': 'form-control', 'name': 'username'}))
@@ -69,3 +70,11 @@ class RegisterForm(forms.ModelForm):
     
 
         
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model=Comment
+        fields=['com_name','com_email','com_message','com_rate']
+    
+
