@@ -45,9 +45,7 @@ urlpatterns = [
     path('logout/', logout__view, name='logout'),
     path('faq/', faq, name='faq'),
     path('contact_us/', contact_us, name='contact_us'),
-
     path('contact/',contact,name='contact'),
-    path('pro-api/',include('main.api.urls'))
 
 ]
 

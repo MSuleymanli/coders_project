@@ -39,22 +39,22 @@
                             <li><a href="{% url 'our_portfolio' %}">Portfolio</a></li>
                             <li><a href="{% url 'agent' %}">Our Agent</a></li>
                             <li><a href="{% url 'services' %}">Our Service</a></li>
-                            <li><a href="">Wishlist</a></li>
+                            <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                             <li><a href="{% url 'google_map' %}">Location</a></li>
-                            <li><a href="">FAQ</a></li>
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
                         </ul>
                     </div>
                     <a href="{% url 'contact' %}">Contacts</a>
                 </div>
                 <div class="navbar_registration">
-                    <a href="" class="navbar_buy_icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="{% url 'my_cart' %}" class="navbar_buy_icon"><i class="fa-solid fa-cart-shopping"></i></a>
                     <div class="navbar_buy_icon" id="navbar_hamburger_menu">
                         <div class="line1"></div>
                         <div class="line2"></div>
                         <div class="line3"></div>
                     </div>
-                    <a href="">Sign in</a>
-                    <a href=""><button>Log in</button></a>
+                    <a href="{% url 'register' %}">Sign in</a>
+                    <a href="{% url 'login' %}"><button>Log in</button></a>
                 </div>
             </div>
         </div>
@@ -120,15 +120,15 @@
                         <a href="">Home</a>
                         <a href="{% url 'about' %}">About</a>
                         <a href="{% url 'shop' %}">Shop</a>
-                        <a href="">Wishlist</a>
+                        <a href="{% url 'wishlist' %}">Wishlist</a>
                         <a href="{% url 'our_portfolio' %}">Portfolio</a>
                     </div>
                     <div class="footer_about_service">
                         <p class="footer_about_title">Service</p>
-                        <a href="">Login</a>
-                        <a href="">Register</a>
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'register' %}">Register</a>
                         <a href="{% url 'google_map' %}">Location</a>
-                        <a href="">FAQ</a>
+                        <a href="{% url 'faq' %}">FAQ</a>
                         <a href="{% url 'news' %}">News</a>
                     </div>
                 </div>
