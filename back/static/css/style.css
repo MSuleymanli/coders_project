@@ -52,6 +52,9 @@
   gap: 10px;
 }
 
+.page-number {
+  cursor: pointer;
+}
 
 
 #narrow {
