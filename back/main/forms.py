@@ -49,17 +49,17 @@ class RegisterForm(forms.ModelForm):
         model = User
         fields = ('username', 'last_name', 'email')
 
-    # def clean_email(self):
-    #     email = self.cleaned_data.get('email')
-    #     if User.objects.filter(email=email).exists():
-    #         raise forms.ValidationError("This email is already registered.")
-    #     return email
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email is already registered.")
+        return email
     
-    # def clean_username(self):
-    #     username = self.cleaned_data['username']
-    #     if len(username) <= 3:
-    #         raise forms.ValidationError("Username is too short")
-    #     return username 
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if len(username) <= 3:
+            raise forms.ValidationError("Username is too short")
+        return username 
 
     def clean_password(self):
         password = self.cleaned_data.get("password")

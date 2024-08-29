@@ -41,6 +41,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+    
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
@@ -48,6 +50,8 @@ class ProductImage(models.Model):
     
     class Meta:
         ordering = ['id']
+        
+        
    
 class Agent(models.Model):
     agent_image=models.FileField(upload_to="product_image",blank=True,null=True,verbose_name="Product Image")   
@@ -117,6 +121,19 @@ class Comment(models.Model):
     
     def __str__(self):
 
-        return self.com_name
+        return self.com_name   
+    
+    
+class Wishlist(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    wish_image=models.FileField(upload_to="wish_image",blank=True,null=True,verbose_name="Wish Image")
+    wish_name=models.CharField(max_length=20,blank=True,verbose_name="Wish Name")
+    wish_price=models.CharField(max_length=20,blank=True,null=True,verbose_name="Wish Price")
+    
+    def __str__(self):
+
+        return self.wish_name   
+    
+    
 
     

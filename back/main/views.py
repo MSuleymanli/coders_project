@@ -37,6 +37,7 @@ def news(request):
 def news_details(request):
     return render(request, "news__details.html")
 
+@login_required(login_url="login")
 def wishlist(request):
     return render(request,"wishlist.html")
 
@@ -173,7 +174,7 @@ def register__view(request):
     
         login(request, newUser)
         messages.success(request, "Siz uğurla qeydiyyatdan keçdiniz...")
-        return redirect("homepage")
+        return redirect("about")
     
     context = {"form": form}
     return render(request, "register.html", context)
@@ -203,5 +204,5 @@ def login__view(request):
 
 def logout__view(request):
     logout(request)
-    return redirect("homepage")
+    return redirect("shop")
 

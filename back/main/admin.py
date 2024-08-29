@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Portfolio, Product, Agent, Service, ProductImage,Customer,PortfolioImage, ContactSubmission,Comment
-
+from .models import Portfolio, Product, Agent, Service, ProductImage,Customer,PortfolioImage, ContactSubmission,Comment,Wishlist
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
@@ -25,6 +24,11 @@ class PortfolioImageInline(admin.TabularInline):
 class PortfolioAdmin(admin.ModelAdmin):
     inlines = [PortfolioImageInline]
     list_display = ('portfolio_name', 'created_date')
+    
+
+    
+    
+    
 
 admin.site.register(Portfolio, PortfolioAdmin) 
 admin.site.register(Product, ProductAdmin)
@@ -33,3 +37,5 @@ admin.site.register(Service)
 admin.site.register(Customer)
 admin.site.register(ContactSubmission)
 admin.site.register(Comment)
+admin.site.register(Wishlist)
+

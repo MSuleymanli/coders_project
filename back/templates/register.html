@@ -21,7 +21,7 @@
     <div class="registeryour">
       <h1>Register your account</h1>
       <p class="description">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
-      <form action="{% url 'register' %}" method="post" class="register-form">
+      <!-- <form action="{% url 'register' %}" method="post" class="register-form">
         {% csrf_token %}
         <input type="text" name="username" placeholder="User Name" required value="{{ form.username.value|default:'' }}" class="form-control" />
         <input type="text" name="last_name" placeholder="Last Name" required value="{{ form.last_name.value|default:'' }}" class="form-control" />
@@ -33,7 +33,7 @@
             <span>I agree to the terms and conditions</span>
         </label> {% endcomment %}
         <button type="submit" id="creataccount">Create account</button>
-    </form>
+    </form> -->
     <p class="login-link">
         Already have an account? <a href="{% url 'login' %}">Login</a>
     </p>
