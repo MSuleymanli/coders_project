@@ -1,0 +1,588 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Product Details {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+<link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />     
+{% endblock css %}
+{% block main %}
+<main>
+    <div class="cover">
+        <div class="container">
+
+            <h1 class="covers_h1">Product Details</h1>
+            <h4><span class="covers_span">Home/</span>Product Details</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product_detail_img">
+            <img src="{{ product.product_image.url }}" alt="">
+            <div class="product_detail_img_status">
+                <p>{{product.product_status}}</p>
+            </div>
+        </div>
+        <div class="product_detail_container">
+            <div class="product_detail_container_about">
+                <div class="product_detail_info">
+                    <h2>{{product.product_name}}</h2>
+                    <div class="product_detail_info_location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>{{product.product_location}}</p>
+                    </div>
+                    <div class="product_detail_info_text">
+                        <h2>Descriptions</h2>
+                        <p>{{product.product_about}}</p>
+                    </div>
+                    <div class="product_container_property_detail">
+                        <h5>Property Detail</h5>
+                        <div class="property_detail_types">
+                            <div class="property_detail_type">
+                                <h5>Property ID</h5>
+                                <p>{{product.id}}</p>
+                            </div>
+                            <div class="property_detail_type">
+                                <h5>Home Area</h5>
+                                <p>{{product.product_ft}} sqft</p>
+                            </div>
+                            <div class="property_detail_type">
+                                <h5>Rooms</h5>
+                                <p>{{product.product_bed_count}}</p>
+                            </div>
+                            <div class="property_detail_type">
+                                <h5>Baths</h5>
+                                <p>{{product.product_bath_count}}</p>
+                            </div>
+                            <div class="property_detail_type">
+                                <h5>Year Build</h5>
+                                <p>{{product.product_build_year}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property_detail_gallery">
+                        <h5>Gallery</h5>
+                        <div class="gallery_image_bottom">
+                            {% for image in product.images.all %}
+                                <img src="{{ image.image.url }}" alt="Product Image" />
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="product_detail_amenties">
+                        <h5>Amenities</h5>
+
+                        <div class="amenties_checkbox_section">
+                            <div class="amenties_checkbox_type">
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Air Conditioner1
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Gym
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Microwave
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Swimming Pool
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Wifi
+                                </label>
+                            </div>
+                            <div class="amenties_checkbox_type">
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Air Conditioner2
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Gym
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Microwave
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Swimming Pool
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Wifi
+                                </label>
+                            </div>
+                            <div class="amenties_checkbox_type">
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Air Conditioner3
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Gym
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Microwave
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Swimming Pool
+                                </label>
+                                <label class="amenties_checkbox">
+                                    <input type="checkbox" class="checkbox-input">
+                                    <span class="payment_custom-checkbox">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 20 20" fill="none">
+                                            <path
+                                                d="M14.34 0C17.73 0 20 2.38 20 5.92V14.091C20 17.62 17.73 20 14.34 20H5.67C2.28 20 0 17.62 0 14.091V5.92C0 2.38 2.28 0 5.67 0H14.34ZM14.18 7C13.84 6.66 13.28 6.66 12.94 7L8.81 11.13L7.06 9.38C6.72 9.04 6.16 9.04 5.82 9.38C5.48 9.72 5.48 10.27 5.82 10.62L8.2 12.99C8.37 13.16 8.59 13.24 8.81 13.24C9.04 13.24 9.26 13.16 9.43 12.99L14.18 8.24C14.52 7.9 14.52 7.35 14.18 7Z"
+                                                fill="#E3E2E2" />
+                                        </svg>
+                                    </span>
+                                    Wifi
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product_detail_location">
+                        <h5>Location</h5>
+                        <div id="map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24732.667897779636!2d45.416448!3d39.206912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x401433002c2b0f1d%3A0x8d45203a423fbde4!2sBolt%20Taksi%20Xidm%C9%99ti!5e0!3m2!1str!2saz!4v1721797634237!5m2!1str!2saz"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="product_details_comment_container">
+                        <h5>Customers Review</h5>
+                        
+                        {% for comment in comments  %}
+                        <div class="customers_comment">
+                            <div class="product_details_customer">
+                                <div class="product_details_customer_about">
+                                    <div class="customer_img">
+                                        <img src="{% static './assets/person.png' %}" alt="">
+                                    </div>
+                                    <div class="customer_detail">
+                                        <h3>{{comment.com_name}}</h3>
+                                        <div class="star_icon">
+                                            {% for _ in comment.full_star_range %}
+                                                <img src="{% static 'assets/star.png' %}" alt="">
+                                            {% endfor %}
+                                            {% for _ in comment.empty_star_range %}
+                                                <img src="{% static 'assets/star_empty.png' %}" alt="">
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_detils_date">
+                                    <p>{{ comment.com_created|date:"m/d/y" }}</p>
+                                </div>
+                            </div>
+                            <div class="product_details_comment">
+                                <p>{{comment.com_message}}</p>
+                            </div><hr>
+                        </div>
+                        {% endfor %}
+                            
+                    </div>
+                        
+                    <div class="agent__details__contact__container">
+                        <div class="contact__container">
+                            <div class="contact__title">Add a Review</div>
+                            <div class="product_details_rating">
+                                <h4>Your Ratings</h4>
+                                <div class="product_details_rating_stars">
+                                    <button style="background: none; border: none; cursor: pointer;" onclick="setStar(1)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button style="background: none; border: none; cursor: pointer"  onclick="setStar(2)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button  style="background: none; border: none; cursor: pointer"  onclick="setStar(3)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button style="background: none; border: none; cursor: pointer"  onclick="setStar(4)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                    <button style="background: none; border: none; cursor: pointer"  onclick="setStar(5)">
+                                        <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                                            <g clip-path="url(#clip0_73_790)">
+                                              <path d="M26.3063 10.1173C26.1336 9.58326 25.6599 9.20394 25.0995 9.15343L17.4869 8.4622L14.4767 1.41652C14.2548 0.900162 13.7493 0.565918 13.1876 0.565918C12.626 0.565918 12.1205 0.900162 11.8986 1.41773L8.88835 8.4622L1.27459 9.15343C0.71517 9.20514 0.242681 9.58326 0.0690187 10.1173C-0.104643 10.6514 0.0557375 11.2372 0.478925 11.6064L6.23311 16.6529L4.53633 24.1272C4.41218 24.6767 4.62548 25.2448 5.08147 25.5744C5.32657 25.7515 5.61332 25.8417 5.90249 25.8417C6.15181 25.8417 6.39913 25.7745 6.62108 25.6416L13.1876 21.717L19.7518 25.6416C20.2321 25.9306 20.8376 25.9043 21.2926 25.5744C21.7488 25.2438 21.9619 24.6755 21.8377 24.1272L20.141 16.6529L25.8951 11.6074C26.3183 11.2372 26.4799 10.6524 26.3063 10.1173Z" fill="currentColor"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_73_790">
+                                                <rect width="26.375" height="26.375" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </button>
+                                      
+                                </div>
+                            </div>
+                            <div class="contact__form">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input id="stars" type="text" name="com_rate" placeholder="value" value="{{form.com_rate.value}}" class="form-control">
+                                    
+                                    {{ form.com_name.errors }}
+                                    <input type="text" name="com_name" placeholder="Your Name" value="{{ form.com_name.value|default:'' }}" class="form-control">
+                                    
+                                    {{ form.com_email.errors }}
+                                    <input type="email" name="com_email" id="agent__email" placeholder="Your Email" value="{{ form.com_email.value|default:'' }}" class="form-control">
+                                    
+                                    {{ form.com_message.errors }}
+                                    <textarea name="com_message" id="area" cols="94" rows="5" placeholder="Enter Message" class="form-control">{{ form.com_message.value|default:'' }}</textarea>
+                                    
+                                    <div class="com_btn_container">
+                                        <button class="com_btn" type="submit">Submit</button>
+                                    </div>
+                                    
+                                </form>
+        
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="porudct_detail_relate">
+                <h5>Relate Properties</h5>
+                <div class="about_us_featured_properties_cards">
+                    {% for product in promo_product  %}
+                    <div class="about_us_featured_properties_card">
+                        <div class="about_us_featured_properties_card_img">
+                            <img src="{{ product.product_image.url }}" alt="">
+                            <form action="" method="POST" id="like-from">
+                              {% csrf_token %}
+                              <div class="card_heart">
+                                <button type="submit" name="product_id" value="{{product.id}}" class="btn btn-info">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+                                    <!-- Heart icon path -->
+                                  </svg>
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+
+                        <div class="about_us_featured_properties_card_section">
+                            <div class="about_us_featured_properties_card_status">
+                                <p>{{product.product_status}}</p>
+                            </div>
+                            <h3>{{product.product_name}}</h3>
+                            <div class="about_us_featured_properties_location">
+                                <div class="about_us_featured_properties_location_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M10 0.833374C5.8645 0.833374 2.5 4.10557 2.5 8.12762C2.5 12.7624 5.59225 15.5586 7.64313 17.4092C8.29563 18.0259 9.15137 18.3334 10.0052 18.3334C10.8573 18.3334 11.7074 18.027 12.3505 17.4154C14.401 15.5648 17.5 12.7671 17.5 8.12762C17.5 4.10557 14.1355 0.833374 10 0.833374ZM10 11.0453C8.34588 11.0453 7 9.73637 7 8.12762C7 6.51888 8.34588 5.20992 10 5.20992C11.6541 5.20992 13 6.51888 13 8.12762C13 9.73637 11.6541 11.0453 10 11.0453Z"
+                                            fill="#123E56" />
+                                    </svg>
+                                </div>
+                                <div class="about_us_featured_properties_location_text">
+                                    <p>{{product.product_location}}</p>
+                                </div>
+                            </div>
+                            <div class="about_us_featured_properties_card_info">
+                                <div class="bed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                        viewBox="0 0 14 14" fill="none">
+                                        <g clip-path="url(#clip0_85_884)">
+                                            <path
+                                                d="M13.9773 9.4331C13.9988 9.37535 14.0064 9.31177 13.9866 9.2476L12.8333 5.49967V2.0417C12.8333 1.23787 12.1794 0.583374 11.375 0.583374H2.625C1.82057 0.583374 1.16668 1.23787 1.16668 2.0417V5.4997L0.0134258 9.2476C-0.00639844 9.31117 0.00117578 9.37477 0.02275 9.4331C0.00875 9.49495 0 9.55852 0 9.62502V11.9583V13.125C0 13.286 0.130676 13.4167 0.291676 13.4167H1.45835C1.61932 13.4167 1.75 13.286 1.75 13.125V12.25H12.25V13.125C12.25 13.286 12.3807 13.4167 12.5417 13.4167H13.7084C13.8694 13.4167 14 13.286 14 13.125V11.9583V9.62502C14 9.55852 13.9913 9.49495 13.9773 9.4331ZM1.75 2.0417C1.75 1.55927 2.14257 1.1667 2.625 1.1667H11.375C11.8574 1.1667 12.25 1.55927 12.25 2.0417V5.25002H11.4572L11.1854 4.1627C11.0874 3.77245 10.738 3.50002 10.3361 3.50002H8.45832C7.9759 3.50002 7.58332 3.8926 7.58332 4.37502V5.25002H6.41665V4.3756C6.41665 3.89317 6.02407 3.5006 5.54165 3.5006H3.6639C3.26197 3.5006 2.91257 3.7736 2.81457 4.16327L2.54275 5.25002H1.75V2.0417ZM10.8582 5.72135C10.8022 5.79252 10.7182 5.83335 10.6278 5.83335H8.45832C8.2979 5.83335 8.16665 5.70267 8.16665 5.54167V4.37502C8.16665 4.21402 8.2979 4.08335 8.45832 4.08335H10.3366C10.4708 4.08335 10.5869 4.17377 10.6196 4.30385L10.9113 5.47052C10.9334 5.5586 10.9142 5.6496 10.8582 5.72135ZM5.83393 4.37502V5.53877C5.83393 5.53995 5.83335 5.54052 5.83335 5.5417C5.83335 5.54227 5.83335 5.54287 5.83335 5.54287C5.83278 5.7033 5.7021 5.83337 5.54228 5.83337H3.37285C3.28185 5.83337 3.19843 5.79255 3.14243 5.72137C3.08643 5.64962 3.06718 5.55805 3.08935 5.47055L3.38103 4.30387C3.4137 4.17437 3.52978 4.08337 3.66453 4.08337H5.54228C5.70268 4.08335 5.83393 4.21402 5.83393 4.37502ZM1.67357 5.83335H2.5515C2.58243 5.92085 2.62268 6.00485 2.68157 6.08067C2.84957 6.29417 3.101 6.41667 3.37225 6.41667H5.54168C5.92143 6.41667 6.24225 6.17167 6.363 5.83335H7.637C7.75775 6.17227 8.07857 6.41667 8.45832 6.41667H10.6278C10.899 6.41667 11.1498 6.29417 11.3178 6.08067C11.3767 6.00542 11.417 5.92085 11.4479 5.83335H12.3264L13.2271 8.76052C13.1932 8.75645 13.16 8.75002 13.125 8.75002H0.875C0.84 8.75002 0.80675 8.75645 0.7735 8.76052L1.67357 5.83335ZM1.16668 12.8333H0.583324V12.25H1.16665V12.8333H1.16668ZM13.4167 12.8333H12.8334V12.25H13.4167V12.8333ZM13.4167 11.6667H0.583324V9.62502C0.583324 9.46402 0.714574 9.33335 0.875 9.33335H13.125C13.2854 9.33335 13.4167 9.46402 13.4167 9.62502V11.6667Z"
+                                                fill="#123E56" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_85_884">
+                                                <rect width="14" height="14" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p>{{product.product_bed_count}}</p>
+                                </div>
+                                <div class="bath">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                        viewBox="0 0 14 14" fill="none">
+                                        <g clip-path="url(#clip0_85_880)">
+                                            <path
+                                                d="M13.125 6.41699H1.45832V1.49949C1.45832 1.16699 1.7675 0.875316 2.1204 0.875316H3.33957C3.68375 0.875316 3.96082 1.15532 3.96375 1.49657C3.395 1.63949 2.91668 2.16449 2.91668 2.71864V3.50032C2.91668 3.66074 3.04793 3.79199 3.20835 3.79199H5.25C5.41043 3.79199 5.54168 3.66074 5.54168 3.50032V2.71867C5.54168 2.15574 5.09543 1.63949 4.5471 1.49949C4.5471 0.834492 4.00753 0.291992 3.3396 0.291992H2.12043C1.44668 0.291992 0.875 0.846168 0.875 1.49949V6.41699C0.39375 6.41407 0.00292578 6.80492 0 7.28617C0 7.53699 0.105 7.77324 0.291676 7.93949V9.46782C0.291676 10.6549 0.819602 11.6728 1.67418 12.3349L1.19585 13.2857C1.12293 13.4286 1.18128 13.6036 1.3271 13.6765C1.47003 13.7495 1.64503 13.6911 1.71793 13.5453L2.1671 12.6499C2.75628 12.9649 3.41543 13.1282 4.08335 13.1224H9.91668C10.5846 13.1282 11.2437 12.9649 11.8329 12.6499L12.2821 13.5453C12.355 13.6882 12.53 13.7465 12.6729 13.6765C12.8159 13.6065 12.8742 13.4286 12.8042 13.2857L12.3259 12.332C13.1804 11.6728 13.7084 10.652 13.7084 9.46489V7.93657C13.8921 7.77614 14 7.53989 14 7.29199C14 6.80784 13.6092 6.41699 13.125 6.41699ZM4.25543 2.04199C4.6025 2.04199 4.95835 2.38324 4.95835 2.71867V3.20867H3.5V2.71867C3.5 2.39492 3.89375 2.04199 4.25543 2.04199ZM13.125 9.46784C13.125 11.2208 11.7454 12.542 9.91668 12.542H4.08332C2.25457 12.542 0.875 11.2207 0.875 9.46784V8.16702H13.125V9.46784ZM13.125 7.58367H0.88375C0.737926 7.58367 0.606676 7.47867 0.58625 7.33574C0.56 7.15492 0.7 7.00032 0.875 7.00032H13.1163C13.2621 7.00032 13.3933 7.10532 13.4137 7.24824C13.44 7.42909 13.3 7.58367 13.125 7.58367Z"
+                                                fill="#123E56" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_85_880">
+                                                <rect width="14" height="14" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p>{{product.product_bed_count}}</p>
+                                </div>
+                                <div class="sq">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                        viewBox="0 0 14 14" fill="none">
+                                        <g clip-path="url(#clip0_85_868)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M0 3.68426H0.736797V1.25542L5.12567 5.64429L5.6466 5.12323L1.26028 0.736797H3.68426V0H0V3.68426ZM14 3.68426H13.2632V1.25989L8.87688 5.64625L8.35596 5.12519L12.7443 0.736797H10.3159V0H14V3.68426ZM3.68426 13.9996H0V10.3154H0.736797V12.7397L5.12006 8.35645L5.64112 8.87751L1.25587 13.2628H3.68426V13.9996ZM14 13.9996H10.3159V13.2628H12.7391L8.35669 8.88043L8.87775 8.35938L13.2632 12.7449V10.3154H14V13.9996Z"
+                                                fill="#123E56" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_85_868">
+                                                <rect width="14" height="14" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p>{{product.product_ft}} ft</p>
+                                </div>
+
+                            </div>
+                            <div class="about_us_featured_properties_card_sale">
+                                <div class="about_us_featured_properties_card_price">
+                                    <p>${{product.product_price}}<span>/ {{product.product_type}}</span></p>
+                                </div>
+                                <div class="about_us_featured_properties_card_button">
+                                    <a href="{% url 'product_details' product.id %}">
+                                        <button>See Detail</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="product_detail_container_list">
+            <div class="product_detail_filter_type">
+                <h2>Top Categories</h2>
+                <hr>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">House</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">Apartment</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">Single Family</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+                <div class="payment_checkbox_container">
+                    <div class="shop_filter_info">
+                        <label class="payment_checkbox_label">Studio</label>
+                        <p>2,124</p>
+                    </div>
+                </div>
+
+                <div class="product_detail_list">
+                    <div class="portfolio_list">
+                        <h2>Portfolio List</h2>
+                        <div class="portfolio_list_images">
+                            {% for portfolio in portfolios %}
+                                <a href="{% url 'portfolio_details' id=portfolio.id %}"><img src="{{ portfolio.portfolio_image.url }}" alt="Portfolio Image"></a>
+                            {% endfor %}
+                        </div>
+                        <div class="portfolio_list_btn">
+                            <a href="{% url 'our_portfolio' %}"><button>See All</button></a>
+                        </div>
+                        <div class="portfolio_list_btn">
+                            <a href="https://buy.stripe.com/test_9AQ4ij3rlgazbuw4gi"><button>Buy</button></a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    function setStar(star) {
+        const starInput = document.querySelector('#stars')
+        starInput.value = star
+
+        const allStars = document.querySelectorAll('.star-icon')
+
+        for(let star of allStars) {
+            star.style.color = '#EBEBEB'
+        }
+
+        for(let i = 0; i < star; i++) {
+            allStars[i].style = 'color: #FFC107'
+        }
+    }
+
+
+    {% comment %} Like Functionality {% endcomment %}
+    $(document).ready(function() {
+        $('#like-form').submit(function(event) {
+          event.preventDefault();
+          var form = $(this);
+          var product_id = $(this).find('button[name="product_id"]').val();
+          $.ajax({
+            type: 'GET',
+            url: '{% url "product_details" product.id %}',
+            data: {'like': true, 'product_id': product_id},
+            success: function(data) {
+              alert('Liked!');
+            }
+          });
+        });
+      });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock main %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style_ayse.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/responsive_ayse.css' %}" />
+{% endblock %}
+{% block title %}
+Services
+{% endblock %}
+
+{% block main %}
+  <main>
+    <div class="breadcrumb-container">
+      <div class="container">
+        <div class="breadcrumb">
+          <h2>What We Do</h2>
+          <p>Home / Service</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <section class="our-services">
+        <h2>Our Service</h2>
+        <div class="service-cards">
+          <div class="service-card">
+            <div class="icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3>Property Management</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>Home Buying</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Consulting Service</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3>Mortgage Service</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h3>Home Selling</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.</p>
+          </div>
+          <div class="service-card">
+            <div class="icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Escrow Service</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim, consectetur cursus.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+{% endblock %}

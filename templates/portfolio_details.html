@@ -1,0 +1,83 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Portfolio Details{% endblock title %} 
+
+{% block main %}
+<main>
+  <div class="cover">
+    <div class="container">
+      <h1 class="covers_h1">Portfolio Details</h1>
+      <h4><span class="covers_span">Home/</span>Portfolio Details</h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="portfolio_details_section">
+      <div class="portfolio_details">
+        <img src="{{ portfolio_details.portfolio_image.url }}" alt="">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim,
+          consectetur cursus. At mattis nulla in pretium. Condimentum sagittis
+          mauris augue maecenas fusce commodo neque purus et. Integer eu amet at
+          pretium id ultrices faucibus. In vestibulum pretium, potenti molestie.
+        </p>
+        <br /><br />
+        <p>
+          Ac, sit tincidunt commodo tincidunt. Mattis metus purus quam fames in
+          vitae fringilla tempor. Non in in sodales suspendisse egestas integer
+          iaculis semper ultrices. Lectus dui in pulvinar orci ut fermentum
+          tortor mi, at. In adipiscing arcu, consectetur lacus eu. Non, augue
+          integer augue accumsan ante. Ultricies libero condimentum amet, enim
+          sit neque nascetur mollis cursus. Pellentesque tincidunt libero, in
+          pharetra, nunc. Tincidunt egestas amet tincidunt consequat in sed arcu
+          turpis neque. <br />Nam elementum aliquet integer sit condimentum sed.
+          Pulvinar aliquam nascetur maecenas risus vestibulum eu. Pellentesque
+          non molestie est mauris tristique pretium. Congue ac et neque
+          vulputate et morbi gravida. Ut semper odio dictumst vel nibh urna.
+          Cras blandit cursus nam nulla. Montes, bibendum mauris dui
+          sollicitudin est purus, hendrerit. Convallis in nunc a, commodo
+          euismod.
+        </p>
+
+        <div class="portfolio_details_images">
+          {% for image in portfolio_details.images.all %}
+            <img src="{{ image.image.url }}" alt="Portfolio Image" />
+          {% endfor %}
+
+          {% comment %} <img src="{% static './assets/portdetimg2.png' %}" alt="" />
+          <img src="{% static './assets/portdetimg3.png' %}" alt="" /> {% endcomment %}
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id a enim,
+          consectetur cursus. At mattis nulla in pretium. Condimentum sagittis
+          mauris augue maecenas fusce commodo neque purus et. Integer eu amet at
+          pretium id ultrices faucibus. In vestibulum pretium, potenti molestie.
+          <br /><br />Ac, sit tincidunt commodo tincidunt. Mattis metus purus
+          quam fames in vitae fringilla tempor. Non in in sodales suspendisse
+          egestas integer iaculis semper ultrices. Lectus dui in pulvinar orci
+          ut fermentum tortor mi, at. In adipiscing arcu, consectetur lacus eu.
+          Non, augue integer augue accumsan ante. Ultricies libero condimentum
+          amet, enim sit neque nascetur mollis cursus. Pellentesque tincidunt
+          libero, in pharetra, nunc. Tincidunt egestas amet tincidunt consequat
+          in sed arcu turpis neque. <br />Nam elementum aliquet integer sit
+          condimentum sed. Pulvinar aliquam nascetur maecenas risus vestibulum
+          eu. Pellentesque non molestie est mauris tristique pretium. Congue ac
+          et neque vulputate et morbi gravida. Ut semper odio dictumst vel nibh
+          urna. Cras blandit cursus nam nulla. Montes, bibendum mauris dui
+          sollicitudin est purus, hendrerit. Convallis in nunc a, commodo
+          euismod.
+        </p>
+      </div>
+      <div class="portfolio_list">
+        <h2>Protfolio List</h2>
+        <div class="portfolio_list_images">
+          {% for portfolio in portfolios  %}
+          <a href="{% url 'portfolio_details' id=portfolio.id %}"><img src="{{ portfolio.portfolio_image.url }}" alt=""></a>
+          {% endfor %}
+        <div class="portfolio_list_btn">
+          <a href="{% url 'our_portfolio' %}"><button>See All</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock main %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/style_ayse.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/responsive_ayse.css' %}" />
+{% endblock %}
+{% block title %}
+  Register
+{% endblock %}
+
+{% block main %}
+  <main>
+    <div class="breadcrumb-container">
+      <div class="container">
+        <div class="breadcrumb">
+          <h2>Register</h2>
+          <p>Home / Register</p>
+        </div>
+      </div>
+    </div>
+    <div class="registeryour">
+      <h1>Register your account</h1>
+      <p class="description">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
+      <form action="{% url 'register' %}" method="post" class="register-form">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="User Name" required value="{{ form.username.value|default:'' }}" class="form-control" />
+        <input type="text" name="last_name" placeholder="Last Name" required value="{{ form.last_name.value|default:'' }}" class="form-control" />
+        <input type="email" name="email" placeholder="Email*" required value="{{ form.email.value|default:'' }}" class="form-control"/>
+        <input type="password" name="password" placeholder="Password*" required value="{{ form.password.value }}" class="form-control"/>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required value="{{ form.confirm_password.value }}" class="form-control" />
+       <label class="checkbox-container">
+            <input type="checkbox" required />
+            <span>I agree to the terms and conditions</span>
+        </label>
+        <button type="submit" id="creataccount">Create account</button>
+    </form>
+    <p class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+    </p>
+    </div>
+  </main>
+{% endblock %}

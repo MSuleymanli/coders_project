@@ -1,0 +1,645 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Shop{% endblock title %}
+
+{% block main %}
+<main>
+    <div class="cover">
+        <div class="container">
+
+            <h1 class="covers_h1">Shop</h1>
+            <h4><span class="covers_span">Home/</span>Shop</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="shop_page">
+            <div class="shop_products">
+                <div class="about_us_featured_properties_cards">
+                    
+                    
+                    <!-- SCRIPT -->
+                     
+
+
+
+
+                </div>
+                <div class="pagination">
+                    <span class="step-links">
+                        <div class="step-links">
+                            <button class="pagination_left_fast"><i class="fa-solid fa-backward"></i></button>
+                            <button class="pagination_left"><i class="fa-solid fa-caret-left"></i></button>
+                            
+                            <div id="page-numbers"></div>
+
+                            <button class="pagination_right"><i class="fa-solid fa-caret-right"></i></button>
+                            <button class="pagination_right_fast"><i class="fa-solid fa-forward-fast"></i></button>
+                        </div>
+                    </span>
+                </div> 
+            </div>
+            <form method="get" id="filter-form" class="shop_filter">
+                {% csrf_token %}
+                <div id="property-type" class="shop_filter_type">
+                    <h2>Property Type</h2>
+                    <hr>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                House
+                            </label>
+                            <p>{{ property_counts.House }}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Apartment
+                            </label>
+                            <p>{{ property_counts.Apartment }}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Single Family
+                            </label>
+                            <p>{{ property_counts.Single_Family }}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Studio
+                            </label>
+                            <p>{{ property_counts.Studio }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="amenities" class="shop_filter_type">
+                    <h2>Amenities</h2>
+                    <hr>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Dishwasger
+                            </label>
+                            <p>{{amenities_counts.Dishwasger}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Floor Coverings
+                            </label>
+                            <p>{{amenities_counts.Floor_Coverings}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Internet
+                            </label>
+                            <p>{{amenities_counts.Internet}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Build Wardrobes
+                            </label>
+                            <p>{{amenities_counts.Build_Wardrobes}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Supermarket
+                            </label>
+                            <p>{{amenities_counts.Supermarket}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Kids Zone
+                            </label>
+                            <p>{{amenities_counts.Kids_Zone}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="price-range" class="shop_filter_type">
+                    <h2>Price Range</h2>
+                    <hr>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Low Budget
+                            </label>
+                            <p>{{range_counts.Low_Budget}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Medium
+                            </label>
+                            <p>{{range_counts.Medium}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                High Budget
+                            </label>
+                            <p>{{range_counts.High_Budget}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="beth-patch" class="shop_filter_type">
+                    <h2>Bed/Bath</h2>
+                    <hr>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Single
+                            </label>
+                            <p>{{beth_patch_counts.Single}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Double
+                            </label>
+                            <p>{{beth_patch_counts.Double}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Up to 3
+                            </label>
+                            <p>{{beth_patch_counts.Up_to_3}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Up to 5
+                            </label>
+                            <p>{{beth_patch_counts.Up_to_5}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="status" class="shop_filter_type">
+                    <h2>Category</h2>
+                    <hr>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Buy
+                            </label>
+                            <p>{{status_counts.Buy}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Rent
+                            </label>
+                            <p>{{status_counts.Rent}}</p>
+                        </div>
+                    </div>
+                    <div class="payment_checkbox_container">
+                        <div class="shop_filter_info">
+                            <label class="payment_checkbox_label">
+                                <input type="checkbox" class="checkbox-input">
+                                <span class="payment_custom-checkbox">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none">
+                                        <path
+                                            d="M16.3439 1.99988C19.7339 1.99988 22.0039 4.37988 22.0039 7.91988V16.0909C22.0039 19.6199 19.7339 21.9999 16.3439 21.9999H7.67391C4.28391 21.9999 2.00391 19.6199 2.00391 16.0909V7.91988C2.00391 4.37988 4.28391 1.99988 7.67391 1.99988H16.3439ZM16.1839 8.99988C15.8439 8.65988 15.2839 8.65988 14.9439 8.99988L10.8139 13.1299L9.06391 11.3799C8.72391 11.0399 8.16391 11.0399 7.82391 11.3799C7.48391 11.7199 7.48391 12.2699 7.82391 12.6199L10.2039 14.9899C10.3739 15.1599 10.5939 15.2399 10.8139 15.2399C11.0439 15.2399 11.2639 15.1599 11.4339 14.9899L16.1839 10.2399C16.5239 9.89988 16.5239 9.34988 16.1839 8.99988Z"
+                                            fill="#E3E2E2" />
+                                    </svg>
+                                </span>
+                                Sale
+                            </label>
+                            <p>{{status_counts.Sale}}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+    let currentPage = 1
+    let maxPageCount = 1
+
+    async function getProducts(product_status = [''], product_property_type = [''], product_amenities = [''],product_price_range=[''],product_beth_patch=[''], page=1)
+    {
+        const response = await fetch(`http://127.0.0.1:8000/pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&product_price_range=${product_price_range.join(',')}&product_beth_patch=${product_beth_patch.join(',')}&page=${page}`)
+        const data = await response.json()
+        const pages_count = data.total_pages;
+        const pageNumbersContainer = document.getElementById('page-numbers');
+        pageNumbersContainer.innerHTML = ''
+        maxPageCount = data.total_pages
+
+        for (let i = 1; i <= pages_count; i++) {
+            const pageNumberLink = document.createElement('a');
+            pageNumberLink.id = i;
+            pageNumberLink.className = 'page-number';
+            pageNumberLink.textContent = i;
+
+
+            pageNumbersContainer.appendChild(pageNumberLink);
+        }
+        renderProductCards(data.results)
+    }
+
+    function renderProductCards(products) {
+        const productCardCont = document.querySelector('.about_us_featured_properties_cards')
+        productCardCont.innerHTML = ''
+        products.map(product => {
+            const productCard = `<div class="about_us_featured_properties_card">
+                                    <div class="about_us_featured_properties_card_img">
+                                        <img src="${product.product_image}" alt="">
+                                        <div class="card_heart">
+                                            <a href ="/wishlist"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20"
+                                                fill="none">
+                                                <path
+                                                    d="M7.1433 0.12369C7.7733 0.142849 8.3833 0.252849 8.9743 0.453849H9.0333C9.0733 0.472849 9.1033 0.49385 9.1233 0.51285C9.3443 0.58385 9.5533 0.663849 9.7533 0.773849L10.1333 0.94385C10.2833 1.02385 10.4633 1.17285 10.5633 1.23385C10.6633 1.29285 10.7733 1.35385 10.8633 1.42285C11.9743 0.573849 13.3233 0.113849 14.7133 0.12369C15.3443 0.12369 15.9743 0.212849 16.5733 0.41385C20.2643 1.61385 21.5943 5.66385 20.4833 9.20385C19.8533 11.0128 18.8233 12.6638 17.4743 14.0128C15.5433 15.8828 13.4243 17.5428 11.1433 18.9728L10.8933 19.1238L10.6333 18.9628C8.3443 17.5428 6.2133 15.8828 4.2643 14.0028C2.9243 12.6538 1.8933 11.0128 1.2533 9.20385C0.123298 5.66385 1.4533 1.61385 5.1843 0.39285C5.4743 0.29285 5.7733 0.222849 6.0733 0.183849H6.1933C6.4743 0.142849 6.7533 0.12369 7.0333 0.12369H7.1433ZM16.0533 3.28385C15.6433 3.14285 15.1933 3.36385 15.0433 3.78385C14.9033 4.20385 15.1233 4.66385 15.5433 4.81285C16.1843 5.05285 16.6133 5.68385 16.6133 6.38285V6.41385C16.5943 6.64285 16.6633 6.86385 16.8033 7.03385C16.9433 7.20385 17.1533 7.30285 17.3733 7.32385C17.7833 7.31285 18.1333 6.98385 18.1633 6.56285V6.44385C18.1933 5.04285 17.3443 3.77385 16.0533 3.28385Z"
+                                                    fill="#201D25" fill-opacity="0.26" />
+                                            </svg></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="about_us_featured_properties_card_section">
+                                        <div class="about_us_featured_properties_card_status">
+                                            <p>${product.product_status}</p>
+                                        </div>
+                                        <h3>${product.product_name}</h3>
+                                        <div class="about_us_featured_properties_location">
+                                            <div class="about_us_featured_properties_location_icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    viewBox="0 0 20 20" fill="none">
+                                                    <path
+                                                        d="M10 0.833374C5.8645 0.833374 2.5 4.10557 2.5 8.12762C2.5 12.7624 5.59225 15.5586 7.64313 17.4092C8.29563 18.0259 9.15137 18.3334 10.0052 18.3334C10.8573 18.3334 11.7074 18.027 12.3505 17.4154C14.401 15.5648 17.5 12.7671 17.5 8.12762C17.5 4.10557 14.1355 0.833374 10 0.833374ZM10 11.0453C8.34588 11.0453 7 9.73637 7 8.12762C7 6.51888 8.34588 5.20992 10 5.20992C11.6541 5.20992 13 6.51888 13 8.12762C13 9.73637 11.6541 11.0453 10 11.0453Z"
+                                                        fill="#123E56" />
+                                                </svg>
+                                            </div>
+                                            <div class="about_us_featured_properties_location_text">
+                                                <p>${product.product_location}</p>
+                                            </div>
+                                        </div>
+                                        <div class="about_us_featured_properties_card_info">
+                                            <div class="bed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 14 14" fill="none">
+                                                    <g clip-path="url(#clip0_85_884)">
+                                                        <path
+                                                            d="M13.9773 9.4331C13.9988 9.37535 14.0064 9.31177 13.9866 9.2476L12.8333 5.49967V2.0417C12.8333 1.23787 12.1794 0.583374 11.375 0.583374H2.625C1.82057 0.583374 1.16668 1.23787 1.16668 2.0417V5.4997L0.0134258 9.2476C-0.00639844 9.31117 0.00117578 9.37477 0.02275 9.4331C0.00875 9.49495 0 9.55852 0 9.62502V11.9583V13.125C0 13.286 0.130676 13.4167 0.291676 13.4167H1.45835C1.61932 13.4167 1.75 13.286 1.75 13.125V12.25H12.25V13.125C12.25 13.286 12.3807 13.4167 12.5417 13.4167H13.7084C13.8694 13.4167 14 13.286 14 13.125V11.9583V9.62502C14 9.55852 13.9913 9.49495 13.9773 9.4331ZM1.75 2.0417C1.75 1.55927 2.14257 1.1667 2.625 1.1667H11.375C11.8574 1.1667 12.25 1.55927 12.25 2.0417V5.25002H11.4572L11.1854 4.1627C11.0874 3.77245 10.738 3.50002 10.3361 3.50002H8.45832C7.9759 3.50002 7.58332 3.8926 7.58332 4.37502V5.25002H6.41665V4.3756C6.41665 3.89317 6.02407 3.5006 5.54165 3.5006H3.6639C3.26197 3.5006 2.91257 3.7736 2.81457 4.16327L2.54275 5.25002H1.75V2.0417ZM10.8582 5.72135C10.8022 5.79252 10.7182 5.83335 10.6278 5.83335H8.45832C8.2979 5.83335 8.16665 5.70267 8.16665 5.54167V4.37502C8.16665 4.21402 8.2979 4.08335 8.45832 4.08335H10.3366C10.4708 4.08335 10.5869 4.17377 10.6196 4.30385L10.9113 5.47052C10.9334 5.5586 10.9142 5.6496 10.8582 5.72135ZM5.83393 4.37502V5.53877C5.83393 5.53995 5.83335 5.54052 5.83335 5.5417C5.83335 5.54227 5.83335 5.54287 5.83335 5.54287C5.83278 5.7033 5.7021 5.83337 5.54228 5.83337H3.37285C3.28185 5.83337 3.19843 5.79255 3.14243 5.72137C3.08643 5.64962 3.06718 5.55805 3.08935 5.47055L3.38103 4.30387C3.4137 4.17437 3.52978 4.08337 3.66453 4.08337H5.54228C5.70268 4.08335 5.83393 4.21402 5.83393 4.37502ZM1.67357 5.83335H2.5515C2.58243 5.92085 2.62268 6.00485 2.68157 6.08067C2.84957 6.29417 3.101 6.41667 3.37225 6.41667H5.54168C5.92143 6.41667 6.24225 6.17167 6.363 5.83335H7.637C7.75775 6.17227 8.07857 6.41667 8.45832 6.41667H10.6278C10.899 6.41667 11.1498 6.29417 11.3178 6.08067C11.3767 6.00542 11.417 5.92085 11.4479 5.83335H12.3264L13.2271 8.76052C13.1932 8.75645 13.16 8.75002 13.125 8.75002H0.875C0.84 8.75002 0.80675 8.75645 0.7735 8.76052L1.67357 5.83335ZM1.16668 12.8333H0.583324V12.25H1.16665V12.8333H1.16668ZM13.4167 12.8333H12.8334V12.25H13.4167V12.8333ZM13.4167 11.6667H0.583324V9.62502C0.583324 9.46402 0.714574 9.33335 0.875 9.33335H13.125C13.2854 9.33335 13.4167 9.46402 13.4167 9.62502V11.6667Z"
+                                                            fill="#123E56" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_85_884">
+                                                            <rect width="14" height="14" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                <p>${product.product_bed_count}</p>
+                                            </div>
+                                            <div class="bath">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 14 14" fill="none">
+                                                    <g clip-path="url(#clip0_85_880)">
+                                                        <path
+                                                            d="M13.125 6.41699H1.45832V1.49949C1.45832 1.16699 1.7675 0.875316 2.1204 0.875316H3.33957C3.68375 0.875316 3.96082 1.15532 3.96375 1.49657C3.395 1.63949 2.91668 2.16449 2.91668 2.71864V3.50032C2.91668 3.66074 3.04793 3.79199 3.20835 3.79199H5.25C5.41043 3.79199 5.54168 3.66074 5.54168 3.50032V2.71867C5.54168 2.15574 5.09543 1.63949 4.5471 1.49949C4.5471 0.834492 4.00753 0.291992 3.3396 0.291992H2.12043C1.44668 0.291992 0.875 0.846168 0.875 1.49949V6.41699C0.39375 6.41407 0.00292578 6.80492 0 7.28617C0 7.53699 0.105 7.77324 0.291676 7.93949V9.46782C0.291676 10.6549 0.819602 11.6728 1.67418 12.3349L1.19585 13.2857C1.12293 13.4286 1.18128 13.6036 1.3271 13.6765C1.47003 13.7495 1.64503 13.6911 1.71793 13.5453L2.1671 12.6499C2.75628 12.9649 3.41543 13.1282 4.08335 13.1224H9.91668C10.5846 13.1282 11.2437 12.9649 11.8329 12.6499L12.2821 13.5453C12.355 13.6882 12.53 13.7465 12.6729 13.6765C12.8159 13.6065 12.8742 13.4286 12.8042 13.2857L12.3259 12.332C13.1804 11.6728 13.7084 10.652 13.7084 9.46489V7.93657C13.8921 7.77614 14 7.53989 14 7.29199C14 6.80784 13.6092 6.41699 13.125 6.41699ZM4.25543 2.04199C4.6025 2.04199 4.95835 2.38324 4.95835 2.71867V3.20867H3.5V2.71867C3.5 2.39492 3.89375 2.04199 4.25543 2.04199ZM13.125 9.46784C13.125 11.2208 11.7454 12.542 9.91668 12.542H4.08332C2.25457 12.542 0.875 11.2207 0.875 9.46784V8.16702H13.125V9.46784ZM13.125 7.58367H0.88375C0.737926 7.58367 0.606676 7.47867 0.58625 7.33574C0.56 7.15492 0.7 7.00032 0.875 7.00032H13.1163C13.2621 7.00032 13.3933 7.10532 13.4137 7.24824C13.44 7.42909 13.3 7.58367 13.125 7.58367Z"
+                                                            fill="#123E56" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_85_880">
+                                                            <rect width="14" height="14" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                <p>${product.product_bath_count}</p>
+                                            </div>
+                                            <div class="sq">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                                    viewBox="0 0 14 14" fill="none">
+                                                    <g clip-path="url(#clip0_85_868)">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M0 3.68426H0.736797V1.25542L5.12567 5.64429L5.6466 5.12323L1.26028 0.736797H3.68426V0H0V3.68426ZM14 3.68426H13.2632V1.25989L8.87688 5.64625L8.35596 5.12519L12.7443 0.736797H10.3159V0H14V3.68426ZM3.68426 13.9996H0V10.3154H0.736797V12.7397L5.12006 8.35645L5.64112 8.87751L1.25587 13.2628H3.68426V13.9996ZM14 13.9996H10.3159V13.2628H12.7391L8.35669 8.88043L8.87775 8.35938L13.2632 12.7449V10.3154H14V13.9996Z"
+                                                            fill="#123E56" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_85_868">
+                                                            <rect width="14" height="14" fill="white" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                                <p>${product.product_ft}ft</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="about_us_featured_properties_card_sale">
+                                            <div class="about_us_featured_properties_card_price">
+                                                <p><span>${product.product_price}/${product.product_type}</span></p>
+                                            </div>
+                                            <div class="about_us_featured_properties_card_button">
+                                                <a href="/product_details/${product.id}/">
+                                                    <button>See Detail</button>
+                                                </a>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`
+            
+            
+                                    
+                    
+            productCardCont.innerHTML += productCard
+        })
+    }
+
+    getProducts()
+
+    const propertyTypeCont = document.querySelector('#property-type')
+    const statusCont = document.querySelector('#status')
+    const amenitiesCont=document.querySelector("#amenities")
+    const priceRangeCont=document.querySelector("#price-range")
+    const bethPatchCont=document.querySelector("#beth-patch")
+    const pagCount=document.querySelector(".step-links")
+
+ 
+    
+    let propertyTypeFilter = []
+    let statusFilter = []
+    let amenitiesFilter = []
+    let priceRangeFilter=[]
+    let bethPatchFilter=[]
+
+    pagCount.addEventListener('click', (e)=>{
+        if(e.target.tagName==='A'){
+            currentPage =  e.target.id
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter, currentPage)
+        }
+
+        if(e.target.tagName === 'BUTTON' || e.target.tagName === 'I') {
+            let currentTag = e.target
+
+            if(e.target.tagName === 'I') currentTag = e.target.closest('button')
+
+            console.log(currentTag)
+
+            if(currentTag.className === 'pagination_left' && currentPage > 1) {
+                currentPage -= 1
+            } else if(currentTag.className === 'pagination_left_fast' && currentPage > 1) {
+                currentPage = 1
+            } else if(currentTag.className === 'pagination_right' && currentPage < maxPageCount) {
+                currentPage += 1
+            } else if(currentTag.className === 'pagination_right_fast' && currentPage < maxPageCount) {
+                currentPage = maxPageCount
+            }
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter, currentPage)
+        }
+    })
+    
+    
+    propertyTypeCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                propertyTypeFilter.push(e.target.parentNode.innerText)
+            } else {
+                propertyTypeFilter = propertyTypeFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+    statusCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                statusFilter.push(e.target.parentNode.innerText)
+            } else {
+                statusFilter = statusFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+    amenitiesCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                amenitiesFilter.push(e.target.parentNode.innerText)
+            } else {
+                amenitiesFilter = amenitiesFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+    priceRangeCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                priceRangeFilter.push(e.target.parentNode.innerText)
+            } else {
+                priceRangeFilter = priceRangeFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })
+
+    bethPatchCont.addEventListener('click', (e) => {
+        if(e.target.tagName === 'INPUT') {
+            if(e.target.checked) {
+                bethPatchFilter.push(e.target.parentNode.innerText)
+            } else {
+                bethPatchFilter = bethPatchFilter.filter(filt => filt !== e.target.parentNode.innerText)
+            }
+            
+            getProducts(statusFilter, propertyTypeFilter, amenitiesFilter,priceRangeFilter,bethPatchFilter)
+        }
+    })    
+</script>
+
+{% endblock main %}
