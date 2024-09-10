@@ -1,0 +1,229 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} Checkout{%endblock title %}
+
+{% block main %}
+<main>
+  <div class="cover">
+    <div class="container">
+      <h1 class="covers_h1">Checkout</h1>
+      <h4><span class="covers_span">Home/</span>Checkout</h4>
+    </div>
+  </div>
+  <div class="checkout_section">
+    <div class="checokout_customer">
+      <p>
+        Returning customer?
+        <button onclick="customerShow()">Click here to login</button>
+      </p>
+    </div>
+    <div id="customer_submenu">
+      <form class="customer_submenu">
+        <h3>Please insert your account</h3>
+        <div class="submenu grid">
+          <input type="text" placeholder="Your Name" />
+          <input type="text" placeholder="Your Email" />
+        </div>
+        <div class="customer_submenu_submit">
+          <button class="customer_submenu_submit_btn" type="button">
+            Login
+          </button>
+          <div class="custom-checkbox">
+            <label class="checkbox-container">
+              <input type="checkbox" id="rememberMe" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M14.334 0C17.723 0 20 2.378 20 5.916V14.084C20 17.622 17.723 20 14.333 20H5.665C2.276 20 0 17.622 0 14.084V5.916C0 2.378 2.276 0 5.665 0H14.334ZM14.334 1.5H5.665C3.135 1.5 1.5 3.233 1.5 5.916V14.084C1.5 16.767 3.135 18.5 5.665 18.5H14.333C16.864 18.5 18.5 16.767 18.5 14.084V5.916C18.5 3.233 16.864 1.5 14.334 1.5ZM14.0895 7.097C14.3825 7.39 14.3825 7.864 14.0895 8.157L9.3435 12.903C9.1975 13.05 9.0055 13.123 8.8135 13.123C8.6225 13.123 8.4295 13.05 8.2835 12.903L5.9095 10.53C5.6165 10.237 5.6165 9.763 5.9095 9.47C6.2025 9.177 6.6765 9.177 6.9695 9.47L8.8135 11.312L13.0295 7.097C13.3225 6.804 13.7965 6.804 14.0895 7.097Z"
+                  fill="#123E56"
+                />
+              </svg>
+            </label>
+            <label for="rememberMe" class="checkout_rem">Remember Me</label>
+          </div>
+        </div>
+        <br />
+        <a>Forgot Password?</a>
+      </form>
+    </div>
+    <div class="checokout_coupon">
+      <p>
+        Have a coupon?
+        <button onclick="couponShow()">Click here to enter your code</button>
+      </p>
+    </div>
+    <div id="coupon_submenu">
+      <form class="customer_submenu">
+        <h3>If you have a coupon, please apply it below</h3>
+        <div class="submenu grid">
+          <input type="text" placeholder="Coupon Code" />
+        </div>
+        <div class="customer_submenu_submit">
+          <button class="customer_submenu_submit_btn" type="button">
+            Apply Coupon
+          </button>
+          <div class="custom-checkbox"></div>
+        </div>
+      </form>
+    </div>
+
+    <form class="checkout_billing_details">
+      <h2>Billing Details</h2>
+      <hr />
+      <div class="form-body">
+        <div>
+          <h3>Personal information</h3>
+          <div class="billing_details_personal grid">
+            <input type="text" placeholder="Your Name" />
+            <input type="email" placeholder="Your email" />
+            <input type="number" placeholder="Your Phone Number" />
+            <select>
+              <option value="0">Select Service Type</option>
+              <option value="1">First Service</option>
+              <option value="2">Second Service</option>
+              <option value="3">Third Service</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3>Country</h3>
+          <div class="billing_details_country grid">
+            <select>
+              <option value="0">Select Country</option>
+              <option value="1">Azerbaijan</option>
+              <option value="2">Turkey</option>
+              <option value="3">Ukraine</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <div class="billing_details_adress grid">
+            <input type="text" placeholder="House Number and Street Name" />
+            <input type="text" placeholder="Apertment, Suit, Unit, Etc" />
+            <input type="text" placeholder="Town/City" />
+            <input type="text" placeholder="State" />
+            <input type="text" placeholder="Zip" />
+          </div>
+        </div>
+        <div>
+          <h3>Order Notes (Optional)</h3>
+          <div class="billing_detail_note">
+            <input type="text" placeholder="Notes about your order" />
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="checkout_payment">
+      <div class="payment_payment_method">
+        <h2>Payment Method</h2>
+        <hr />
+        <div class="payment_checkbox_container">
+          <label class="payment_checkbox_label">
+            <input type="checkbox" class="checkbox-input" />
+            <span class="payment_custom-checkbox">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DE8556" />
+                <path
+                  d="M9 12l2 2l4-4"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            Check Payment
+          </label>
+          <hr />
+
+          <label class="payment_checkbox_label">
+            <input type="checkbox" class="checkbox-input" />
+            <span class="payment_custom-checkbox">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DE8556" />
+                <path
+                  d="M9 12l2 2l4-4"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            Cash on Delivery
+          </label>
+          <hr />
+
+          <label class="payment_checkbox_label">
+            <input type="checkbox" class="checkbox-input" />
+            <span class="payment_custom-checkbox">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle cx="12" cy="12" r="12" fill="#DE8556" />
+                <path
+                  d="M9 12l2 2l4-4"
+                  stroke="white"
+                  stroke-width="2"
+                  fill="none"
+                />
+              </svg>
+            </span>
+            Paypal
+          </label>
+        </div>
+      </div>
+      <div class="payment_card_total">
+        <h2>Card totals</h2>
+        <hr />
+        <div class="card_total_info">
+          <p class="card_sub">Cart Subtotal</p>
+          <p class="card_sub">$1296,00</p>
+        </div>
+        <div class="card_total_info">
+          <p>Shipping and Handing</p>
+          <p>$4,00</p>
+        </div>
+        <div class="card_total_info">
+          <p>Vat</p>
+          <p>$0,00</p>
+        </div>
+        <div class="card_total_info">
+          <p>Order Total</p>
+          <p>$1300</p>
+        </div>
+      </div>
+    </div>
+    <div class="checkout_payment_footer">
+      <p>
+        Your personal data will be used to process your order, support your
+        experience throughout this website, and for other purposes described in
+        our privacy policy.
+      </p>
+      <button>Place Order</button>
+    </div>
+  </div>
+</main>
+{% endblock main %}

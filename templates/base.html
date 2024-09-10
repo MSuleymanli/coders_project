@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    {% block css %}
+    {% endblock css %}
+    
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_ayse.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive_ayse.css' %}" /> {% endcomment %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="home"><a href="">Home<span>Q</span></a></div>
+                <div class="navbar_menu">
+                    <a href="">Home</a>
+                    <a href="{% url 'about'%}">About</a>
+                    <a href="{% url 'shop'%}">Shop</a>
+                    <a href="{% url 'news' %}">News</a>
+                    <a href="" class="navbar_pages" id="navbar-toggle">Pages</a>
+                    <i class="fa-solid fa-chevron-down" id="narrow"></i>
+                    <div class="navbar_pages_show" id="navbar-pages-show">
+                        <hr>
+                        <ul class="nav-links">
+                            <li><a href="{% url 'our_portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'agent' %}">Our Agent</a></li>
+                            <li><a href="{% url 'services' %}">Our Service</a></li>
+                            <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
+                            <li><a href="{% url 'google_map' %}">Location</a></li>
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <a href="{% url 'contact' %}">Contacts</a>
+                </div>
+                <div class="navbar_registration">
+                    <a href="{% url 'my_cart' %}" class="navbar_buy_icon"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <div class="navbar_buy_icon" id="navbar_hamburger_menu">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                    <a href="{% url 'register' %}">Sign in</a>
+                    
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'logout' %}"><button>Log out</button></a>
+                    {% else %}
+                    <a href="{% url 'login' %}"><button>Log in</button></a>
+                        
+                    {% endif %}
+                        
+                </div>
+            </div>
+        </div>
+    </header>
+    {% block main %}
+    
+    {% endblock main %}
+    <footer>
+        <div class="container">
+            <div class="footer_present">
+                <div class="footer_present_img">
+                    <img src="{% static './assets/footer_image.png' %}" alt="">
+                </div>
+                <div class="footer_present_about">
+                    <p class="look">Looking for a Dream Home?</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="209" height="12" viewBox="0 0 209 12" fill="none">
+                        <path
+                            d="M1.01172 10.9999C1.01172 10.9999 61.4713 2.16784 100.553 1.08487C142.337 -0.0730059 208.012 11 208.012 11"
+                            stroke="#DE8556" stroke-width="2" />
+                    </svg>
+                    <p class="home">We can help you relize your dream of a new home</p>
+                </div>
+                <div class="footer_present_button">
+                    <button>Explore Properties</button>
+                </div>
+            </div>
+            <div class="footer_about">
+                <div class="footer_about_home">
+                    <p class="footer_home">Home<span>Q</span></p>
+                    <p class="footer_text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                    </p>
+                    <div class="footer_about_home_phone">
+                        <div class="footer_about_home_icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="footer_about_home_phone_info">
+                            <h2 class="name">Phone</h2>
+                            <p class="info">(208) 555-0112</p>
+                        </div>
+                    </div>
+                    <div class="footer_about_home_email">
+                        <div class="footer_about_home_email_icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="footer_about_home_email_info">
+                            <h2 class="name">Email</h2>
+                            <p class="info">homeq.example@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="footer_about_home_adress">
+                        <div class="footer_about_home_adress_icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="footer_about_home_adress_info">
+                            <h2 class="name">Address</h2>
+                            <p class="info">3517 W. Gray St. Utica, Pennsylvania 57867</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_company_service">
+                    <div class="footer_about_company">
+                        <p class="footer_about_title">Company</p>
+                        <a href="">Home</a>
+                        <a href="{% url 'about' %}">About</a>
+                        <a href="{% url 'shop' %}">Shop</a>
+                        <a href="{% url 'wishlist' %}">Wishlist</a>
+                        <a href="{% url 'our_portfolio' %}">Portfolio</a>
+                    </div>
+                    <div class="footer_about_service">
+                        <p class="footer_about_title">Service</p>
+                        <a href="{% url 'register' %}">Register</a>
+                        <a href="{% url 'login' %}">Sign in</a>
+                        <a href="{% url 'google_map' %}">Location</a>
+                        <a href="{% url 'faq' %}">FAQ</a>
+                        <a href="{% url 'news' %}">News</a>
+                    </div>
+                </div>
+                <div class="footer_about_newslater">
+                    <p class="footer_about_title">Newslater</p>
+                    <p class="footer_text">Subscribe to our newsletter and receive updates via email</p>
+                    <form class="form_footer">
+                        <input type="text" placeholder="Email Address">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M10.8167 14.8178L14.4737 20.7508C14.6337 21.0108 14.8837 21.0078 14.9847 20.9938C15.0857 20.9798 15.3287 20.9178 15.4167 20.6228L19.9897 5.17777C20.0697 4.90477 19.9227 4.71877 19.8567 4.65277C19.7927 4.58677 19.6097 4.44577 19.3447 4.52077L3.88866 9.04677C3.59566 9.13277 3.53166 9.37877 3.51766 9.47977C3.50366 9.58277 3.49966 9.83777 3.75866 10.0008L9.75967 13.7538L15.0617 8.39577C15.3527 8.10177 15.8277 8.09877 16.1227 8.38977C16.4177 8.68077 16.4197 9.15677 16.1287 9.45077L10.8167 14.8178ZM14.9067 22.4998C14.2107 22.4998 13.5727 22.1458 13.1967 21.5378L9.31967 15.2468L2.96366 11.2718C2.27866 10.8428 1.92066 10.0788 2.03166 9.27577C2.14166 8.47277 2.69266 7.83477 3.46666 7.60777L18.9227 3.08177C19.6337 2.87377 20.3957 3.07077 20.9197 3.59277C21.4437 4.11977 21.6387 4.88977 21.4267 5.60377L16.8537 21.0478C16.6247 21.8248 15.9847 22.3738 15.1837 22.4808C15.0897 22.4928 14.9987 22.4998 14.9067 22.4998Z"
+                                    fill="white" />
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="footer_about_social">
+                        <p class="footer_about_title">Social Account</p>
+                        <div class="footer_about_social_icon">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h2 class="footer_reserved_company">All Rights Reserved Company 2022</h2>
+        </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'app.js' %}"></script>
+    {% block js %}
+    
+    {% endblock js %}
+
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} Our Portfolio{% endblock title %} 
+
+{% block main %}
+<main>
+  <div class="cover">
+    <div class="container">
+      <h1 class="covers_h1">Our Portfolio</h1>
+      <h4><span class="covers_span">Home/</span>Our Portfolio</h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="our_portfolio_image">
+      {% for portfolio in page_obj %}
+    <div class="portfolio-item">
+        <a href="{% url 'portfolio_details' id=portfolio.id %}" type="button"><img src="{{ portfolio.portfolio_image.url }}" alt=""></a>
+    </div>
+      {% endfor %}
+    </div>
+    <div class="our_portfolio_btn">
+      <div class="pagination">
+        <span class="step-links">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1" class="pagination_left"><i class="fa-solid fa-backward"></i></a>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="pagination_left"><i class="fa-solid fa-caret-left"></i></a>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num >= page_obj.number|add:"-1" and num <= page_obj.number|add:"1" %}
+                        {% if num == page_obj.number %}
+                            <span class="current">{{ num }}</span>
+                        {% else %}
+                            <a href="?page={{ num }}" class="page-number">{{ num }}</a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="pagination_right"><i class="fa-solid fa-caret-right"></i></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}" class="pagination_right_fast"><i class="fa-solid fa-forward-fast"></i></a>
+                {% endif %}
+            </span>
+        
+    </div>      
+    </div>
+  </div>
+  
+</div>
+</main>
+{% endblock main %}
