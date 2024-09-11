@@ -35,10 +35,12 @@ urlpatterns = [
     path('news/',news,name='news'),
     path('news_details/', news_details, name='news_details'),
     path('my_cart/', my_cart, name='my_cart'),
+    
     path('add_to_cart/<int:wishlist_id>/', add_to_cart, name='add_to_cart'),
-    path('wishlist/', wishlist, name='wishlist'),
     path('services/',services,name='services'),
 
+
+    path('wishlist/', wishlist, name='wishlist'),
     path('services_details/', services_details, name='services_details'),
     path('pro-api/',include('main.api.urls')),
     path('register/', register__view, name='register'),
@@ -48,7 +50,9 @@ urlpatterns = [
     path('faq/', faq, name='faq'),
     path('contact_us/', contact_us, name='contact_us'),
     path('contact/',contact,name='contact'),
-    
+    path('wishlist/add/<int:product_id>/', add_to_wishlist, name='add_to_wishlist')
+
+
 
 ]
 

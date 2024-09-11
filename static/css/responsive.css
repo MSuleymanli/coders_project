@@ -300,6 +300,18 @@
     margin-bottom: 16px;
   }
 
+
+  .contact__form form{  
+    flex-direction: column;
+  }
+
+  .porudct_detail_relate{
+    padding-top: 200px;
+  }
+
+  .contact__form form textarea{
+    width: 100% !important;
+  }
   /* Shop */
 
   .shop_page {

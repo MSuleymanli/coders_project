@@ -1,5 +1,7 @@
 from django.contrib import admin
+
 from .models import Portfolio, Product, Agent, Service, ProductImage,Customer,PortfolioImage, ContactSubmission,Comment,Wishlist, Cart
+
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
@@ -39,4 +41,5 @@ admin.site.register(ContactSubmission)
 admin.site.register(Comment)
 admin.site.register(Wishlist)
 admin.site.register(Cart)
+
 
