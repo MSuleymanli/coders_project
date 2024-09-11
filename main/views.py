@@ -49,6 +49,11 @@ def wishlist(request):
     # Pass the wishlist items and product IDs to the template
     return render(request, "wishlist.html", {"wishlist_items": wishlist_items, "product_ids": product_ids})
 
+def del_wish(request, id):
+    wish = get_object_or_404(Wishlist, id=id)
+    wish.delete()
+    return redirect(request.META.get('HTTP_REFERER', '/'))   
+    
 
 def add_to_cart(request, wishlist_id):
     # Get the Wishlist object
