@@ -36,15 +36,13 @@ class Product(models.Model):
     product_amenities=models.CharField(max_length=20,blank=True,null=True)
     product_price_range=models.CharField(max_length=20,blank=True,null=True)
     product_beth_patch=models.CharField(max_length=20,blank=True,null=True)
-    product_status=models.CharField(max_length=10,blank=True,null=True)
-    likes = models.ManyToManyField(User, related_name='product_like')
-    
+    product_status=models.CharField(max_length=10,blank=True,null=True)    
 
     def __str__(self):
-        return self.product_name
+        return self.product_name or ""
     
-    def number_of_likes(self):
-         return self.likes.count()
+    
+
     
 
 
@@ -129,6 +127,7 @@ class Comment(models.Model):
     
     
 class Wishlist(models.Model):
+
     STATUS_CHOICES = [
         ('in_stock', 'In Stock'),
         ('coming_soon', 'Coming Soon'),
@@ -152,6 +151,17 @@ class Cart(models.Model):
 
     def __str__(self):
        return f"Cart of {self.user}"
+
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    wish_image=models.FileField(upload_to="wish_image",blank=True,null=True,verbose_name="Wish Image")
+    wish_name=models.CharField(max_length=20,blank=True,verbose_name="Wish Name")
+    wish_price=models.CharField(max_length=20,blank=True,null=True,verbose_name="Wish Price")
+    product_id=models.IntegerField(blank=True, null=True)
+    
+    def __str__(self):
+
+        return self.wish_name   
+
     
     
 

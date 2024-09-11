@@ -39,6 +39,7 @@ def news_details(request):
 
 @login_required(login_url="login")
 def wishlist(request):
+
     # Get the current user's wishlist items
     wishlist_items = Wishlist.objects.filter(user=request.user)
     
@@ -80,6 +81,29 @@ def my_cart(request):
     return render(request, 'my__cart.html', {'cart': cart, 'products_in_cart': products_in_cart})
 
 
+    wishlists = Wishlist.objects.filter(user=request.user).order_by("-id")
+    context = {
+        "wishlists": wishlists
+    }
+    return render(request, "wishlist.html", context)
+
+@login_required(login_url="login")
+def add_to_wishlist(request, product_id):
+
+    product = get_object_or_404(Product, id=product_id)
+    wishlist_item, created = Wishlist.objects.get_or_create(
+        user=request.user,
+        wish_name=product.product_name,
+        wish_price=str(product.product_price),
+        wish_image=product.product_image,
+        product_id=product.id
+     )
+
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+
+
 def services(request):
     return render(request,"services.html")
 
@@ -96,10 +120,18 @@ def about(request):
     agents=Agent.objects.all().order_by('-id')
     services=Service.objects.all()
     products = Product.objects.order_by('?')[:3]
+    
+    wishlist_items = Wishlist.objects.filter(user=request.user)
+    wishlist_product_names = wishlist_items.values_list('wish_name', flat=True)
+
+    wishlist_product_names_set = set(wishlist_product_names)
+
     context={
         "agents":agents,
         "services":services,
-        "products":products
+        "products":products,
+        'wishlist_product_names_set': wishlist_product_names_set,
+
     }
     return render(request,"about_us.html",context)
 
@@ -144,7 +176,7 @@ def product_details(request, id):
     product = get_object_or_404(Product, id=id)
     portfolios = Portfolio.objects.order_by('?')[:3]
     comments = Comment.objects.filter(product_id=id).order_by('-id')
-    # new
+
     user = request.user
     
     if request.GET.get('like'):
@@ -156,6 +188,17 @@ def product_details(request, id):
             Wishlist.objects.create(user=user, product=product)
             product.likes.add(user)
             return HttpResponse('Liked!')
+
+    
+    property_types = ['House', 'Apartment', 'Single Family', 'Studio']
+    property_counts = {clean_key(p_type): Product.objects.filter(product_property_type=p_type).count() for p_type in property_types}
+    
+    wishlist_items = Wishlist.objects.filter(user=request.user)
+    wishlist_product_names = wishlist_items.values_list('wish_name', flat=True)
+
+    wishlist_product_names_set = set(wishlist_product_names)
+    
+
 
     for comment in comments:
         try:
@@ -170,7 +213,10 @@ def product_details(request, id):
         "product": product,
         "promo_product": promo_product,
         'portfolios': portfolios,
-        'comments': comments
+        'comments': comments,
+        'property_counts': property_counts,
+        'wishlist_product_names_set': wishlist_product_names_set,
+
     }
     return render(request, "product_details.html", context)
 
@@ -253,6 +299,3 @@ def login__view(request):
 def logout__view(request):
     logout(request)
     return redirect("shop")
-
-
-

@@ -598,6 +598,7 @@ hr {
   justify-content: center;
 }
 
+
 .card_heart:hover {
   background-color: rgba(32, 29, 37, 0.4);
 }
@@ -606,6 +607,8 @@ hr {
   width: 21px;
   height: 20px;
 }
+
+
 
 .about_us_our_agent_person {
   text-align: center;

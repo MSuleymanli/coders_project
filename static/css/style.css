@@ -57,6 +57,13 @@
 }
 
 
+.page-number.active {
+  background: orange;
+  color: white;
+}
+
+
+
 #narrow {
   position: absolute;
   right: 100px;
@@ -1631,5 +1638,3 @@ line-height: normal;
 #stars{
   display: none;
 }
-
-
