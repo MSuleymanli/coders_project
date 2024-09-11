@@ -56,14 +56,13 @@
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
+
 .page-number.active {
   background: orange;
   color: white;
 }
 
->>>>>>> e695735 (new branch)
+
 
 #narrow {
   position: absolute;
@@ -1639,5 +1638,3 @@ line-height: normal;
 #stars{
   display: none;
 }
-
-/* test */
