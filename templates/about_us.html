@@ -59,14 +59,9 @@
         <div class="about_us_our_agent">
             <div class="about_us_our_agent_info">
                 <h2>Our Agent</h2>
-<<<<<<< HEAD
-                <a href="">See All</a>
-            </div>
-=======
                 <a href="{% url 'agent' %}">See All</a>
             </div>
             
->>>>>>> e695735 (new branch)
             <div class="about_us_our_agent_cards">
                 
                 {% for agent in agents  %}
@@ -85,6 +80,9 @@
 
                     </div>
                 </div>
+                
+                {% endfor %}
+
             </div>
         </div>
         <div class="about_us_featured_properties">
@@ -98,7 +96,6 @@
                     <div class="about_us_featured_properties_card">
                         <div class="about_us_featured_properties_card_img">
                             <img src="{{ product.product_image.url }}" alt="">
-
                             <form action="{% url 'add_to_wishlist' product.id %}" method="get" style="display:inline;">
                                 <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
                                     <div class="card_heart">
@@ -197,4 +194,5 @@
         </div>
 
 </main>
+<!-- new -->
 {% endblock main %}

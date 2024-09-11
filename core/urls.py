@@ -50,7 +50,8 @@ urlpatterns = [
     path('faq/', faq, name='faq'),
     path('contact_us/', contact_us, name='contact_us'),
     path('contact/',contact,name='contact'),
-    path('wishlist/add/<int:product_id>/', add_to_wishlist, name='add_to_wishlist')
+    path('wishlist/add/<int:product_id>/', add_to_wishlist, name='add_to_wishlist'),
+    path('wishlist/del/<int:id>/', del_wish, name='del-wish'), 
 
 
 
