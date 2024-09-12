@@ -70,9 +70,6 @@ def add_to_cart(request, wishlist_id):
 
     return redirect('my_cart')
 
-
-
-
 def my_cart(request):
     # Get the user's cart
     cart = Cart.objects.filter(user=request.user).first()
@@ -106,8 +103,7 @@ def add_to_wishlist(request, product_id):
 
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
-
-
+# Uncompleted part
 
 def services(request):
     return render(request,"services.html")
