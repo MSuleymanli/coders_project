@@ -29,7 +29,9 @@ class PortfolioAdmin(admin.ModelAdmin):
     
 
     
-    
+class WishlistAdmin(admin.ModelAdmin):
+    model=Wishlist
+    list_display=('user','wish_name')
     
 
 admin.site.register(Portfolio, PortfolioAdmin) 
@@ -39,7 +41,7 @@ admin.site.register(Service)
 admin.site.register(Customer)
 admin.site.register(ContactSubmission)
 admin.site.register(Comment)
-admin.site.register(Wishlist)
+admin.site.register(Wishlist,WishlistAdmin)
 admin.site.register(Cart)
 
 

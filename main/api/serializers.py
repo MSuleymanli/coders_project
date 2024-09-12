@@ -43,10 +43,7 @@ class RegisterSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
-    email = serializers.EmailField(required=True)
-    
-
-
+    email = serializers.EmailField(required=True)  
 
 
 class AddProductSerializers(serializers.ModelSerializer):
@@ -58,3 +55,15 @@ class AddProductSerializers(serializers.ModelSerializer):
     def create(self, validated_data):
         return Product.objects.create(**validated_data)
 
+class AddWishlistSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Wishlist
+        fields = '__all__'
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        validated_data['user'] = user
+        return Wishlist.objects.create(**validated_data)
+
+        
+    

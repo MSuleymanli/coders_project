@@ -40,13 +40,10 @@ def news_details(request):
 @login_required(login_url="login")
 def wishlist(request):
 
-    # Get the current user's wishlist items
     wishlist_items = Wishlist.objects.filter(user=request.user)
     
-    # Create a list of product IDs
     product_ids = [item.product.id for item in wishlist_items]
     
-    # Pass the wishlist items and product IDs to the template
     return render(request, "wishlist.html", {"wishlist_items": wishlist_items, "product_ids": product_ids})
 
 def del_wish(request, id):
@@ -56,13 +53,10 @@ def del_wish(request, id):
     
 
 def add_to_cart(request, wishlist_id):
-    # Get the Wishlist object
     wishlist_item = get_object_or_404(Wishlist, id=wishlist_id)
 
-    # Get or create a Cart for the current user
     cart, created = Cart.objects.get_or_create(user=request.user)
 
-    # Add the wishlist item to the cart if it isn't already in the cart
     if wishlist_item not in cart.products.all():
         cart.products.add(wishlist_item)
 
@@ -74,14 +68,14 @@ def add_to_cart(request, wishlist_id):
 
 
 def my_cart(request):
-    # Get the user's cart
+
     cart = Cart.objects.filter(user=request.user).first()
-    
-    # Check if the cart exists and has products
+ 
+
     if cart:
-        products_in_cart = cart.products.all()  # Get all products in the cart
+        products_in_cart = cart.products.all()
     else:
-        products_in_cart = []  # Empty list if no cart exists
+        products_in_cart = []
 
     return render(request, 'my__cart.html', {'cart': cart, 'products_in_cart': products_in_cart})
 
@@ -186,10 +180,10 @@ def product_details(request, id):
     
     if request.GET.get('like'):
         if product.likes.filter(id=user.id).exists():
-            # User already liked the product, do nothing
+
             pass
         else:
-            # User hasn't liked the product, create a new Wishlist item
+
             Wishlist.objects.create(user=user, product=product)
             product.likes.add(user)
             return HttpResponse('Liked!')
@@ -226,8 +220,6 @@ def product_details(request, id):
     return render(request, "product_details.html", context)
 
 
-
-
 def clean_key(key):
     return key.replace(' ', '_')
 
@@ -256,7 +248,6 @@ def shop(request):
     return render(request, 'shop.html', context)
 
 
-# Register
 def register__view(request):
     form = RegisterForm(request.POST or None)
     
@@ -266,7 +257,7 @@ def register__view(request):
         last_name = form.cleaned_data.get('last_name')
         email = form.cleaned_data.get('email')
         
-        # Create new User object and set all fields
+
         newUser = User(username=username, last_name=last_name, email=email,)
         newUser.set_password(password)
         newUser.save()
