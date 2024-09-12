@@ -41,9 +41,7 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name or ""
     
-    
 
-    
 
 
 class ProductImage(models.Model):
@@ -143,24 +141,50 @@ class Wishlist(models.Model):
     def __str__(self):
         return f"{self.user} -- {self.wish_name}"
     
+
+# class Cart(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     products = models.ManyToManyField(Wishlist, through='CartItem')
+
+#     def total_price(self):
+#         return sum(item.product.wish_price * item.quantity for item in self.cartitem_set.all())
+    
+#     def __str__(self):
+#         return f"Cart of {self.user}"
+
+
+
+# class CartItem(models.Model):
+#     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+#     product = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
+#     quantity = models.PositiveIntegerField(default=1)
+
+#     def __str__(self):
+#         return f"{self.product.wish_name} in cart"
+
+
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Wishlist)
+    products = models.ManyToManyField(Wishlist, through='CartItem')
+
+    def total_price(self):
+        return sum(item.price * item.quantity for item in self.cartitem_set.all())
+
+    def __str__(self):
+        return f"Cart of {self.user}"
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    wishlist = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-
-
-    def __str__(self):
-       return f"Cart of {self.user}"
-
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
-    wish_image=models.FileField(upload_to="wish_image",blank=True,null=True,verbose_name="Wish Image")
-    wish_name=models.CharField(max_length=20,blank=True,verbose_name="Wish Name")
-    wish_price=models.CharField(max_length=20,blank=True,null=True,verbose_name="Wish Price")
-    product_id=models.IntegerField(blank=True, null=True)
+    price = models.CharField(max_length=20, blank=True, null=True, verbose_name="Wish Price")
     
-    def __str__(self):
 
-        return self.wish_name   
+    def __str__(self):
+        return f"{self.wishlist.wish_name} in cart"
+
+
 
     
     

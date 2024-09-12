@@ -28,23 +28,19 @@
                 <div class="wishlist__item item__border">
                     <div class="wishlist__area">
                         <div class="wishlist__image">
-                        <img src="{{ product.wish_image.url }}" alt="{{ product.wish_name }}">
+                          <img src="{{ item.wishlist.wish_image.url }}" alt="{{ item.wishlist.wish_name }}">
                         </div>
                         <div class="wishlist__text">
-                        <div class="wishlist__title">{{ product.wish_name }}</div>
-                        <div class="wishlist__text__price">
-                            <div class="wishlist__price">${{ product.wish_price }}</div>
-                            <div class="my__cart__counter">
-                            <span class="counter__symbol">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
-                                <rect x="3.53125" y="6.98706" width="6.93581" height="1.636" rx="0.743571" fill="#343434" />
-                                </svg>
-                            </span>
-                            <span id="counter__number">{{ product.wish_quantity }}</span>
-                            <span class="counter__symbol">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
-                                <path d="M10.4994 8.38407H7.58268V11.3007C7.58268 11.6216 7.32018 11.8841 6.99935 11.8841C6.67852 11.8841 6.41602 11.6216 6.41602 11.3007V8.38407H3.49935C3.17852 8.38407 2.91602 8.12157 2.91602 7.80074C2.91602 7.47991 3.17852 7.21741 3.49935 7.21741H6.41602V4.30074C6.41602 3.97991 6.67852 3.71741 6.99935 3.71741C7.32018 3.71741 7.58268 3.97991 7.58268 4.30074V7.21741H10.4994C10.8202 7.21741 11.0827 7.47991 11.0827 7.80074C11.0827 8.12157 10.8202 8.38407 10.4994 8.38407Z" fill="#343434" />
-                                </svg>
+                          <div class="cart__title">{{ item.wishlist.wish_name }}</div>
+                          <div class="cart__text__price">
+                              <div class="cart__price">${{ item.price }}</div>
+                                <div class="my__cart__counter">
+                                    <span class="counter__symbol">
+                                        <a href="{% url 'update_quantity' item.id 'increase' %}">+</a>
+                                    </span>
+                                    <span id="counter__number">{{ item.quantity }}</span>
+                                      <span class="counter__symbol">
+                                 <a href="{% url 'update_quantity' item.id 'decrease' %}">-</a> 
                             </span>
                             </div>
                         </div>
@@ -52,12 +48,14 @@
                     </div>
                     <div class="mycart__total__price">
                         <a href="#" class="total__price__text">Total Price</a>
-                        <div class="my__cart__price">${{ cart.total_price }}</div>
+                        <div class="my__cart__price">${{ total_price }}</div>
                     </div>
                     <div class="wishlist__cancel__btn">
+                      <a href="{% url 'del-cart' item.id %}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M13.4658 12.0001L19.6959 5.76972C20.1014 5.36446 20.1014 4.70921 19.6959 4.30395C19.2907 3.89868 18.6354 3.89868 18.2302 4.30395L11.9999 10.5343L5.76983 4.30395C5.36438 3.89868 4.70934 3.89868 4.30408 4.30395C3.89864 4.70921 3.89864 5.36446 4.30408 5.76972L10.5342 12.0001L4.30408 18.2305C3.89864 18.6358 3.89864 19.291 4.30408 19.6963C4.50604 19.8984 4.77159 20 5.03695 20C5.30231 20 5.56767 19.8984 5.76983 19.6963L11.9999 13.4659L18.2302 19.6963C18.4323 19.8984 18.6977 20 18.963 20C19.2284 20 19.4938 19.8984 19.6959 19.6963C20.1014 19.291 20.1014 18.6358 19.6959 18.2305L13.4658 12.0001Z" fill="#818181" />
+                          <path d="M13.4658 12.0001L19.6959 5.76972C20.1014 5.36446 20.1014 4.70921 19.6959 4.30395C19.2907 3.89868 18.6354 3.89868 18.2302 4.30395L11.9999 10.5343L5.76983 4.30395C5.36438 3.89868 4.70934 3.89868 4.30408 4.30395C3.89864 4.70921 3.89864 5.36446 4.30408 5.76972L10.5342 12.0001L4.30408 18.2305C3.89864 18.6358 3.89864 19.291 4.30408 19.6963C4.50604 19.8984 4.77159 20 5.03695 20C5.30231 20 5.56767 19.8984 5.76983 19.6963L11.9999 13.4659L18.2302 19.6963C18.4323 19.8984 18.6977 20 18.963 20C19.2284 20 19.4938 19.8984 19.6959 19.6963C20.1014 19.291 20.1014 18.6358 19.6959 18.2305L13.4658 12.0001Z" fill="#818181" />
                         </svg>
+                      </a>
                     </div>
                 </div>
             {% endfor %}

@@ -1426,7 +1426,7 @@ i {
     background: var(--Main-Colors-Prymary);
 }
 
-.wishlist__btn {
+.wishlist__addcart__btn a {
     color: #FFF;
     font-family: "Plus Jakarta Sans";
     font-size: 14px;
