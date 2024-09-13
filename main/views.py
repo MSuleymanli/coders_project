@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render,get_object_or_404, redirect, HttpResponse
-from .models import Portfolio,Product,Agent,Service,Comment, Wishlist, Cart
+from .models import Portfolio,Product,Agent,Service,Comment, Wishlist, Cart, CartItem
 from django.contrib import messages
 from .forms import ContactForm, RegisterForm, LoginForm,CommentForm
 from django.contrib.auth.decorators import login_required
@@ -55,39 +55,61 @@ def del_wish(request, id):
     return redirect(request.META.get('HTTP_REFERER', '/'))   
     
 
+
 def add_to_cart(request, wishlist_id):
-    # Get the Wishlist object
+    # Get the Wishlist item
     wishlist_item = get_object_or_404(Wishlist, id=wishlist_id)
 
-    # Get or create a Cart for the current user
+    # Get or create the user's cart
     cart, created = Cart.objects.get_or_create(user=request.user)
 
-    # Add the wishlist item to the cart if it isn't already in the cart
-    if wishlist_item not in cart.products.all():
-        cart.products.add(wishlist_item)
+    # Check if a CartItem for this wishlist item already exists
+    existing_cart_item = CartItem.objects.filter(cart=cart, wishlist_item=wishlist_item).first()
 
-    cart.save()
+    if existing_cart_item:
+        # If it exists, increment its quantity
+        existing_cart_item.quantity += 1
+        existing_cart_item.save()
+    else:
+        # If it doesn't exist, create a new CartItem instance
+        cart_item = CartItem.objects.create(cart=cart, wishlist_item=wishlist_item, quantity=1)
+        cart_item.save()
+
+    # Update the cart total price
+    cart.update_total_price()
 
     return redirect('my_cart')
 
 def my_cart(request):
-    # Get the user's cart
+    # Fetch the user's cart and related items
     cart = Cart.objects.filter(user=request.user).first()
     
-    # Check if the cart exists and has products
-    if cart:
-        products_in_cart = cart.products.all()  # Get all products in the cart
-    else:
-        products_in_cart = []  # Empty list if no cart exists
-
-    return render(request, 'my__cart.html', {'cart': cart, 'products_in_cart': products_in_cart})
+    return render(request, 'my__cart.html', {'cart': cart, 'cart_items': cart.cartitem_set.all()})
 
 
-    wishlists = Wishlist.objects.filter(user=request.user).order_by("-id")
-    context = {
-        "wishlists": wishlists
-    }
-    return render(request, "wishlist.html", context)
+
+def update_quantity(request, item_id, action):
+    cart_item = get_object_or_404(CartItem, id=item_id)
+
+    if action == 'increase':
+        cart_item.quantity += 1
+    elif action == 'decrease' and cart_item.quantity > 1:
+        cart_item.quantity -= 1
+
+    cart_item.save()
+
+    # Update the cart total price
+    cart_item.cart.update_total_price()
+
+    return redirect('my_cart')
+
+def del_cart(request, id):
+    cart = get_object_or_404(Cart, id=id)
+    cart_items = cart.cartitem_set.all()
+    for item in cart_items:
+        item.delete()
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
 
 @login_required(login_url="login")
 def add_to_wishlist(request, product_id):

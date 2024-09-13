@@ -38,6 +38,9 @@ urlpatterns = [
     
     path('add_to_cart/<int:wishlist_id>/', add_to_cart, name='add_to_cart'),
     path('services/',services,name='services'),
+    
+    path('update_quantity/<int:item_id>/<str:action>/', update_quantity, name='update_quantity'),
+    path('my_cart/del/<int:id>/', del_cart, name='del-cart'),
 
 
     path('wishlist/', wishlist, name='wishlist'),

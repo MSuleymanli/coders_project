@@ -145,22 +145,20 @@ class Wishlist(models.Model):
     
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Wishlist)
+    wishlist_products = models.ManyToManyField(Wishlist, through="CartItem")
+    total_price = models.PositiveIntegerField(default=0)
+
+    def update_total_price(self):
+        self.total_price = sum(item.quantity * float(item.wishlist_item.wish_price) for item in self.cartitem_set.all())
+        self.save()
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    wishlist_item = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
-
-    def __str__(self):
-       return f"Cart of {self.user}"
-
-    user=models.ForeignKey(User, on_delete=models.CASCADE)
-    wish_image=models.FileField(upload_to="wish_image",blank=True,null=True,verbose_name="Wish Image")
-    wish_name=models.CharField(max_length=20,blank=True,verbose_name="Wish Name")
-    wish_price=models.CharField(max_length=20,blank=True,null=True,verbose_name="Wish Price")
-    product_id=models.IntegerField(blank=True, null=True)
-    
-    def __str__(self):
-
-        return self.wish_name   
+    def total_item_price(self):
+        return self.quantity * int(self.wishlist_item.wish_price)
 
     
     
