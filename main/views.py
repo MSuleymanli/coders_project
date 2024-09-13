@@ -77,7 +77,9 @@ def add_to_cart(request, wishlist_id):
 
     # Update the cart total price
     cart.update_total_price()
-
+    
+    # for item in Wishlist.objects.all():
+    #     print(item.id, item.product.id) 
     return redirect('my_cart')
 
 def my_cart(request):
@@ -103,13 +105,11 @@ def update_quantity(request, item_id, action):
 
     return redirect('my_cart')
 
-def del_cart(request, id):
-    cart = get_object_or_404(Cart, id=id)
-    cart_items = cart.cartitem_set.all()
-    for item in cart_items:
-        item.delete()
+def del_cart(request, cart_item_id):
+    cart_item = get_object_or_404(CartItem, id=cart_item_id)
+    cart = cart_item.cart  # Retrieve the associated Cart object
+    cart_item.delete()
     return redirect(request.META.get('HTTP_REFERER', '/'))
-
 
 @login_required(login_url="login")
 def add_to_wishlist(request, product_id):

@@ -40,7 +40,7 @@ urlpatterns = [
     path('services/',services,name='services'),
     
     path('update_quantity/<int:item_id>/<str:action>/', update_quantity, name='update_quantity'),
-    path('my_cart/del/<int:id>/', del_cart, name='del-cart'),
+    path('my_cart/del/<int:cart_item_id>/', del_cart, name='del-cart'),
 
 
     path('wishlist/', wishlist, name='wishlist'),

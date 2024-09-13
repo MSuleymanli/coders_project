@@ -43,9 +43,9 @@
             </div>
           </div>
           <div class="wishlist__addcart__btn">
-            {% for item in wishlist_items %}
+            {% comment %} {% for item in wishlist_items %} {% endcomment %}
             <a href="{% url 'add_to_cart' item.id %}">Add to Cart</a>
-         {% endfor %}
+         {% comment %} {% endfor %} {% endcomment %}
            
           </div>
           <div class="wishlist__cancel__btn">
