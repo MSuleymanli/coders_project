@@ -131,24 +131,23 @@ def del_cart(request, cart_item_id):
 
 @login_required(login_url="login")
 def my_cart(request):
-    # Fetch the user's cart
-   cart = Cart.objects.filter(user=request.user).first()
-   if cart:
+    # Kullanıcının sepetini çek
+    cart = Cart.objects.filter(user=request.user).first()
+    
+    # Eğer kullanıcıya ait bir sepet varsa, sepet öğelerini ve toplam fiyatı hesapla
+    if cart:
         cart_items = CartItem.objects.filter(cart=cart)
-        total_price = sum(item.price * item.quantity for item in cart_items)
-   else:
+        total_price = sum(item.product.price * item.quantity for item in cart_items)  # Ürünün fiyatını aldık
+    else:
         cart_items = []
         total_price = 0
-
     
+    # Sepet ve ilgili verileri render ile template'e gönder
     return render(request, 'my_cart.html', {
         'cart': cart,
         'cart_items': cart_items,
         'total_price': total_price
     })
-
-
-# Uncompleted part
 
 def services(request):
     return render(request,"services.html")
