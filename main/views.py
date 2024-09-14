@@ -39,15 +39,26 @@ def news_details(request):
 
 @login_required(login_url="login")
 def wishlist(request):
-
     # Get the current user's wishlist items
     wishlist_items = Wishlist.objects.filter(user=request.user)
     
-    # Create a list of product IDs
-    product_ids = [item.product.id for item in wishlist_items]
-    
-    # Pass the wishlist items and product IDs to the template
-    return render(request, "wishlist.html", {"wishlist_items": wishlist_items, "product_ids": product_ids})
+    # Pass the wishlist items to the template
+    return render(request, "wishlist.html", {"wishlist_items": wishlist_items})
+
+@login_required(login_url="login")
+def add_to_wishlist(request, product_id):
+
+    product = get_object_or_404(Product, id=product_id)
+    wishlist_item, created = Wishlist.objects.get_or_create(
+        user=request.user,
+        wish_name=product.product_name,
+        wish_price=str(product.product_price),
+        wish_image=product.product_image,
+        product_id=product.id
+     )
+
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
 
 def del_wish(request, id):
     wish = get_object_or_404(Wishlist, id=id)
@@ -56,12 +67,15 @@ def del_wish(request, id):
     
 
 
+
 def add_to_cart(request, wishlist_id):
     # Get the Wishlist item
     wishlist_item = get_object_or_404(Wishlist, id=wishlist_id)
 
     # Get or create the user's cart
+
     cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, wishlist=wishlist_item)
 
     # Check if a CartItem for this wishlist item already exists
     existing_cart_item = CartItem.objects.filter(cart=cart, wishlist_item=wishlist_item).first()
@@ -75,12 +89,14 @@ def add_to_cart(request, wishlist_id):
         cart_item = CartItem.objects.create(cart=cart, wishlist_item=wishlist_item, quantity=1)
         cart_item.save()
 
+
     # Update the cart total price
     cart.update_total_price()
     
     # for item in Wishlist.objects.all():
     #     print(item.id, item.product.id) 
     return redirect('my_cart')
+
 
 def my_cart(request):
     # Fetch the user's cart and related items
@@ -111,19 +127,26 @@ def del_cart(request, cart_item_id):
     cart_item.delete()
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
+
+
 @login_required(login_url="login")
-def add_to_wishlist(request, product_id):
+def my_cart(request):
+    # Fetch the user's cart
+   cart = Cart.objects.filter(user=request.user).first()
+   if cart:
+        cart_items = CartItem.objects.filter(cart=cart)
+        total_price = sum(item.price * item.quantity for item in cart_items)
+   else:
+        cart_items = []
+        total_price = 0
 
-    product = get_object_or_404(Product, id=product_id)
-    wishlist_item, created = Wishlist.objects.get_or_create(
-        user=request.user,
-        wish_name=product.product_name,
-        wish_price=str(product.product_price),
-        wish_image=product.product_image,
-        product_id=product.id
-     )
+    
+    return render(request, 'my_cart.html', {
+        'cart': cart,
+        'cart_items': cart_items,
+        'total_price': total_price
+    })
 
-    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 # Uncompleted part
 
