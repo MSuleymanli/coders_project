@@ -36,10 +36,9 @@ urlpatterns = [
     path('news_details/', news_details, name='news_details'),
     path('my_cart/', my_cart, name='my_cart'),
     path('add_to_cart/<int:wishlist_id>/', add_to_cart, name='add_to_cart'),
-    path('my_cart/del/<int:id>/', del_cart, name='del-cart'), 
+    path('services/',services,name='services'),    
     path('update_quantity/<int:item_id>/<str:action>/', update_quantity, name='update_quantity'),
-    # other patterns
-
+    path('my_cart/del/<int:cart_item_id>/', del_cart, name='del-cart'),
     path('services/',services,name='services'),
     path('wishlist/', wishlist, name='wishlist'),
     path('services_details/', services_details, name='services_details'),

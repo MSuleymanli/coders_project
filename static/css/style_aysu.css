@@ -80,6 +80,7 @@ i {
     width: 16px;
     height: 16px;
     margin-left: 8px;
+    color:white;
 }
 
 .homepage__navbar__right__links {
@@ -91,6 +92,8 @@ i {
 
 .homepage__navbar__right__links a {
     color: var(--Additional-Colors-White);
+    width: 24px;
+    height: 24px;
 }
 
 .homepage__shop__icon {
@@ -1396,7 +1399,6 @@ i {
     padding: 4px 12px;
     gap: 10px;
     border-radius: 2px;
-
     background: #E7F3E8;
     color: #19C116;
     /* Body/Body 14 */

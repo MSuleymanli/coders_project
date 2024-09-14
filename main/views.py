@@ -66,48 +66,66 @@ def del_wish(request, id):
     return redirect(request.META.get('HTTP_REFERER', '/'))   
     
 
-@login_required(login_url="login")
+
+
 def add_to_cart(request, wishlist_id):
+    # Get the Wishlist item
     wishlist_item = get_object_or_404(Wishlist, id=wishlist_id)
+
+    # Get or create the user's cart
+
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_item, created = CartItem.objects.get_or_create(cart=cart, wishlist=wishlist_item)
 
-    if wishlist_item.wish_price:
-        try:
-            cart_item.price = int(wishlist_item.wish_price)
-        except ValueError:
-            cart_item.price = 0  # Default value if conversion fails
+    # Check if a CartItem for this wishlist item already exists
+    existing_cart_item = CartItem.objects.filter(cart=cart, wishlist_item=wishlist_item).first()
+
+    if existing_cart_item:
+        # If it exists, increment its quantity
+        existing_cart_item.quantity += 1
+        existing_cart_item.save()
     else:
-        cart_item.price = 0  # Default value if wish_price is None or empty string
+        # If it doesn't exist, create a new CartItem instance
+        cart_item = CartItem.objects.create(cart=cart, wishlist_item=wishlist_item, quantity=1)
+        cart_item.save()
 
-    cart_item.quantity += 1
-    cart_item.save()
 
+    # Update the cart total price
+    cart.update_total_price()
+    
+    # for item in Wishlist.objects.all():
+    #     print(item.id, item.product.id) 
     return redirect('my_cart')
 
 
-
-
-
-def del_cart(request, id):
-    cart_item = get_object_or_404(CartItem, id=id)
-    cart_item.delete()
-    return redirect(request.META.get('HTTP_REFERER', '/'))   
+def my_cart(request):
+    # Fetch the user's cart and related items
+    cart = Cart.objects.filter(user=request.user).first()
     
+    return render(request, 'my__cart.html', {'cart': cart, 'cart_items': cart.cartitem_set.all()})
+
+
 
 def update_quantity(request, item_id, action):
     cart_item = get_object_or_404(CartItem, id=item_id)
-    
+
     if action == 'increase':
         cart_item.quantity += 1
     elif action == 'decrease' and cart_item.quantity > 1:
         cart_item.quantity -= 1
-    else:
-        # Handle invalid action or prevent quantity going below 1
-        pass
 
     cart_item.save()
+
+    # Update the cart total price
+    cart_item.cart.update_total_price()
+
     return redirect('my_cart')
+
+def del_cart(request, cart_item_id):
+    cart_item = get_object_or_404(CartItem, id=cart_item_id)
+    cart = cart_item.cart  # Retrieve the associated Cart object
+    cart_item.delete()
+    return redirect(request.META.get('HTTP_REFERER', '/'))
 
 
 
@@ -130,8 +148,7 @@ def my_cart(request):
     })
 
 
-
-
+# Uncompleted part
 
 def services(request):
     return render(request,"services.html")
