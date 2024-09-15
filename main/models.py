@@ -148,19 +148,21 @@ class Cart(models.Model):
     wishlist_products = models.ManyToManyField(Wishlist, through="CartItem")
     total_price = models.PositiveIntegerField(default=0)
 
-    def update_total_price(self):
-        self.total_price = sum(item.quantity * float(item.wishlist_item.wish_price) for item in self.cartitem_set.all())
+    def item_total(self):
+        self.item_total = sum(item.quantity * float(item.wishlist_item.wish_price) for item in self.cartitem_set.all())
         self.save()
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     wishlist_item = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
+    item_total = models.PositiveIntegerField(default=0)
 
-    def total_item_price(self):
-        return self.quantity * int(self.wishlist_item.wish_price)
 
-    
+    def calculate_item_total(self):
+        self.item_total = self.quantity * float(self.wishlist_item.wish_price)
+        return self.item_total
+ 
     
 
     
