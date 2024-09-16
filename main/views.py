@@ -66,8 +66,6 @@ def del_wish(request, id):
     return redirect(request.META.get('HTTP_REFERER', '/'))   
     
 
-
-
 def add_to_cart(request, wishlist_id):
     # Get the Wishlist item
     wishlist_item = get_object_or_404(Wishlist, id=wishlist_id)
@@ -101,8 +99,32 @@ def add_to_cart(request, wishlist_id):
 def my_cart(request):
     # Fetch the user's cart and related items
     cart = Cart.objects.filter(user=request.user).first()
+    cart_items = cart.cartitem_set.all()
     
-    return render(request, 'my__cart.html', {'cart': cart, 'cart_items': cart.cartitem_set.all()})
+    # Initialize subtotal and other variables
+    shipping_and_handling = 4  # Example value, adjust as needed
+    vat_percentage = 0  # Example, you can set VAT as required
+    subtotal = 0
+    
+    # Calculate subtotal and item totals for all items in the cart
+    for item in cart_items:
+        item_total = item.calculate_item_total()  # Call the method to calculate the total for each item
+        subtotal += item_total
+
+    # Calculate VAT and total price
+    vat = (subtotal * vat_percentage) / 100
+    total_price = subtotal + shipping_and_handling + vat
+
+    context = {
+        'cart': cart,
+        'cart_items': cart_items,
+        'subtotal': subtotal,
+        'shipping_and_handling': shipping_and_handling,
+        'vat': vat,
+        'total_price': total_price
+    }
+    
+    return render(request, 'my__cart.html', context)
 
 
 
