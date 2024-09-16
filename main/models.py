@@ -41,9 +41,7 @@ class Product(models.Model):
     def __str__(self):
         return self.product_name or ""
     
-    
 
-    
 
 
 class ProductImage(models.Model):
@@ -143,6 +141,28 @@ class Wishlist(models.Model):
     def __str__(self):
         return f"{self.user} -- {self.wish_name}"
     
+
+# class Cart(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     products = models.ManyToManyField(Wishlist, through='CartItem')
+
+#     def total_price(self):
+#         return sum(item.product.wish_price * item.quantity for item in self.cartitem_set.all())
+    
+#     def __str__(self):
+#         return f"Cart of {self.user}"
+
+
+
+# class CartItem(models.Model):
+#     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+#     product = models.ForeignKey(Wishlist, on_delete=models.CASCADE)
+#     quantity = models.PositiveIntegerField(default=1)
+
+#     def __str__(self):
+#         return f"{self.product.wish_name} in cart"
+
+
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     wishlist_products = models.ManyToManyField(Wishlist, through="CartItem")
@@ -159,10 +179,9 @@ class CartItem(models.Model):
     item_total = models.PositiveIntegerField(default=0)
 
 
+
     def calculate_item_total(self):
         self.item_total = self.quantity * float(self.wishlist_item.wish_price)
-        return self.item_total
- 
-    
+        return self.item_total   
 
     

@@ -22,6 +22,7 @@
 
     <div class="container">
       <!-- Cart Items -->
+
       {% if cart and cart.cartitem_set.exists %}
         <div class="wishlist__items">
           {% for item in cart_items %}
@@ -38,6 +39,7 @@
                       <span class="counter__symbol"><a href="{% url 'update_quantity' item.id 'decrease' %}">-</a></span>
                       <span id="counter__number">{{ item.quantity }}</span>
                       <span class="counter__symbol"><a href="{% url 'update_quantity' item.id 'increase' %}">+</a></span>
+
                     </div>
                   </div>
                 </div>
