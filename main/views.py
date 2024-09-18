@@ -170,29 +170,29 @@ def del_cart(request, cart_item_id):
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
-@login_required(login_url="login")
-def my_cart(request):
-    # Get the user's cart
-    cart = Cart.objects.filter(user=request.user).first()
+# @login_required(login_url="login")
+# def my_cart(request):
+#     # Get the user's cart
+#     cart = Cart.objects.filter(user=request.user).first()
 
-    # If the user has a cart, get cart items and calculate the total price
-    if cart:
-        cart_items = CartItem.objects.filter(cart=cart)
-        total_price = sum(
-            float(item.wishlist_item.wish_price)
-            * item.quantity  # Convert wish_price to float
-            for item in cart_items
-        )
-    else:
-        cart_items = []
-        total_price = 0
+#     # If the user has a cart, get cart items and calculate the total price
+#     if cart:
+#         cart_items = CartItem.objects.filter(cart=cart)
+#         total_price = sum(
+#             float(item.wishlist_item.wish_price)
+#             * item.quantity  # Convert wish_price to float
+#             for item in cart_items
+#         )
+#     else:
+#         cart_items = []
+#         total_price = 0
 
-    # Render the cart and related data to the template
-    return render(
-        request,
-        "my__cart.html",
-        {"cart": cart, "cart_items": cart_items, "total_price": total_price},
-    )
+#     # Render the cart and related data to the template
+#     return render(
+#         request,
+#         "my__cart.html",
+#         {"cart": cart, "cart_items": cart_items, "total_price": total_price},
+#     )
 
 
 def services(request):
@@ -212,8 +212,8 @@ def contact_us(request):
 
 
 def about(request):
-    agents = Agent.objects.all().order_by("-id")
-    services = Service.objects.all()
+    agents = Agent.objects.all().order_by("?")[:4]
+    services = Service.objects.order_by("?")[:6]
     products = Product.objects.order_by("?")[:3]
 
     wishlist_items = Wishlist.objects.filter(user=request.user)

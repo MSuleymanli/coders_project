@@ -46,8 +46,8 @@
               </div>
               <div class="mycart__total__price">
                 <a href="#" class="total__price__text">Total Price</a>
-                <div class="my__cart__price">${{ cart.total_price }}</div>
-              </div>
+                <div class="my__cart__price">${{ item.item_total }}</div>
+            </div>
               <div class="wishlist__cancel__btn">
                 <a href="{% url 'del-cart' item.id %}" class="wishlist__cancel__btn">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -64,18 +64,18 @@
     </div>
 
     <!-- Cart Totals -->
-    {% if cart and cart.products.exists %}
+    
       <div class="mycart__cart__totals__container">
         <div class="totals__container">
           <div class="card__totals__title">Cart Totals</div>
           <div class="card__totals__items">
             <div class="card__totals__item">
               <div class="card__totals__item__title">Card Subtotal</div>
-              <div class="card__totals__item__price">${{ cart.subtotal }}</div>
+              <div class="card__totals__item__price">${{ cart.total_price }}</div>
             </div>
             <div class="card__totals__item">
               <div class="card__totals__item__title">Shipping and Handling</div>
-              <div class="card__totals__item__price">${{ cart.shipping_and_handling }}</div>
+              <div class="card__totals__item__price">${{ cart.ship_hand }}</div>
             </div>
             <div class="card__totals__item">
               <div class="card__totals__item__title">VAT</div>
@@ -83,7 +83,7 @@
             </div>
             <div class="card__totals__bold__item">
               <div class="card__totals__item__title">Order Total</div>
-              <div class="card__totals__item__price">${{ cart.total_price }}</div>
+              <div class="card__totals__item__price">{{cart.subtotal}}</div>
             </div>
             <div class="card__totals__btn">
               <a href="{% url 'checkout' %}" class="proceed__to__checkout__btn">Proceed to Checkout</a>
@@ -91,6 +91,6 @@
           </div>
         </div>
       </div>
-    {% endif %}
+    
   </main>
 {% endblock %}
