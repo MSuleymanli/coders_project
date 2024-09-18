@@ -52,6 +52,7 @@ urlpatterns = [
     path('contact/',contact,name='contact'),
     path('wishlist/add/<int:product_id>/', add_to_wishlist, name='add_to_wishlist'),
     path('wishlist/del/<int:id>/', del_wish, name='del-wish'), 
+    path('checkout/', billing_view, name='billing_view'),
 
 
 
