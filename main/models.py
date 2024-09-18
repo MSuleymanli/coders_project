@@ -191,6 +191,7 @@ class Wishlist(models.Model):
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     wishlist_products = models.ManyToManyField(
         Wishlist,
         through="CartItem",
@@ -212,6 +213,7 @@ class Cart(models.Model):
 
         # Update subtotal with the sum of total_price, ship_hand, and vat
         self.subtotal = self.total_price + (self.ship_hand or 0) + (self.vat or 0)
+
         self.save()
 
 
@@ -252,4 +254,8 @@ class Billing(models.Model):
         return self.per_name
     
     
+
+
+
+
     

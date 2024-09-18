@@ -80,6 +80,7 @@ def add_to_wishlist(request, product_id):
 def del_wish(request, id):
     wish = get_object_or_404(Wishlist, id=id)
     wish.delete()
+    
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -129,6 +130,7 @@ def my_cart(request):
         item_total = (
             item.calculate_item_total()
         )  # Call the method to calculate the total for each item
+
         subtotal += item_total
 
     # Calculate VAT and total price
@@ -136,6 +138,7 @@ def my_cart(request):
     total_price = subtotal + shipping_and_handling + vat
 
     context = {
+
         "cart": cart,
         "cart_items": cart_items,
         "subtotal": subtotal,
