@@ -34,9 +34,9 @@ class WishlistAdmin(admin.ModelAdmin):
     list_display=('user','wish_name')
     
     
-# class BillignAdmin(admin.ModelAdmin):
-#     model=Billing
-#     list_display=('per_name','per_email','per_number','per_country','per_order_total','per_payment_method')
+class BillignAdmin(admin.ModelAdmin):
+    model=Billing
+    list_display=('per_name','per_email','per_number','per_country','per_order_total','per_payment_method')
 
 admin.site.register(Portfolio, PortfolioAdmin) 
 admin.site.register(Product, ProductAdmin)
@@ -48,6 +48,6 @@ admin.site.register(Comment)
 admin.site.register(Wishlist,WishlistAdmin)
 admin.site.register(Cart)
 admin.site.register(CartItem)
-# admin.site.register(Billing,BillignAdmin)
+admin.site.register(Billing,BillignAdmin)
 
 

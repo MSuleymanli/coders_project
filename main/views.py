@@ -11,7 +11,7 @@ from .models import (
     CartItem,
 )
 from django.contrib import messages
-from .forms import ContactForm, RegisterForm, LoginForm, CommentForm
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -231,7 +231,11 @@ def about(request):
 
 
 def checkout(request):
-    return render(request, "checkout.html")
+    prices=Cart.objects.all()
+    context={
+        "prices":prices
+    }
+    return render(request, "checkout.html",context)
 
 
 def google_map(request):
@@ -414,3 +418,16 @@ def login__view(request):
 def logout__view(request):
     logout(request)
     return redirect("shop")
+
+
+def billing_view(request):
+    if request.method == 'POST':
+        form = BillingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_url')
+    else:
+        form = BillingForm()
+
+    return render(request, 'billing_form.html', {'form': form})
+    

@@ -80,9 +80,9 @@ class CommentForm(forms.ModelForm):
 
 
 
-# class BillingForm(forms.ModelForm):
-#     class Meta:
-#         model = Billing
-#         fields = ['per_name', 'per_email', 'per_number', 'per_service_type', 'per_country',
-#                   'per_house_number', 'per_apartment', 'per_town', 'per_city', 'per_zip',
-#                   'per_notes', 'per_payment_method']
+class BillingForm(forms.ModelForm):
+    class Meta:
+        model = Billing
+        fields = ['per_name', 'per_email', 'per_number', 'per_service_type', 'per_country',
+                  'per_house_number', 'per_apartment', 'per_town', 'per_city', 'per_zip',
+                  'per_notes', 'per_payment_method']

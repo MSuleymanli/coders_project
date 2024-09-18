@@ -228,3 +228,28 @@ class CartItem(models.Model):
         # Calculate the total for this cart item using wishlist_item
         self.item_total = self.quantity * float(self.wishlist_item.wish_price)
         return self.item_total
+
+
+class Billing(models.Model):
+    per_name=models.CharField(max_length=20,blank=True,null=True)
+    per_email=models.EmailField(blank=True,null=True)
+    per_number=models.IntegerField(default=0,blank=True,null=True)
+    per_service_type=models.CharField(max_length=20,blank=True,null=True)
+    per_country=models.CharField(max_length=20,blank=True,null=True)
+    per_house_number=models.CharField(max_length=20,blank=True,null=True)
+    per_apartment=models.CharField(max_length=20,blank=True,null=True)
+    per_town=models.CharField(max_length=20,blank=True,null=True)
+    per_city=models.CharField(max_length=20,blank=True,null=True)
+    per_zip=models.CharField(max_length=20,blank=True,null=True)
+    per_notes=models.TextField(blank=True,null=True)
+    per_payment_method=models.CharField(max_length=20,blank=True,null=True)
+    per_card_subtotal=models.PositiveIntegerField(default=0,blank=True,null=True)
+    per_ship_hand=models.PositiveIntegerField(default=0,blank=True,null=True)
+    per_vat=models.PositiveIntegerField(default=0,blank=True,null=True)
+    per_order_total=models.PositiveIntegerField(default=0,blank=True,null=True)
+    
+    def __str__(self):
+        return self.per_name
+    
+    
+    

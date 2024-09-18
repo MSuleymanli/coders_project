@@ -194,26 +194,31 @@
             </label>
           </div>
         </div>
+        
+        {% for price in prices  %}
         <div class="payment_card_total">
           <h2>Card totals</h2>
           <hr />
           <div class="card_total_info">
             <p class="card_sub">Cart Subtotal</p>
-            <p class="card_sub">$1296,00</p>
+            <p class="card_sub">${{price.subtotal}}</p>
           </div>
           <div class="card_total_info">
             <p>Shipping and Handing</p>
-            <p>$4,00</p>
+            <p>${{price.ship_hand}}</p>
           </div>
           <div class="card_total_info">
             <p>Vat</p>
-            <p>$0,00</p>
+            <p>${{price.vat}}</p>
           </div>
           <div class="card_total_info">
             <p>Order Total</p>
-            <p>$1300</p>
+            <p>${{price.total_price}}</p>
           </div>
         </div>
+          
+        {% endfor %}
+          
       </div>
       <div class="checkout_payment_footer">
         <p>
