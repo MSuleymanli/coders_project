@@ -3,6 +3,7 @@
 {% block css %}
   <link rel="stylesheet" href="{% static 'css/style_aysu.css' %}" />
   <link rel="stylesheet" href="{% static 'css/responsive_aysu.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock %}
 {% block title %}
   Wishlist
@@ -10,14 +11,13 @@
 
 {% block main %}
   <main>
-    <section class="breadcrumb">
+    <div class="cover">
       <div class="container">
-        <div class="breadcrumb__title">Wishlist</div>
-        <div class="breadcrumb__subtitle">
-          <span class="main__link">Home /</span><span class="submain__link">Wishlist</span>
-        </div>
+
+          <h1 class="covers_h1">Wishlist</h1>
+          <h4><span class="covers_span">Home/</span>Wishlist</h4>
       </div>
-    </section>
+  </div>
 
     <div class="container">
       <div class="wishlist__items">
