@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Portfolio, Product, Agent, Service, ProductImage,Customer,PortfolioImage, ContactSubmission,Comment,Wishlist, Cart, CartItem
+from .models import *
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
@@ -29,8 +29,14 @@ class PortfolioAdmin(admin.ModelAdmin):
     
 
     
+class WishlistAdmin(admin.ModelAdmin):
+    model=Wishlist
+    list_display=('user','wish_name')
     
     
+class BillignAdmin(admin.ModelAdmin):
+    model=Billing
+    list_display=('per_name','per_email','per_number','per_country','per_order_total','per_payment_method')
 
 admin.site.register(Portfolio, PortfolioAdmin) 
 admin.site.register(Product, ProductAdmin)
@@ -39,8 +45,9 @@ admin.site.register(Service)
 admin.site.register(Customer)
 admin.site.register(ContactSubmission)
 admin.site.register(Comment)
-admin.site.register(Wishlist)
+admin.site.register(Wishlist,WishlistAdmin)
 admin.site.register(Cart)
 admin.site.register(CartItem)
+admin.site.register(Billing,BillignAdmin)
 
 

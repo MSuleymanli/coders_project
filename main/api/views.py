@@ -1,10 +1,12 @@
 
 from rest_framework.generics import ListAPIView,UpdateAPIView,DestroyAPIView,RetrieveAPIView
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate, login as auth_login,get_user_model
 from rest_framework import status
 from ..models import Product,Wishlist
-from .serializers import ProductSerializers,LoginSerializer,RegisterSerializer,AddProductSerializers,WishlistSerializers
+from .serializers import *
 from django.db.models import Q
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -73,6 +75,7 @@ class ProductUpdateApiView(UpdateAPIView):
 
     
 class ProductDeleteApiView(DestroyAPIView):
+    
     queryset=Product.objects.all()
     serializer_class=ProductSerializers
     lookup_field='pk'
@@ -135,7 +138,7 @@ class RegisterApiView(APIView):
     
     
 class AddProductApiView(APIView):
-    @swagger_auto_schema(request_body=AddProductSerializers)
+    @swagger_auto_schema(request_body=AddProductSerializers,tags=['Add'])
     def post(self, request, *args, **kwargs):
         serializer = AddProductSerializers(data=request.data)
 
@@ -146,6 +149,8 @@ class AddProductApiView(APIView):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    
+    
 
 class WishlistApiView(ListAPIView):
     queryset = Wishlist.objects.all()
@@ -155,3 +160,41 @@ class WishlistApiView(ListAPIView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
+
+class AddWishlistApiView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    @swagger_auto_schema(
+        tags=['Add'],
+        manual_parameters=[
+            openapi.Parameter(
+                'product_id',  
+                openapi.IN_PATH,  
+                description="Product ID",
+                type=openapi.TYPE_INTEGER,
+                required=True,
+            )
+        ]
+    )
+    def post(self, request, product_id, *args, **kwargs):
+        
+        product = get_object_or_404(Product, id=product_id)
+
+        wishlist_item, created = Wishlist.objects.get_or_create(
+            user=request.user,
+            wish_name=product.product_name,
+            wish_price=str(product.product_price),
+            wish_image=product.product_image,
+            product_id=product.id
+        )
+        
+        response_data = {
+            'wish_name': wishlist_item.wish_name,
+            'wish_price': wishlist_item.wish_price,
+            'wish_image': str(wishlist_item.wish_image),
+            'product_id': wishlist_item.product_id,
+            'created': created,
+        }
+
+        return Response(response_data, status=status.HTTP_201_CREATED if created else status.HTTP_200_OK)
