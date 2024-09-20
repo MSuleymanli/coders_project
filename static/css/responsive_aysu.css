@@ -16,7 +16,12 @@
     .wishlist__text__price {
         gap: 40px;
     }
+
+    .footer_present{
+        justify-content: flex-end;
+    }
 }
+
 
 @media only screen and (max-width: 840px) {
     .wishlist__title {

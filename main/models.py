@@ -198,6 +198,7 @@ class Cart(models.Model):
         through_fields=("cart", "wishlist_item"),
         related_name="carts",
     )
+
     subtotal = models.PositiveBigIntegerField(default=0, blank=True, null=True)
     ship_hand = models.PositiveSmallIntegerField(default=5, blank=True, null=True)
     vat = models.PositiveIntegerField(default=10, blank=True, null=True)
@@ -211,11 +212,11 @@ class Cart(models.Model):
         )
         self.total_price = total  # Save the total price in the cart's total_price field
 
+
         # Update subtotal with the sum of total_price, ship_hand, and vat
         self.subtotal = self.total_price + (self.ship_hand or 0) + (self.vat or 0)
 
         self.save()
-
 
 
 class CartItem(models.Model):
@@ -230,6 +231,7 @@ class CartItem(models.Model):
         # Calculate the total for this cart item using wishlist_item
         self.item_total = self.quantity * float(self.wishlist_item.wish_price)
         return self.item_total
+
 
 
 class Billing(models.Model):
@@ -253,9 +255,4 @@ class Billing(models.Model):
     def __str__(self):
         return self.per_name
     
-    
-
-
-
-
     

@@ -80,7 +80,7 @@ def add_to_wishlist(request, product_id):
 def del_wish(request, id):
     wish = get_object_or_404(Wishlist, id=id)
     wish.delete()
-    
+
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -138,7 +138,6 @@ def my_cart(request):
     total_price = subtotal + shipping_and_handling + vat
 
     context = {
-
         "cart": cart,
         "cart_items": cart_items,
         "subtotal": subtotal,
@@ -173,31 +172,6 @@ def del_cart(request, cart_item_id):
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
-# @login_required(login_url="login")
-# def my_cart(request):
-#     # Get the user's cart
-#     cart = Cart.objects.filter(user=request.user).first()
-
-#     # If the user has a cart, get cart items and calculate the total price
-#     if cart:
-#         cart_items = CartItem.objects.filter(cart=cart)
-#         total_price = sum(
-#             float(item.wishlist_item.wish_price)
-#             * item.quantity  # Convert wish_price to float
-#             for item in cart_items
-#         )
-#     else:
-#         cart_items = []
-#         total_price = 0
-
-#     # Render the cart and related data to the template
-#     return render(
-#         request,
-#         "my__cart.html",
-#         {"cart": cart, "cart_items": cart_items, "total_price": total_price},
-#     )
-
-
 def services(request):
     return render(request, "services.html")
 
@@ -215,10 +189,10 @@ def contact_us(request):
 
 
 def about(request):
+
     agents = Agent.objects.all().order_by("?")[:4]
     services = Service.objects.order_by("?")[:6]
     products = Product.objects.order_by("?")[:3]
-
     wishlist_items = Wishlist.objects.filter(user=request.user)
     wishlist_product_names = wishlist_items.values_list("wish_name", flat=True)
 
@@ -234,11 +208,13 @@ def about(request):
 
 
 def checkout(request):
+
     prices=Cart.objects.all()
     context={
         "prices":prices
     }
     return render(request, "checkout.html",context)
+
 
 
 def google_map(request):
@@ -391,7 +367,7 @@ def register__view(request):
         newUser.save()
 
         login(request, newUser)
-        messages.success(request, "Siz uğurla qeydiyyatdan keçdiniz...")
+        messages.success(request, "Siz uÄŸurla qeydiyyatdan keÃ§diniz...")
         return redirect("about")
 
     context = {"form": form}
