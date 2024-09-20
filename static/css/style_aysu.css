@@ -171,6 +171,15 @@ i {
     margin-top: 32px;
 }
 
+.homepage__main__right{
+    width: 782em;
+}
+
+
+.homepage__main__right img{
+    width: 100%;
+}
+
 .btn {
     color: var(--Additional-Colors-White);
     font-family: "Plus Jakarta Sans";
@@ -1356,6 +1365,8 @@ i {
     display: flex;
     align-items: center;
     gap: 48px;
+    width: 70%;
+    justify-content: space-between;
 }
 
 .wishlist__text {
@@ -1474,9 +1485,6 @@ i {
     font-weight: 700;
 }
 
-.total__price__text {
-    display: none;
-}
 
 .mycart__cart__totals__container {
     height: 600px;
