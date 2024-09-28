@@ -11,10 +11,13 @@ from .models import (
     CartItem,
 )
 from django.contrib import messages
-from .forms import ContactForm, RegisterForm, LoginForm, CommentForm
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+import stripe
+from django.conf import settings
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -80,6 +83,7 @@ def add_to_wishlist(request, product_id):
 def del_wish(request, id):
     wish = get_object_or_404(Wishlist, id=id)
     wish.delete()
+
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
@@ -121,7 +125,7 @@ def my_cart(request):
 
     # Initialize subtotal and other variables
     shipping_and_handling = 4  # Example value, adjust as needed
-    vat_percentage = 0  # Example, you can set VAT as required
+    vat_percentage = 1  # Example, you can set VAT as required
     subtotal = 0
 
     # Calculate subtotal and item totals for all items in the cart
@@ -129,6 +133,7 @@ def my_cart(request):
         item_total = (
             item.calculate_item_total()
         )  # Call the method to calculate the total for each item
+
         subtotal += item_total
 
     # Calculate VAT and total price
@@ -145,6 +150,8 @@ def my_cart(request):
     }
 
     return render(request, "my__cart.html", context)
+
+#My cartdan prduct silende cartdaki melumatlar da sifirlanmalidi yenisi gelenecen de.Yenisi gelende sifirlanmis olur artiq))
 
 
 def update_quantity(request, item_id, action):
@@ -170,31 +177,6 @@ def del_cart(request, cart_item_id):
     return redirect(request.META.get("HTTP_REFERER", "/"))
 
 
-@login_required(login_url="login")
-def my_cart(request):
-    # Get the user's cart
-    cart = Cart.objects.filter(user=request.user).first()
-
-    # If the user has a cart, get cart items and calculate the total price
-    if cart:
-        cart_items = CartItem.objects.filter(cart=cart)
-        total_price = sum(
-            float(item.wishlist_item.wish_price)
-            * item.quantity  # Convert wish_price to float
-            for item in cart_items
-        )
-    else:
-        cart_items = []
-        total_price = 0
-
-    # Render the cart and related data to the template
-    return render(
-        request,
-        "my__cart.html",
-        {"cart": cart, "cart_items": cart_items, "total_price": total_price},
-    )
-
-
 def services(request):
     return render(request, "services.html")
 
@@ -212,10 +194,10 @@ def contact_us(request):
 
 
 def about(request):
-    agents = Agent.objects.all().order_by("-id")
-    services = Service.objects.all()
-    products = Product.objects.order_by("?")[:3]
 
+    agents = Agent.objects.all().order_by("?")[:4]
+    services = Service.objects.order_by("?")[:6]
+    products = Product.objects.order_by("?")[:3]
     wishlist_items = Wishlist.objects.filter(user=request.user)
     wishlist_product_names = wishlist_items.values_list("wish_name", flat=True)
 
@@ -231,7 +213,56 @@ def about(request):
 
 
 def checkout(request):
-    return render(request, "checkout.html")
+
+    prices=Cart.objects.all()
+    context={
+        "prices":prices
+    }
+    return render(request, "checkout.html",context)
+
+
+
+# Set your Stripe API key
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+@login_required
+def create_checkout_session(request):
+    # Fetch the user's cart and calculate the subtotal
+    cart = Cart.objects.filter(user=request.user).first()
+    cart_items = cart.cartitem_set.all()
+    subtotal = sum(item.calculate_item_total() for item in cart_items)
+
+    # Create a new Checkout Session in Stripe
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[
+            {
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': 'Cart Subtotal',
+                    },
+                    'unit_amount': int(subtotal * 100),  # Convert subtotal to cents
+                },
+                'quantity': 1,
+            },
+        ],
+        mode='payment',
+        success_url='http://127.0.0.1:8000/checkout-success/',
+        cancel_url='http://127.0.0.1:8000/checkout-cancel/',
+    )
+
+    # Redirect to the Stripe Checkout page
+    return redirect(session.url, code=303)
+
+
+def checkout_success(request):
+    return render(request, "checkout_success.html")
+
+def checkout_cancel(request):
+    return render(request, "checkout_cancel.html")
+
+
 
 
 def google_map(request):
@@ -414,3 +445,16 @@ def login__view(request):
 def logout__view(request):
     logout(request)
     return redirect("shop")
+
+
+def billing_view(request):
+    if request.method == 'POST':
+        form = BillingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('success_url')
+    else:
+        form = BillingForm()
+
+    return render(request, 'billing_form.html', {'form': form})
+    

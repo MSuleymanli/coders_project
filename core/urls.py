@@ -22,7 +22,10 @@ from main.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create-checkout-session/', create_checkout_session, name='create_checkout_session'),
     path('checkout/', checkout, name='checkout'),
+    path('checkout-success', checkout_success, name='checkout_success'),
+    path('checkout-cancel', checkout_cancel, name='checkout_cancel'),    
     path('google_map/', google_map, name='google_map'),
     path('our_portfolio/', our_portfolio, name='our_portfolio'),
     path('portfolio_details/<int:id>/', portfolio_details, name='portfolio_details'),
@@ -35,14 +38,11 @@ urlpatterns = [
     path('news/',news,name='news'),
     path('news_details/', news_details, name='news_details'),
     path('my_cart/', my_cart, name='my_cart'),
-    
     path('add_to_cart/<int:wishlist_id>/', add_to_cart, name='add_to_cart'),
-    path('services/',services,name='services'),
-    
+    path('services/',services,name='services'),    
     path('update_quantity/<int:item_id>/<str:action>/', update_quantity, name='update_quantity'),
     path('my_cart/del/<int:cart_item_id>/', del_cart, name='del-cart'),
-
-
+    path('services/',services,name='services'),
     path('wishlist/', wishlist, name='wishlist'),
     path('services_details/', services_details, name='services_details'),
     path('pro-api/',include('main.api.urls')),
@@ -55,6 +55,7 @@ urlpatterns = [
     path('contact/',contact,name='contact'),
     path('wishlist/add/<int:product_id>/', add_to_wishlist, name='add_to_wishlist'),
     path('wishlist/del/<int:id>/', del_wish, name='del-wish'), 
+    path('checkout/', billing_view, name='billing_view'),
 
 
 
