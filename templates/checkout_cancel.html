@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Order Canceled{% endblock title %}
+
+{% block main %}
+<div class="cancel container">
+    <h1 class="display-4">Order Canceled 😢</h1>
+    <p class="cancel-message">We're sorry to hear that you've canceled your order. If you'd like to place a new one, you can browse our collection anytime.</p>
+    
+    <div class="buttons">
+        <a href="/" class="btn btn-primary">Return to Home</a>
+        <a href="/shop" class="btn btn-secondary">Browse Products</a>
+    </div>
+</div>
+{% endblock main %}
