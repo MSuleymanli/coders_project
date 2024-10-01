@@ -222,6 +222,7 @@ def checkout(request):
 
 
 
+
 # Set your Stripe API key
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -261,6 +262,7 @@ def checkout_success(request):
 
 def checkout_cancel(request):
     return render(request, "checkout_cancel.html")
+
 
 
 

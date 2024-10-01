@@ -217,7 +217,14 @@
   .portfolio_list h2 {
     padding-top: 24px;
   }
+  .portfolio_list_btn button{
+    margin-bottom: 64px;
+  }
 
+  .product_details_comment_container{
+    padding: 0 30px;
+
+  }
   /* About Us */
   .about_us_partners {
     display: block;

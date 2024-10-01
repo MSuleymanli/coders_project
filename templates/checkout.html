@@ -74,21 +74,22 @@
       </form>
     </div>
 
-    <form class="checkout_billing_details">
+    <form class="checkout_billing_details" method="post" action="{% url 'billing_view' %}">
+      {% csrf_token %}
       <h2>Billing Details</h2>
       <hr />
       <div class="form-body">
         <div>
           <h3>Personal information</h3>
           <div class="billing_details_personal grid">
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your email" />
-            <input type="number" placeholder="Your Phone Number" />
+            <input type="name" name="" placeholder="Your Name" />
+            <input type="email" name="" placeholder="Your Email" />
+            <input type="number" name="" placeholder="Your Phone Number" />
             <select>
               <option value="0">Select Service Type</option>
-              <option value="1">First Service</option>
-              <option value="2">Second Service</option>
-              <option value="3">Third Service</option>
+              <option value="1">Rent</option>
+              <option value="2">Buy</option>
+              <option value="3">Sale</option>
             </select>
           </div>
         </div>
@@ -120,110 +121,115 @@
           </div>
         </div>
       </div>
+      <div class="checkout_payment">
+        <div class="payment_payment_method">
+          <h2>Payment Method</h2>
+          <hr />
+          <div class="payment_checkbox_container">
+            <label class="payment_checkbox_label">
+              <input type="checkbox" class="checkbox-input" />
+              <span class="payment_custom-checkbox">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle cx="12" cy="12" r="12" fill="#DE8556" />
+                  <path
+                    d="M9 12l2 2l4-4"
+                    stroke="white"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Check Payment
+            </label>
+            <hr />
+  
+            <label class="payment_checkbox_label">
+              <input type="checkbox" class="checkbox-input" />
+              <span class="payment_custom-checkbox">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle cx="12" cy="12" r="12" fill="#DE8556" />
+                  <path
+                    d="M9 12l2 2l4-4"
+                    stroke="white"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Cash on Delivery
+            </label>
+            <hr />
+  
+            <label class="payment_checkbox_label">
+              <input type="checkbox" class="checkbox-input" />
+              <span class="payment_custom-checkbox">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle cx="12" cy="12" r="12" fill="#DE8556" />
+                  <path
+                    d="M9 12l2 2l4-4"
+                    stroke="white"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              Paypal
+            </label>
+          </div>
+        </div>
+        
+        {% for price in prices  %}
+        <div class="payment_card_total">
+          <h2>Card totals</h2>
+          <hr />
+          <div class="card_total_info">
+            <p class="card_sub">Cart Subtotal</p>
+            <p class="card_sub">${{price.total_price}}</p>
+          </div>
+          <div class="card_total_info">
+            <p>Shipping and Handing</p>
+            <p>${{price.ship_hand}}</p>
+          </div>
+          <div class="card_total_info">
+            <p>Vat</p>
+            <p>${{price.vat}}</p>
+          </div>
+          <div class="card_total_info">
+            <p>Order Total</p>
+            <p>${{price.subtotal}}</p>
+          </div>
+        </div>
+          
+        {% endfor %}
+          
+      </div>
+      <div class="checkout_payment_footer">
+        <p>
+          Your personal data will be used to process your order, support your
+          experience throughout this website, and for other purposes described in
+          our privacy policy.
+        </p>
+        <button type="submit">Place Order</button>
+      </div>
     </form>
-    <div class="checkout_payment">
-      <div class="payment_payment_method">
-        <h2>Payment Method</h2>
-        <hr />
-        <div class="payment_checkbox_container">
-          <label class="payment_checkbox_label">
-            <input type="checkbox" class="checkbox-input" />
-            <span class="payment_custom-checkbox">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <circle cx="12" cy="12" r="12" fill="#DE8556" />
-                <path
-                  d="M9 12l2 2l4-4"
-                  stroke="white"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-            </span>
-            Check Payment
-          </label>
-          <hr />
-
-          <label class="payment_checkbox_label">
-            <input type="checkbox" class="checkbox-input" />
-            <span class="payment_custom-checkbox">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <circle cx="12" cy="12" r="12" fill="#DE8556" />
-                <path
-                  d="M9 12l2 2l4-4"
-                  stroke="white"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-            </span>
-            Cash on Delivery
-          </label>
-          <hr />
-
-          <label class="payment_checkbox_label">
-            <input type="checkbox" class="checkbox-input" />
-            <span class="payment_custom-checkbox">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <circle cx="12" cy="12" r="12" fill="#DE8556" />
-                <path
-                  d="M9 12l2 2l4-4"
-                  stroke="white"
-                  stroke-width="2"
-                  fill="none"
-                />
-              </svg>
-            </span>
-            Paypal
-          </label>
-        </div>
-      </div>
-      <div class="payment_card_total">
-        <h2>Card totals</h2>
-        <hr />
-        <div class="card_total_info">
-          <p class="card_sub">Cart Subtotal</p>
-          <p class="card_sub">$1296,00</p>
-        </div>
-        <div class="card_total_info">
-          <p>Shipping and Handing</p>
-          <p>$4,00</p>
-        </div>
-        <div class="card_total_info">
-          <p>Vat</p>
-          <p>$0,00</p>
-        </div>
-        <div class="card_total_info">
-          <p>Order Total</p>
-          <p>$1300</p>
-        </div>
-      </div>
-    </div>
-    <div class="checkout_payment_footer">
-      <p>
-        Your personal data will be used to process your order, support your
-        experience throughout this website, and for other purposes described in
-        our privacy policy.
-      </p>
-      <button>Place Order</button>
-    </div>
   </div>
 </main>
 {% endblock main %}

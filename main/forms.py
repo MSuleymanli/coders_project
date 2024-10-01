@@ -2,7 +2,7 @@ from django import forms
 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import ContactSubmission,Comment
+from .models import *
 
 
 class ContactForm(forms.ModelForm):
@@ -78,3 +78,11 @@ class CommentForm(forms.ModelForm):
         fields=['com_name','com_email','com_message','com_rate']
     
 
+
+
+class BillingForm(forms.ModelForm):
+    class Meta:
+        model = Billing
+        fields = ['per_name', 'per_email', 'per_number', 'per_service_type', 'per_country',
+                  'per_house_number', 'per_apartment', 'per_town', 'per_city', 'per_zip',
+                  'per_notes', 'per_payment_method']
