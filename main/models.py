@@ -169,7 +169,9 @@ class Wishlist(models.Model):
         return f"{self.user} -- {self.wish_name}"
 
 
-# class Cart(models.Model):
+# class 
+# 
+# (models.Model):
 #     user = models.ForeignKey(User, on_delete=models.CASCADE)
 #     products = models.ManyToManyField(Wishlist, through='CartItem')
 

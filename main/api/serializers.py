@@ -27,9 +27,7 @@ class ProductSerializers(serializers.ModelSerializer):
 class WishlistSerializers(serializers.ModelSerializer):
     class Meta:
         model=Wishlist        
-        fields=[
-            'id','wish_image','wish_name','wish_price','product_id'
-        ]
+        fields='__all__'
         
         
 

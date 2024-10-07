@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     # 'crispy_bootstrap4',
 
 
-    'django_filters'
+    
+    'rest_framework_simplejwt',
 
 ]
 
@@ -139,6 +140,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Stripe API keys
+
 STRIPE_SECRET_KEY = 'sk_test_51PX8O7Ee6ATWy3dP72TIFrAcaqcFaFOW6P0R9tPescQXCxvgPSt8UHw5ZOjxW6pQKpjzFu7Dr5DESmzsfyZRGsR100cxdm7KBn'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51PX8O7Ee6ATWy3dPTPlqOlU0TJz9bISnx3MgYkl8rHIfnMDO4DpppPz7vheR7U5T6he6BhnrMX84UsGOIOifo7OY00y8JUG6Zl'
+
