@@ -19,6 +19,7 @@ import stripe # type: ignore
 from django.conf import settings
 from django.shortcuts import redirect
 
+
 # Create your views here.
 
 
@@ -124,7 +125,7 @@ def my_cart(request):
 
     # Initialize subtotal and other variables
     shipping_and_handling = 4  # Example value, adjust as needed
-    vat_percentage = 0  # Example, you can set VAT as required
+    vat_percentage = 1  # Example, you can set VAT as required
     subtotal = 0
 
     # Calculate subtotal and item totals for all items in the cart
@@ -149,6 +150,8 @@ def my_cart(request):
     }
 
     return render(request, "my__cart.html", context)
+
+#My cartdan prduct silende cartdaki melumatlar da sifirlanmalidi yenisi gelenecen de.Yenisi gelende sifirlanmis olur artiq))
 
 
 def update_quantity(request, item_id, action):
@@ -256,6 +259,51 @@ def checkout_success(request):
 
 def checkout_cancel(request):
     return render(request, "checkout_cancel.html")
+
+
+
+
+# Set your Stripe API key
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+@login_required
+def create_checkout_session(request):
+    # Fetch the user's cart and calculate the subtotal
+    cart = Cart.objects.filter(user=request.user).first()
+    cart_items = cart.cartitem_set.all()
+    subtotal = sum(item.calculate_item_total() for item in cart_items)
+
+    # Create a new Checkout Session in Stripe
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[
+            {
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': 'Cart Subtotal',
+                    },
+                    'unit_amount': int(subtotal * 100),  # Convert subtotal to cents
+                },
+                'quantity': 1,
+            },
+        ],
+        mode='payment',
+        success_url='http://127.0.0.1:8000/checkout-success/',
+        cancel_url='http://127.0.0.1:8000/checkout-cancel/',
+    )
+
+    # Redirect to the Stripe Checkout page
+    return redirect(session.url, code=303)
+
+
+def checkout_success(request):
+    return render(request, "checkout_success.html")
+
+def checkout_cancel(request):
+    return render(request, "checkout_cancel.html")
+
+
 
 
 
