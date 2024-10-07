@@ -1159,7 +1159,7 @@ hr {
   padding-bottom: 32px;
 }
 
-.checkout_payment_footer button {
+.checkout_payment_footer a {
   display: flex;
   width: 282px;
   padding: 16px 0px;
