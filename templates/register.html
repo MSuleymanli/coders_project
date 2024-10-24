@@ -29,10 +29,6 @@
         <input type="email" name="email" placeholder="Email*" required value="{{ form.email.value|default:'' }}" class="form-control"/>
         <input type="password" name="password" placeholder="Password*" required value="{{ form.password.value }}" class="form-control"/>
         <input type="password" name="confirm_password" placeholder="Confirm Password" required value="{{ form.confirm_password.value }}" class="form-control" />
-       <label class="checkbox-container">
-            <input type="checkbox" required />
-            <span>I agree to the terms and conditions</span>
-        </label>
         <button type="submit" id="creataccount">Create account</button>
     </form>
     <p class="login-link">
