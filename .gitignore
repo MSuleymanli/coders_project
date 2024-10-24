@@ -95,7 +95,6 @@ celerybeat-schedule.*
 
 # SageMath parsed files 
 *.sage.py 
-*/migrations/
 
 # Environments
 .venv 
