@@ -1,0 +1,550 @@
+/* contact us */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Khmer MN", sans-serif;
+}
+
+/* .container {
+    max-width: 95%;
+    width: 1260px;
+    margin: 0 auto;
+} */
+/*countacusmain*/
+
+.contactuscontainer {
+    background-color: #f4f4f4;
+    padding: 80px 40px;
+}
+
+.contactus {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+}
+
+.contactus h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.contactus p {
+    margin: 0;
+    color: #666;
+}
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px 0;
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fdecec;
+    margin-bottom: 10px;
+}
+
+.icon-circle i {
+    font-size: 24px;
+    color: #fa8231;
+}
+
+.contact-item h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.contact-item p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.quote-form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quote-form h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    resize: vertical;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #0044cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0033aa;
+}
+ 
+/* faq */
+
+
+.faq-container {background-color: #f4f4f4;
+    padding: 80px 40px;
+}
+.faq1{display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;}
+
+.faq1 h2 {
+    font-size: 24px;
+        margin: 0;
+}
+.faq1 p{margin: 0;
+    color: #666;}
+
+.accordion {
+    width: 60%;
+    margin: auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: rgb(16, 15, 15);
+}
+
+.accordion-header.active h3 {
+    color: orange;
+}
+
+.accordion-header .icon {
+    font-size: 20px;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px 0;
+    color: #666;
+}
+
+/* login */
+
+
+.breadcrumb-container {
+    background-color: #f4f4f4;
+    padding: 80px 40px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+}
+
+.breadcrumb h2 {
+    font-size: 24px;
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+}
+
+.breadcrumb p {
+    margin: 0;
+    color: #666;
+    font-family: Cardo;
+}
+
+
+.signin-container {
+    max-width: 396px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+
+}
+
+.signin-container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-family: Cardo;
+}
+
+.signin-container p {
+    color: #666;
+    margin-bottom: 30px;
+    margin-top: 19px;
+    text-align: center;
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.signin-container p a {
+    color: var(--Main-Colors-Prymary, #123E56);
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-weight: 400;   
+}
+
+#signinform {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+   
+    display: inline-block;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    resize: none; 
+    height: 40px; 
+}
+
+
+#signinform .forgotpassword {
+    align-self: flex-end;
+    margin-bottom: 20px;
+    color: #007BFF;
+    text-decoration: none;
+    color: var(--Main-Colors-Prymary, #123E56);
+    /* Body/Body 14 */
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+
+}
+
+#signinform .forgotpassword:hover {
+    text-decoration: underline;
+}
+
+#signinform button {
+    width: 100%;
+    padding: 10px;
+    background-color: #005b75;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#signinform button:hover {
+    background-color: #005b75;
+}
+
+.signuplink {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signuplink a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* register */
+
+.breadcrumb-container {
+    background-color: #f4f4f4;
+    padding: 80px 40px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+}
+
+.breadcrumb h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.breadcrumb p {
+    margin: 0;
+    color: #666;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    color: #333;
+}
+
+.description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.checkbox-container input {
+    margin-right: px;
+}
+.registeryour{
+    max-width: 396px;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #002333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00111a;
+}
+
+.login-link {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.login-link a {
+    color: #002333;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* service details */
+
+.servicesdetails-container {
+    background-color: #f4f4f4;
+    padding: 80px 40px;
+}
+
+.servicesdetails {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+}
+
+.servicesdetails h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.servicesdetails p {
+    margin: 0;
+    color: #666;
+}
+
+
+.main-content {
+    width: 70%;
+}
+
+.main-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    margin-bottom: 20px;
+}
+
+.images {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.images img {
+    width: 40%;
+    height: auto;
+}
+
+.sidebar {
+    width: 25%;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+/* services */
+
+.breadcrumb-container {
+    background-color: #f4f4f4;
+    padding: 80px 40px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+}
+
+.breadcrumb h2 {
+    font-size: 24px;
+    margin: 0;
+    font-family: "Plus Jakarta Sans";
+}
+
+.breadcrumb p {
+    margin: 0;
+    color: #666;
+    font-family: Cardo;
+}
+
+.our-services {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.our-services h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-card .icon {
+    font-size: 50px;
+    color: #F4A261;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.5;
+}
+ 
