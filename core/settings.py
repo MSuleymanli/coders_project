@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-btxa=!=ha!ixmn%p%mc&*n(jw9uqp+mamf25pzoc&*qaq#xh9t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['shop.mansur.az']
 
 
 # Application definition
