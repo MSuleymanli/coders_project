@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-btxa=!=ha!ixmn%p%mc&*n(jw9uqp+mamf25pzoc&*qaq#xh9t
 DEBUG = True
 
 ALLOWED_HOSTS = ['shop.mansur.az']
-
+CSRF_TRUSTED_ORIGINS = ['https://shop.mansur.az']
 
 # Application definition
 
