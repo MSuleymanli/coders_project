@@ -412,9 +412,9 @@
 
     async function getProducts(product_status = [''], product_property_type = [''], product_amenities = [''],product_price_range=[''],product_beth_patch=[''], page=1)
     {
-        const response = await fetch(`https://shop.mansur.az//pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&product_price_range=${product_price_range.join(',')}&product_beth_patch=${product_beth_patch.join(',')}&page=${page}`)
+        const response = await fetch(`https://shop.mansur.az/pro-api/list/?product_status=${product_status.join(',')}&product_property_type=${product_property_type.join(',')}&product_amenities=${product_amenities.join(',')}&product_price_range=${product_price_range.join(',')}&product_beth_patch=${product_beth_patch.join(',')}&page=${page}`)
         const data = await response.json()
-        const responseWish = await fetch('https://shop.mansur.az//pro-api/wishlist')
+        const responseWish = await fetch('https://shop.mansur.az/pro-api/wishlist')
         const dataWish = await responseWish.json()
         const pages_count = data.total_pages;
         const pageNumbersContainer = document.getElementById('page-numbers');
