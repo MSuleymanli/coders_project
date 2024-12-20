@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-btxa=!=ha!ixmn%p%mc&*n(jw9uqp+mamf25pzoc&*qaq#xh9t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shop.mansur.az']
-CSRF_TRUSTED_ORIGINS = ['https://shop.mansur.az']
+ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 

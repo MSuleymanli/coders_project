@@ -19,7 +19,7 @@ class ProductSerializers(serializers.ModelSerializer):
             'id','product_image','product_name', 'product_status', 'product_location',
             'product_type', 'product_about', 'product_price', 'product_bath_count',
             'product_bed_count', 'product_ft', 'product_build_year', 'product_property_type',
-            'product_amenities', 'product_price_range', 'product_beth_patch','images'
+            'product_amenities', 'product_price_range', 'product_beth_patch','images','inWishlist'
         ]
 
 

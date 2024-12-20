@@ -854,6 +854,15 @@ hr {
   gap: 10px;
 }
 
+.portfolio_details_p{
+  color: var(--Greyscale-Grey-100, #38343D);
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
 /* Checkout */
 
 .checkout_section {

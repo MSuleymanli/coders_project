@@ -50,6 +50,11 @@ class Product(models.Model):
     product_price_range = models.CharField(max_length=20, blank=True, null=True)
     product_beth_patch = models.CharField(max_length=20, blank=True, null=True)
     product_status = models.CharField(max_length=10, blank=True, null=True)
+    inWishlist=models.BooleanField(default=False)
+
+    def update_wishlist_status(self, user):
+        self.inWishlist = Wishlist.objects.filter(user=user, product=self).exists()
+        self.save()
 
     def __str__(self):
         return self.product_name or ""
@@ -165,6 +170,16 @@ class Wishlist(models.Model):
         verbose_name="Wish Status",
     )
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.product.update_wishlist_status(self.user)
+
+    def delete(self, *args, **kwargs):
+        user = self.user
+        product = self.product
+        super().delete(*args, **kwargs)
+        product.update_wishlist_status(user)
+    
     def __str__(self):
         return f"{self.user} -- {self.wish_name}"
 
